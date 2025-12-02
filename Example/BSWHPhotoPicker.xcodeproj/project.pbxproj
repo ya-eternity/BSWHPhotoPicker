@@ -243,7 +243,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				AF136B6AFDAD9B6EB74B05D4 /* [CP] Embed Pods Frameworks */,
-				537463EA2ECC619800F8588D /* SwiftGen Script */,
 			);
 			buildRules = (
 			);
@@ -359,24 +358,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		537463EA2ECC619800F8588D /* SwiftGen Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "SwiftGen Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# 调试日志（编译后可在 Report Navigator 查看）\necho \"=== 环境检查 ===\"\necho \"CONFIGURATION: ${CONFIGURATION}\"\necho \"PROJECT_DIR: ${PROJECT_DIR}\"\n\nif [[ \"${CONFIGURATION}\" = \"Debug\" || \"${CONFIGURATION}\" = \"Staging\" ]]; then\n    \"${PROJECT_DIR}/Pods/SwiftGen/bin/swiftgen\" config run --config \"${PROJECT_DIR}/swiftgen.yml\"\nelif [[ \"${CONFIGURATION}\" = \"Release\" ]]; then\n    echo \"Skipping SwiftGen in production (Release config)\"\nfi\n";
 		};
 		9909D0D2A03E1E1333EE7A35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
