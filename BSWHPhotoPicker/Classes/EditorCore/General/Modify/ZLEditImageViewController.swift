@@ -132,7 +132,7 @@ open class ZLEditImageViewController: UIViewController {
         let view = UIImageView(image: originalImage)
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         return view
     }()
     
@@ -481,7 +481,7 @@ open class ZLEditImageViewController: UIViewController {
     
     public func resetContainerViewFrame() {
         mainScrollView.setZoomScale(1, animated: true)
-        imageView.image = editImage
+        imageView.image = editImage.forceRGBA()
         let editRect = currentClipStatus.editRect
         
         let editSize = editRect.size
@@ -892,7 +892,7 @@ open class ZLEditImageViewController: UIViewController {
         guard let resultImage else { return }
         
         editImage = resultImage
-        imageView.image = editImage
+        imageView.image = editImage.forceRGBA()
     }
     
     private func generateNewMosaicLayerIfAdjust() {
@@ -1133,12 +1133,12 @@ open class ZLEditImageViewController: UIViewController {
             generateNewMosaicImageLayer()
             
             if mosaicPaths.isEmpty {
-                imageView.image = editImage
+                imageView.image = editImage.forceRGBA()
             } else {
                 generateNewMosaicImage()
             }
         } else {
-            imageView.image = editImage
+            imageView.image = editImage.forceRGBA()
         }
     }
     
@@ -1211,13 +1211,13 @@ open class ZLEditImageViewController: UIViewController {
         }
         
         guard let cgi = temp.cgImage else { return nil }
-        let image = UIImage(cgImage: cgi, scale: editImage.scale, orientation: .up)
+        let image = UIImage(cgImage: cgi, scale: editImage.scale, orientation: .up).forceRGBA()
         
         if inputImage != nil {
             return image
         }
         
-        editImage = image
+        editImage = image!
         imageView.image = image
         mosaicImageLayerMaskLayer?.path = nil
         

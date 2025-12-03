@@ -102,7 +102,7 @@ extension ZLEditImageViewController {
                         editRect: currentClipStatus.editRect,
                         isCircle: currentClipStatus.ratio?.isCircle ?? false
                     ) ?? resImage
-                if let oriDataSize = originalImage.jpegData(compressionQuality: 1)?.count {
+                if let oriDataSize = originalImage.pngData()?.count {
                     resImage = resImage.zl.compress(to: oriDataSize)
                 }
                 

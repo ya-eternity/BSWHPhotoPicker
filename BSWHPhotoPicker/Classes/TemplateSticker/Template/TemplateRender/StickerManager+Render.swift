@@ -13,9 +13,9 @@ extension StickerManager {
     /// 传入背景 + 多张照片，按模板渲染输出成品图
     /// - TemplateModel: 模板
     /// - photos: 按槽位顺序填充
-    public func renderTemplateImage(template: TemplateModel = TemplateModel(imageName: "Christmas01",imageBg: "Christmas00-bg",jsonName: "Christmas00"),
+    public func renderTemplateImage(template: TemplateModel,
                                     photos: [UIImage]) -> UIImage? {
-        guard let _ = loadLocalJSON(fileName: template.jsonName, type: [ImageStickerModel].self),
+        guard let _ = loadLocalJSON(fileName: template.jsonName ?? "", type: [ImageStickerModel].self),
               let image = BSWHBundle.image(named: template.imageBg) else { return nil }
         let controller = EditImageViewController(image: image)
         controller.item = template
@@ -33,10 +33,10 @@ extension StickerManager {
         
     /// 按模板输出成品图，完全用 CoreGraphics 计算，不依赖 EditImageViewController/视图渲染
     public func renderTemplateImageCoreGraphics(
-        template: TemplateModel = TemplateModel(imageName: "Christmas01",imageBg: "Christmas00-bg",jsonName: "Christmas00"),
+        template: TemplateModel,
         photos: [UIImage]
     ) -> UIImage? {
-        guard let models = loadLocalJSON(fileName: template.jsonName, type: [ImageStickerModel].self),
+        guard let models = loadLocalJSON(fileName: template.jsonName ?? "", type: [ImageStickerModel].self),
               let bgImage = BSWHBundle.image(named: template.imageBg) else { return nil }
         
         let canvasSize = bgImage.size

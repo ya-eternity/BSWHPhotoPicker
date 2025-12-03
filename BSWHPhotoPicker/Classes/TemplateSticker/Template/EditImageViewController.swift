@@ -15,6 +15,7 @@ let kRatioToolsViewHeight = 193.h
 
 public class EditImageViewController: ZLEditImageViewController {
     var item:TemplateModel? = nil
+    var pickerColor:UIColor? = nil
     var currentSticker:EditableStickerView? = nil
     var photos: [UIImage]? = nil
     private var stickerToolsViewBottomConstraint: Constraint?
@@ -73,15 +74,18 @@ public class EditImageViewController: ZLEditImageViewController {
             make.height.equalTo(120.h)
         }
         toolCollectionView.delegate = self
-
-        StickerManager.shared.initCurrentTemplate(jsonName: item!.jsonName, currentVC: self, photos: photos)
+        if let name = item?.jsonName, name.count > 0 {
+            StickerManager.shared.initCurrentTemplate(jsonName: item!.jsonName!, currentVC: self, photos: photos)
+        }else{
+            StickerManager.shared.getCurrentVC(currentVC: self)
+        }
         backAndreBackStatus()
         
         stickerToolsView.onClose = {
             self.hideBottomPanel()
             if let sticker = self.currentSticker {
                 if sticker.imageMask == "addEmptyImage" {
-                    self.imageView.image = UIImage(data: self.currentSticker!.imageData!)
+                    self.imageView.image = UIImage(data: self.currentSticker!.imageData!)?.forceRGBA()
                 }
             }
         }
@@ -89,7 +93,7 @@ public class EditImageViewController: ZLEditImageViewController {
             self.hideRatioBottomPanel()
             if let sticker = self.currentSticker {
                 if sticker.imageMask == "addEmptyImage" {
-                    self.imageView.image = UIImage(data: self.currentSticker!.imageData!)
+                    self.imageView.image = UIImage(data: self.currentSticker!.imageData!)?.forceRGBA()
                 }
             }
         }
@@ -120,6 +124,25 @@ public class EditImageViewController: ZLEditImageViewController {
         if item?.cornerRadius != 0.0 {
             containerView.cornerRadius(item!.cornerRadius)
         }
+    }
+    
+    override public func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        contentView.snp.makeConstraints { make in
+            make.width.equalTo(kkScreenWidth)
+            make.left.equalToSuperview().offset(0)
+            make.height.equalTo(kkScreenHeight - kstickerToolsViewHeight - kkSAFE_AREA_TOP)
+            make.top.equalTo(topView.snp.bottom).offset(0)
+        }
+        contentView.addSubview(mainScrollView)
+        mainScrollView.snp.makeConstraints { make in
+            make.width.equalTo(kkScreenWidth)
+            make.left.equalToSuperview().offset(0)
+            make.height.equalToSuperview()
+            make.top.equalTo(topView.snp.bottom).offset(0)
+        }
+        contentView.layoutIfNeeded()
+        resetContainerViewFrame()
     }
     
     
@@ -167,11 +190,17 @@ public class EditImageViewController: ZLEditImageViewController {
             hideBottomPanel()
         }
 
-        if sticker.stickerModel?.imageName == "Birthday02-sticker-bg00" {
+        if sticker.stickerModel?.imageName == "Travel-sticker-bg06" {
             if sticker.imageData != BSWHBundle.image(named: "addEmptyImage")?.pngData() {
-                imageView.image = UIImage(data: (sticker.stickerModel?.imageData)!)
+                imageView.image = UIImage(data: (sticker.stickerModel?.imageData)!)?.forceRGBA()
             }else{
-                imageView.image = BSWHBundle.image(named: "Birthday02-bg")
+                imageView.image = BSWHBundle.image(named: "Travel07-bg")?.forceRGBA()
+            }
+        }else if sticker.stickerModel?.imageName == "Birthday02-sticker-bg00" {
+            if sticker.imageData != BSWHBundle.image(named: "addEmptyImage")?.pngData() {
+                imageView.image = UIImage(data: (sticker.stickerModel?.imageData)!)?.forceRGBA()
+            }else{
+                imageView.image = BSWHBundle.image(named: "Birthday02-bg")?.forceRGBA()
             }
         }
     }
@@ -239,19 +268,19 @@ public class EditImageViewController: ZLEditImageViewController {
     // MARK: - stickerToolsView 隐藏显示处理
     @objc func showBottomPanel() {
         topView.hidden(true)
-        topView.snp.remakeConstraints { make in
+        topView.snp.updateConstraints { make in
             make.top.equalTo(statusView.snp.bottom)
             make.height.equalTo(0.h)
             make.left.right.equalToSuperview()
         }
-        contentView.snp.remakeConstraints { make in
+        contentView.snp.updateConstraints { make in
             make.width.equalTo(kkScreenWidth)
             make.left.equalToSuperview().offset(0)
             make.height.equalTo(kkScreenHeight - kstickerToolsViewHeight - kkSAFE_AREA_TOP)
             make.top.equalTo(topView.snp.bottom).offset(0)
         }
         contentView.addSubview(mainScrollView)
-        mainScrollView.snp.remakeConstraints { make in
+        mainScrollView.snp.updateConstraints { make in
             make.width.equalTo(kkScreenWidth)
             make.left.equalToSuperview().offset(0)
             make.height.equalToSuperview()
@@ -311,7 +340,7 @@ public class EditImageViewController: ZLEditImageViewController {
         }
     }
     
-    func backAndreBackStatus(){
+    public func backAndreBackStatus(){
         if canRedo {
             topView.backImg.image(BSWHBundle.image(named: "template-back"))
         }else{

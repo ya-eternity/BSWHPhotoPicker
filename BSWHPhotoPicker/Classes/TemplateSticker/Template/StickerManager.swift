@@ -43,6 +43,7 @@ public final class StickerManager: NSObject {
     var stickerArr: [EditableStickerView] = []
     public weak var delegate: StickerManagerDelegate?
     var persentType:Int = 0
+    var templateOrBackground:Int = 0
     public var selectedTemplateIndex = 0
     public static let shared = StickerManager()
     private override init() {
@@ -84,6 +85,10 @@ public final class StickerManager: NSObject {
                 }
             }
         }
+    }
+    
+    func getCurrentVC(currentVC:EditImageViewController) {
+        controller = currentVC
     }
     // MARK: 加载本地 JSON
     func loadLocalJSON<T: Decodable>(fileName: String, type: T.Type) -> T? {
@@ -159,7 +164,7 @@ public final class StickerManager: NSObject {
 //        let selectedImage: UIImage = sticker.stickerModel?.stickerImage ?? BSWHBundle.image(named: (sticker.stickerModel?.bgAddImageType)!)!
         var selectedImage: UIImage = UIImage(data: sticker.state.imageData)!
         if sticker.state.imageData == BSWHBundle.image(named: "addEmptyImage")?.pngData() {
-            selectedImage = BSWHBundle.image(named: "Birthday02-bg")!
+            selectedImage = BSWHBundle.image(named: "Travel07-bg")!
         }
         sticker.updateImage(selectedImage, stickerModel: sticker.stickerModel!, withBaseImage: sticker.image,vc: controller!)
     }
@@ -263,6 +268,7 @@ extension StickerManager: PHPickerViewControllerDelegate {
                                     let newState = stickerView.state
                                     stickerView.setOperation02(false,oldState:oldState,newState:newState)
                                 }
+                                self.controller?.backAndreBackStatus()
                             }
                         }
                     }
@@ -285,6 +291,7 @@ extension StickerManager: PHPickerViewControllerDelegate {
                         if let image = sticker.stickerModel?.stickerImage {
                             sticker.updateImage(image, stickerModel: sticker.stickerModel!, withBaseImage: sticker.image,vc: self.controller!)
                         }
+                        self.controller?.backAndreBackStatus()
                     }
                 }
             }
@@ -335,15 +342,21 @@ extension ZLImageStickerView {
                let frame = BSWHBundle.image(named: stickerModel.imageMask!) {
                 
                 if stickerModel.imageMask == "addEmptyImage" {
-                    var tempImg:UIImage? = nil
                     vc.imageView.contentMode(.scaleAspectFill)
-                    if stickerModel.imageData == nil {
-                        tempImg = BSWHBundle.image(named: "Birthday02-bg")!
-                        vc.imageView.image = BSWHBundle.image(named: "Birthday02-bg")
-                    }else{
-                        tempImg = newImage
-                        vc.imageView.image = newImage
-                     }
+
+                    if stickerModel.imageName == "Travel-sticker-bg06" {
+                        if stickerModel.imageData == nil {
+                            vc.imageView.image = BSWHBundle.image(named: "Travel07-bg")
+                        }else{
+                            vc.imageView.image = newImage.forceRGBA()
+                         }
+                    }else if stickerModel.imageName == "Birthday02-sticker-bg00" {
+                        if stickerModel.imageData == nil {
+                            vc.imageView.image = BSWHBundle.image(named: "Travel07-bg")
+                        }else{
+                            vc.imageView.image = newImage.forceRGBA()
+                         }
+                    }
                     finalImage = overlayImageWithFrame(BSWHBundle.image(named: "Birthday02-sticker-bg00")!, baseImage: base, frameImage: frame)
                 }else{
                     finalImage = overlayImageWithFrame(newImage, baseImage: base, frameImage: frame)
@@ -395,7 +408,7 @@ extension ZLImageStickerView {
 //                        let cornerRadius = min(overlayRect.width, overlayRect.height) * (stickerModel.cornerRadiusScale ?? 0.1)
                         var cornerRadius = 16.0.h
                         if stickerModel.imageName == "Travel-sticker-bg03" {
-                            cornerRadius = 57.h
+                            cornerRadius = 50.h
                         }
                         return UIBezierPath(roundedRect: overlayRect, cornerRadius: cornerRadius)
                     default:
@@ -429,7 +442,7 @@ extension ZLImageStickerView {
         
         // MARK: - 更新 UIImageView 或 self.image
         if let imageView = self.subviews.compactMap({ $0 as? UIImageView }).first {
-            imageView.image = finalImage
+            imageView.image = finalImage?.forceRGBA()
             imageView.setNeedsDisplay()
         } else if let finalImage = finalImage {
             self.image = finalImage

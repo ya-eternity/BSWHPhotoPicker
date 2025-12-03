@@ -24,7 +24,7 @@
     "originFrameWidth": 206,
     "originFrameHeight": 282,
     "gesScale": 1,
-    "gesRotation": 0.1,
+    "gesRotation": -0.1,
     "overlayRectX": 0.03,
     "overlayRectY": 0.03,
     "overlayRectWidth": 0.94,

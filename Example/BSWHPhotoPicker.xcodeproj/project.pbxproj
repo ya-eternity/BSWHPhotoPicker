@@ -53,6 +53,7 @@
 		6F7DB20C074BCA838881559B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		87CF0061522ED5864706D839 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9D3D411D2EDFEC2C002F0CBC /* StickerManager+Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StickerManager+Render.swift"; sourceTree = "<group>"; };
+		9D3D41332EE03CD1002F0CBC /* kkCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kkCommon.swift; sourceTree = "<group>"; };
 		9D8338842EDECD0600F3C0B3 /* StickerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StickerAssets.xcassets; sourceTree = "<group>"; };
 		9D8338862EDECD0600F3C0B3 /* Bundle+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ZLImageEditor.swift"; sourceTree = "<group>"; };
 		9D8338872EDECD0600F3C0B3 /* Cell+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cell+ZLImageEditor.swift"; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 		9D8338B72EDECD0600F3C0B3 /* EditImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageViewController.swift; sourceTree = "<group>"; };
 		9D8338B82EDECD0600F3C0B3 /* EditImageViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditImageViewController+extension.swift"; sourceTree = "<group>"; };
 		9D8338B92EDECD0600F3C0B3 /* StickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerManager.swift; sourceTree = "<group>"; };
-		9D8338BA2EDECD0600F3C0B3 /* TemplateConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateConfig.swift; sourceTree = "<group>"; };
 		9D8338BB2EDECD0600F3C0B3 /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		9D8338BD2EDECD0600F3C0B3 /* ConfigDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDataItem.swift; sourceTree = "<group>"; };
 		9D8338BE2EDECD0600F3C0B3 /* CustomScrViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrViewList.swift; sourceTree = "<group>"; };
@@ -355,6 +355,7 @@
 		9D8338B52EDECD0600F3C0B3 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				9D3D41332EE03CD1002F0CBC /* kkCommon.swift */,
 				9D8338AE2EDECD0600F3C0B3 /* SuperView.swift */,
 				9D8338AF2EDECD0600F3C0B3 /* SuperViewController.swift */,
 				9D8338B02EDECD0600F3C0B3 /* UIFont+Extension.swift */,
@@ -374,7 +375,6 @@
 				9D8338B72EDECD0600F3C0B3 /* EditImageViewController.swift */,
 				9D8338B82EDECD0600F3C0B3 /* EditImageViewController+extension.swift */,
 				9D8338B92EDECD0600F3C0B3 /* StickerManager.swift */,
-				9D8338BA2EDECD0600F3C0B3 /* TemplateConfig.swift */,
 				9D8338BB2EDECD0600F3C0B3 /* TemplateViewController.swift */,
 			);
 			path = Template;
