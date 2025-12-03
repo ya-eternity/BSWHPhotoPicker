@@ -52,6 +52,111 @@
 		6423FB67CCDDE76BDB3E9436 /* Pods-BSWHPhotoPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSWHPhotoPicker_Tests.debug.xcconfig"; path = "Target Support Files/Pods-BSWHPhotoPicker_Tests/Pods-BSWHPhotoPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F7DB20C074BCA838881559B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		87CF0061522ED5864706D839 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9D3D411D2EDFEC2C002F0CBC /* StickerManager+Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StickerManager+Render.swift"; sourceTree = "<group>"; };
+		9D8338842EDECD0600F3C0B3 /* StickerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StickerAssets.xcassets; sourceTree = "<group>"; };
+		9D8338862EDECD0600F3C0B3 /* Bundle+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ZLImageEditor.swift"; sourceTree = "<group>"; };
+		9D8338872EDECD0600F3C0B3 /* Cell+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cell+ZLImageEditor.swift"; sourceTree = "<group>"; };
+		9D8338882EDECD0600F3C0B3 /* CGFloat+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+ZLImageEditor.swift"; sourceTree = "<group>"; };
+		9D8338892EDECD0600F3C0B3 /* String+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ZLImageEditor.swift"; sourceTree = "<group>"; };
+		9D83388A2EDECD0600F3C0B3 /* UIColor+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ZLImageEditor.swift"; sourceTree = "<group>"; };
+		9D83388B2EDECD0600F3C0B3 /* UIGraphicsImageRenderer+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIGraphicsImageRenderer+ZLImageEditor.swift"; sourceTree = "<group>"; };
+		9D83388C2EDECD0600F3C0B3 /* UIImage+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ZLImageEditor.swift"; sourceTree = "<group>"; };
+		9D83388D2EDECD0600F3C0B3 /* UIView+ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ZLImageEditor.swift"; sourceTree = "<group>"; };
+		9D83388F2EDECD0600F3C0B3 /* ZLEditImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLEditImageViewController.swift; sourceTree = "<group>"; };
+		9D8338902EDECD0600F3C0B3 /* ZLEditImageViewController+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ZLEditImageViewController+API.swift"; sourceTree = "<group>"; };
+		9D8338922EDECD0600F3C0B3 /* ZLAdjustSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLAdjustSlider.swift; sourceTree = "<group>"; };
+		9D8338932EDECD0600F3C0B3 /* ZLAnimationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLAnimationUtils.swift; sourceTree = "<group>"; };
+		9D8338942EDECD0600F3C0B3 /* ZLBaseStickertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLBaseStickertState.swift; sourceTree = "<group>"; };
+		9D8338952EDECD0600F3C0B3 /* ZLBaseStickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLBaseStickerView.swift; sourceTree = "<group>"; };
+		9D8338962EDECD0600F3C0B3 /* ZLClipImageDismissAnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLClipImageDismissAnimatedTransition.swift; sourceTree = "<group>"; };
+		9D8338972EDECD0600F3C0B3 /* ZLClipImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLClipImageViewController.swift; sourceTree = "<group>"; };
+		9D8338982EDECD0600F3C0B3 /* ZLClipOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLClipOverlayView.swift; sourceTree = "<group>"; };
+		9D8338992EDECD0600F3C0B3 /* ZLEditorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLEditorManager.swift; sourceTree = "<group>"; };
+		9D83389A2EDECD0600F3C0B3 /* ZLEditToolCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLEditToolCells.swift; sourceTree = "<group>"; };
+		9D83389B2EDECD0600F3C0B3 /* ZLEnlargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLEnlargeButton.swift; sourceTree = "<group>"; };
+		9D83389C2EDECD0600F3C0B3 /* ZLFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLFilter.swift; sourceTree = "<group>"; };
+		9D83389D2EDECD0600F3C0B3 /* ZLImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLImageEditor.swift; sourceTree = "<group>"; };
+		9D83389E2EDECD0600F3C0B3 /* ZLImageEditorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLImageEditorConfiguration.swift; sourceTree = "<group>"; };
+		9D83389F2EDECD0600F3C0B3 /* ZLImageEditorConfiguration+Chaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ZLImageEditorConfiguration+Chaining.swift"; sourceTree = "<group>"; };
+		9D8338A02EDECD0600F3C0B3 /* ZLImageEditorDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLImageEditorDefine.swift; sourceTree = "<group>"; };
+		9D8338A12EDECD0600F3C0B3 /* ZLImageEditorLanguageDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLImageEditorLanguageDefine.swift; sourceTree = "<group>"; };
+		9D8338A22EDECD0600F3C0B3 /* ZLImageEditorUIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLImageEditorUIConfiguration.swift; sourceTree = "<group>"; };
+		9D8338A32EDECD0600F3C0B3 /* ZLImageEditorUIConfiguration+Chaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ZLImageEditorUIConfiguration+Chaining.swift"; sourceTree = "<group>"; };
+		9D8338A42EDECD0600F3C0B3 /* ZLImageStickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLImageStickerView.swift; sourceTree = "<group>"; };
+		9D8338A52EDECD0600F3C0B3 /* ZLInputTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLInputTextViewController.swift; sourceTree = "<group>"; };
+		9D8338A62EDECD0600F3C0B3 /* ZLPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLPaths.swift; sourceTree = "<group>"; };
+		9D8338A72EDECD0600F3C0B3 /* ZLProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLProgressHUD.swift; sourceTree = "<group>"; };
+		9D8338A82EDECD0600F3C0B3 /* ZLTextStickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLTextStickerView.swift; sourceTree = "<group>"; };
+		9D8338A92EDECD0600F3C0B3 /* ZLWeakProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLWeakProxy.h; sourceTree = "<group>"; };
+		9D8338AA2EDECD0600F3C0B3 /* ZLWeakProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLWeakProxy.m; sourceTree = "<group>"; };
+		9D8338AB2EDECD0600F3C0B3 /* ZLWeakProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLWeakProxy.swift; sourceTree = "<group>"; };
+		9D8338AE2EDECD0600F3C0B3 /* SuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperView.swift; sourceTree = "<group>"; };
+		9D8338AF2EDECD0600F3C0B3 /* SuperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
+		9D8338B02EDECD0600F3C0B3 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		9D8338B12EDECD0600F3C0B3 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		9D8338B22EDECD0600F3C0B3 /* UIImageView+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Create.swift"; sourceTree = "<group>"; };
+		9D8338B32EDECD0600F3C0B3 /* UILabel+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Create.swift"; sourceTree = "<group>"; };
+		9D8338B42EDECD0600F3C0B3 /* UIView+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Create.swift"; sourceTree = "<group>"; };
+		9D8338B62EDECD0600F3C0B3 /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
+		9D8338B72EDECD0600F3C0B3 /* EditImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageViewController.swift; sourceTree = "<group>"; };
+		9D8338B82EDECD0600F3C0B3 /* EditImageViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditImageViewController+extension.swift"; sourceTree = "<group>"; };
+		9D8338B92EDECD0600F3C0B3 /* StickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerManager.swift; sourceTree = "<group>"; };
+		9D8338BA2EDECD0600F3C0B3 /* TemplateConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateConfig.swift; sourceTree = "<group>"; };
+		9D8338BB2EDECD0600F3C0B3 /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
+		9D8338BD2EDECD0600F3C0B3 /* ConfigDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDataItem.swift; sourceTree = "<group>"; };
+		9D8338BE2EDECD0600F3C0B3 /* CustomScrViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrViewList.swift; sourceTree = "<group>"; };
+		9D8338BF2EDECD0600F3C0B3 /* RatioCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCollectionView.swift; sourceTree = "<group>"; };
+		9D8338C02EDECD0600F3C0B3 /* RatioScrViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioScrViewList.swift; sourceTree = "<group>"; };
+		9D8338C12EDECD0600F3C0B3 /* RatioToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioToolView.swift; sourceTree = "<group>"; };
+		9D8338C22EDECD0600F3C0B3 /* StickerToolsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerToolsCollectionView.swift; sourceTree = "<group>"; };
+		9D8338C32EDECD0600F3C0B3 /* StickerToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerToolsView.swift; sourceTree = "<group>"; };
+		9D8338C42EDECD0600F3C0B3 /* TemplateTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTopView.swift; sourceTree = "<group>"; };
+		9D8338C52EDECD0600F3C0B3 /* ToolsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsCollectionView.swift; sourceTree = "<group>"; };
+		9D8338C82EDECD0600F3C0B3 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		9D8338C92EDECD0600F3C0B3 /* BSWHBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSWHBundle.swift; sourceTree = "<group>"; };
+		9D8338CB2EDECD0600F3C0B3 /* baby01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = baby01.json; sourceTree = "<group>"; };
+		9D8338CC2EDECD0600F3C0B3 /* baby02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = baby02.json; sourceTree = "<group>"; };
+		9D8338CD2EDECD0600F3C0B3 /* baby03.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = baby03.json; sourceTree = "<group>"; };
+		9D8338CE2EDECD0600F3C0B3 /* baby04.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = baby04.json; sourceTree = "<group>"; };
+		9D8338CF2EDECD0600F3C0B3 /* baby05.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = baby05.json; sourceTree = "<group>"; };
+		9D8338D02EDECD0600F3C0B3 /* baby06.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = baby06.json; sourceTree = "<group>"; };
+		9D8338D12EDECD0600F3C0B3 /* Birthday01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Birthday01.json; sourceTree = "<group>"; };
+		9D8338D22EDECD0600F3C0B3 /* Birthday02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Birthday02.json; sourceTree = "<group>"; };
+		9D8338D32EDECD0600F3C0B3 /* Birthday03.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Birthday03.json; sourceTree = "<group>"; };
+		9D8338D42EDECD0600F3C0B3 /* Birthday04.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Birthday04.json; sourceTree = "<group>"; };
+		9D8338D52EDECD0600F3C0B3 /* Birthday05.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Birthday05.json; sourceTree = "<group>"; };
+		9D8338D62EDECD0600F3C0B3 /* Christmas00.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas00.json; sourceTree = "<group>"; };
+		9D8338D72EDECD0600F3C0B3 /* Christmas01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas01.json; sourceTree = "<group>"; };
+		9D8338D82EDECD0600F3C0B3 /* Christmas02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas02.json; sourceTree = "<group>"; };
+		9D8338D92EDECD0600F3C0B3 /* Christmas03.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas03.json; sourceTree = "<group>"; };
+		9D8338DA2EDECD0600F3C0B3 /* Christmas04.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas04.json; sourceTree = "<group>"; };
+		9D8338DB2EDECD0600F3C0B3 /* Christmas05.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas05.json; sourceTree = "<group>"; };
+		9D8338DC2EDECD0600F3C0B3 /* Christmas06.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas06.json; sourceTree = "<group>"; };
+		9D8338DD2EDECD0600F3C0B3 /* PhotoFrame01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoFrame01.json; sourceTree = "<group>"; };
+		9D8338DE2EDECD0600F3C0B3 /* PhotoFrame02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoFrame02.json; sourceTree = "<group>"; };
+		9D8338DF2EDECD0600F3C0B3 /* PhotoFrame03.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoFrame03.json; sourceTree = "<group>"; };
+		9D8338E02EDECD0600F3C0B3 /* PhotoFrame04.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoFrame04.json; sourceTree = "<group>"; };
+		9D8338E12EDECD0600F3C0B3 /* PhotoFrame05.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoFrame05.json; sourceTree = "<group>"; };
+		9D8338E22EDECD0600F3C0B3 /* PhotoFrame06.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoFrame06.json; sourceTree = "<group>"; };
+		9D8338E32EDECD0600F3C0B3 /* Scrapbook01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Scrapbook01.json; sourceTree = "<group>"; };
+		9D8338E42EDECD0600F3C0B3 /* Scrapbook02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Scrapbook02.json; sourceTree = "<group>"; };
+		9D8338E52EDECD0600F3C0B3 /* Scrapbook03.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Scrapbook03.json; sourceTree = "<group>"; };
+		9D8338E62EDECD0600F3C0B3 /* Scrapbook04.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Scrapbook04.json; sourceTree = "<group>"; };
+		9D8338E72EDECD0600F3C0B3 /* Scrapbook05.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Scrapbook05.json; sourceTree = "<group>"; };
+		9D8338E82EDECD0600F3C0B3 /* Travel01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Travel01.json; sourceTree = "<group>"; };
+		9D8338E92EDECD0600F3C0B3 /* Travel02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Travel02.json; sourceTree = "<group>"; };
+		9D8338EA2EDECD0600F3C0B3 /* Travel03.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Travel03.json; sourceTree = "<group>"; };
+		9D8338EB2EDECD0600F3C0B3 /* Travel04.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Travel04.json; sourceTree = "<group>"; };
+		9D8338EC2EDECD0600F3C0B3 /* Travel05.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Travel05.json; sourceTree = "<group>"; };
+		9D8338ED2EDECD0600F3C0B3 /* Travel06.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Travel06.json; sourceTree = "<group>"; };
+		9D8338EE2EDECD0600F3C0B3 /* Travel07.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Travel07.json; sourceTree = "<group>"; };
+		9D8338EF2EDECD0600F3C0B3 /* Wedding01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Wedding01.json; sourceTree = "<group>"; };
+		9D8338F02EDECD0600F3C0B3 /* Wedding02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Wedding02.json; sourceTree = "<group>"; };
+		9D8338F12EDECD0600F3C0B3 /* Wedding03.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Wedding03.json; sourceTree = "<group>"; };
+		9D8338F22EDECD0600F3C0B3 /* Wedding04.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Wedding04.json; sourceTree = "<group>"; };
+		9D8338F32EDECD0600F3C0B3 /* Wedding05.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Wedding05.json; sourceTree = "<group>"; };
+		9D8338F52EDECD0600F3C0B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9D8338F62EDECD0600F3C0B3 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A3B2DFEDCD26FC5697D2F798 /* Pods-BSWHPhotoPicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSWHPhotoPicker_Tests.release.xcconfig"; path = "Target Support Files/Pods-BSWHPhotoPicker_Tests/Pods-BSWHPhotoPicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BDB6FDD318F07EF2DFCB0594 /* BSWHPhotoPicker.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BSWHPhotoPicker.podspec; path = ../BSWHPhotoPicker.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D57F64FB0C3ACB692F89B37A /* Pods-BSWHPhotoPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSWHPhotoPicker_Example.debug.xcconfig"; path = "Target Support Files/Pods-BSWHPhotoPicker_Example/Pods-BSWHPhotoPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,56 +197,10 @@
 			path = generated;
 			sourceTree = "<group>";
 		};
-		537464062ECC667900F8588D /* font */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = font;
-			sourceTree = "<group>";
-		};
-		537464092ECC667900F8588D /* gif */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = gif;
-			sourceTree = "<group>";
-		};
-		5374640C2ECC667900F8588D /* json */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = json;
-			sourceTree = "<group>";
-		};
-		537464132ECC667900F8588D /* videos */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = videos;
-			sourceTree = "<group>";
-		};
-		537464142ECC667900F8588D /* source */ = {
-			isa = PBXGroup;
-			children = (
-				537464062ECC667900F8588D /* font */,
-				537464092ECC667900F8588D /* gif */,
-				5374640C2ECC667900F8588D /* json */,
-				537464132ECC667900F8588D /* videos */,
-			);
-			path = source;
-			sourceTree = "<group>";
-		};
-		537464152ECC667900F8588D /* other */ = {
-			isa = PBXGroup;
-			children = (
-				537464142ECC667900F8588D /* source */,
-			);
-			path = other;
-			sourceTree = "<group>";
-		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				9D8338F92EDECD0600F3C0B3 /* BSWHPhotoPicker */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for BSWHPhotoPicker */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -165,7 +224,6 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				537464152ECC667900F8588D /* other */,
 				537463FB2ECC641F00F8588D /* generated */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -210,6 +268,222 @@
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
+		};
+		9D3D411E2EDFEC2C002F0CBC /* TemplateRender */ = {
+			isa = PBXGroup;
+			children = (
+				9D3D411D2EDFEC2C002F0CBC /* StickerManager+Render.swift */,
+			);
+			path = TemplateRender;
+			sourceTree = "<group>";
+		};
+		9D8338852EDECD0600F3C0B3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338842EDECD0600F3C0B3 /* StickerAssets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		9D83388E2EDECD0600F3C0B3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338862EDECD0600F3C0B3 /* Bundle+ZLImageEditor.swift */,
+				9D8338872EDECD0600F3C0B3 /* Cell+ZLImageEditor.swift */,
+				9D8338882EDECD0600F3C0B3 /* CGFloat+ZLImageEditor.swift */,
+				9D8338892EDECD0600F3C0B3 /* String+ZLImageEditor.swift */,
+				9D83388A2EDECD0600F3C0B3 /* UIColor+ZLImageEditor.swift */,
+				9D83388B2EDECD0600F3C0B3 /* UIGraphicsImageRenderer+ZLImageEditor.swift */,
+				9D83388C2EDECD0600F3C0B3 /* UIImage+ZLImageEditor.swift */,
+				9D83388D2EDECD0600F3C0B3 /* UIView+ZLImageEditor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9D8338912EDECD0600F3C0B3 /* Modify */ = {
+			isa = PBXGroup;
+			children = (
+				9D83388F2EDECD0600F3C0B3 /* ZLEditImageViewController.swift */,
+				9D8338902EDECD0600F3C0B3 /* ZLEditImageViewController+API.swift */,
+			);
+			path = Modify;
+			sourceTree = "<group>";
+		};
+		9D8338AC2EDECD0600F3C0B3 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338912EDECD0600F3C0B3 /* Modify */,
+				9D8338922EDECD0600F3C0B3 /* ZLAdjustSlider.swift */,
+				9D8338932EDECD0600F3C0B3 /* ZLAnimationUtils.swift */,
+				9D8338942EDECD0600F3C0B3 /* ZLBaseStickertState.swift */,
+				9D8338952EDECD0600F3C0B3 /* ZLBaseStickerView.swift */,
+				9D8338962EDECD0600F3C0B3 /* ZLClipImageDismissAnimatedTransition.swift */,
+				9D8338972EDECD0600F3C0B3 /* ZLClipImageViewController.swift */,
+				9D8338982EDECD0600F3C0B3 /* ZLClipOverlayView.swift */,
+				9D8338992EDECD0600F3C0B3 /* ZLEditorManager.swift */,
+				9D83389A2EDECD0600F3C0B3 /* ZLEditToolCells.swift */,
+				9D83389B2EDECD0600F3C0B3 /* ZLEnlargeButton.swift */,
+				9D83389C2EDECD0600F3C0B3 /* ZLFilter.swift */,
+				9D83389D2EDECD0600F3C0B3 /* ZLImageEditor.swift */,
+				9D83389E2EDECD0600F3C0B3 /* ZLImageEditorConfiguration.swift */,
+				9D83389F2EDECD0600F3C0B3 /* ZLImageEditorConfiguration+Chaining.swift */,
+				9D8338A02EDECD0600F3C0B3 /* ZLImageEditorDefine.swift */,
+				9D8338A12EDECD0600F3C0B3 /* ZLImageEditorLanguageDefine.swift */,
+				9D8338A22EDECD0600F3C0B3 /* ZLImageEditorUIConfiguration.swift */,
+				9D8338A32EDECD0600F3C0B3 /* ZLImageEditorUIConfiguration+Chaining.swift */,
+				9D8338A42EDECD0600F3C0B3 /* ZLImageStickerView.swift */,
+				9D8338A52EDECD0600F3C0B3 /* ZLInputTextViewController.swift */,
+				9D8338A62EDECD0600F3C0B3 /* ZLPaths.swift */,
+				9D8338A72EDECD0600F3C0B3 /* ZLProgressHUD.swift */,
+				9D8338A82EDECD0600F3C0B3 /* ZLTextStickerView.swift */,
+				9D8338A92EDECD0600F3C0B3 /* ZLWeakProxy.h */,
+				9D8338AA2EDECD0600F3C0B3 /* ZLWeakProxy.m */,
+				9D8338AB2EDECD0600F3C0B3 /* ZLWeakProxy.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		9D8338AD2EDECD0600F3C0B3 /* EditorCore */ = {
+			isa = PBXGroup;
+			children = (
+				9D83388E2EDECD0600F3C0B3 /* Extensions */,
+				9D8338AC2EDECD0600F3C0B3 /* General */,
+			);
+			path = EditorCore;
+			sourceTree = "<group>";
+		};
+		9D8338B52EDECD0600F3C0B3 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338AE2EDECD0600F3C0B3 /* SuperView.swift */,
+				9D8338AF2EDECD0600F3C0B3 /* SuperViewController.swift */,
+				9D8338B02EDECD0600F3C0B3 /* UIFont+Extension.swift */,
+				9D8338B12EDECD0600F3C0B3 /* UIImage+Extension.swift */,
+				9D8338B22EDECD0600F3C0B3 /* UIImageView+Create.swift */,
+				9D8338B32EDECD0600F3C0B3 /* UILabel+Create.swift */,
+				9D8338B42EDECD0600F3C0B3 /* UIView+Create.swift */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
+		9D8338BC2EDECD0600F3C0B3 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				9D3D411E2EDFEC2C002F0CBC /* TemplateRender */,
+				9D8338B62EDECD0600F3C0B3 /* DrawViewController.swift */,
+				9D8338B72EDECD0600F3C0B3 /* EditImageViewController.swift */,
+				9D8338B82EDECD0600F3C0B3 /* EditImageViewController+extension.swift */,
+				9D8338B92EDECD0600F3C0B3 /* StickerManager.swift */,
+				9D8338BA2EDECD0600F3C0B3 /* TemplateConfig.swift */,
+				9D8338BB2EDECD0600F3C0B3 /* TemplateViewController.swift */,
+			);
+			path = Template;
+			sourceTree = "<group>";
+		};
+		9D8338C62EDECD0600F3C0B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338BD2EDECD0600F3C0B3 /* ConfigDataItem.swift */,
+				9D8338BE2EDECD0600F3C0B3 /* CustomScrViewList.swift */,
+				9D8338BF2EDECD0600F3C0B3 /* RatioCollectionView.swift */,
+				9D8338C02EDECD0600F3C0B3 /* RatioScrViewList.swift */,
+				9D8338C12EDECD0600F3C0B3 /* RatioToolView.swift */,
+				9D8338C22EDECD0600F3C0B3 /* StickerToolsCollectionView.swift */,
+				9D8338C32EDECD0600F3C0B3 /* StickerToolsView.swift */,
+				9D8338C42EDECD0600F3C0B3 /* TemplateTopView.swift */,
+				9D8338C52EDECD0600F3C0B3 /* ToolsCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9D8338C72EDECD0600F3C0B3 /* TemplateSticker */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338B52EDECD0600F3C0B3 /* BaseView */,
+				9D8338BC2EDECD0600F3C0B3 /* Template */,
+				9D8338C62EDECD0600F3C0B3 /* Views */,
+			);
+			path = TemplateSticker;
+			sourceTree = "<group>";
+		};
+		9D8338CA2EDECD0600F3C0B3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338AD2EDECD0600F3C0B3 /* EditorCore */,
+				9D8338C72EDECD0600F3C0B3 /* TemplateSticker */,
+				9D8338C82EDECD0600F3C0B3 /* .gitkeep */,
+				9D8338C92EDECD0600F3C0B3 /* BSWHBundle.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9D8338F42EDECD0600F3C0B3 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338CB2EDECD0600F3C0B3 /* baby01.json */,
+				9D8338CC2EDECD0600F3C0B3 /* baby02.json */,
+				9D8338CD2EDECD0600F3C0B3 /* baby03.json */,
+				9D8338CE2EDECD0600F3C0B3 /* baby04.json */,
+				9D8338CF2EDECD0600F3C0B3 /* baby05.json */,
+				9D8338D02EDECD0600F3C0B3 /* baby06.json */,
+				9D8338D12EDECD0600F3C0B3 /* Birthday01.json */,
+				9D8338D22EDECD0600F3C0B3 /* Birthday02.json */,
+				9D8338D32EDECD0600F3C0B3 /* Birthday03.json */,
+				9D8338D42EDECD0600F3C0B3 /* Birthday04.json */,
+				9D8338D52EDECD0600F3C0B3 /* Birthday05.json */,
+				9D8338D62EDECD0600F3C0B3 /* Christmas00.json */,
+				9D8338D72EDECD0600F3C0B3 /* Christmas01.json */,
+				9D8338D82EDECD0600F3C0B3 /* Christmas02.json */,
+				9D8338D92EDECD0600F3C0B3 /* Christmas03.json */,
+				9D8338DA2EDECD0600F3C0B3 /* Christmas04.json */,
+				9D8338DB2EDECD0600F3C0B3 /* Christmas05.json */,
+				9D8338DC2EDECD0600F3C0B3 /* Christmas06.json */,
+				9D8338DD2EDECD0600F3C0B3 /* PhotoFrame01.json */,
+				9D8338DE2EDECD0600F3C0B3 /* PhotoFrame02.json */,
+				9D8338DF2EDECD0600F3C0B3 /* PhotoFrame03.json */,
+				9D8338E02EDECD0600F3C0B3 /* PhotoFrame04.json */,
+				9D8338E12EDECD0600F3C0B3 /* PhotoFrame05.json */,
+				9D8338E22EDECD0600F3C0B3 /* PhotoFrame06.json */,
+				9D8338E32EDECD0600F3C0B3 /* Scrapbook01.json */,
+				9D8338E42EDECD0600F3C0B3 /* Scrapbook02.json */,
+				9D8338E52EDECD0600F3C0B3 /* Scrapbook03.json */,
+				9D8338E62EDECD0600F3C0B3 /* Scrapbook04.json */,
+				9D8338E72EDECD0600F3C0B3 /* Scrapbook05.json */,
+				9D8338E82EDECD0600F3C0B3 /* Travel01.json */,
+				9D8338E92EDECD0600F3C0B3 /* Travel02.json */,
+				9D8338EA2EDECD0600F3C0B3 /* Travel03.json */,
+				9D8338EB2EDECD0600F3C0B3 /* Travel04.json */,
+				9D8338EC2EDECD0600F3C0B3 /* Travel05.json */,
+				9D8338ED2EDECD0600F3C0B3 /* Travel06.json */,
+				9D8338EE2EDECD0600F3C0B3 /* Travel07.json */,
+				9D8338EF2EDECD0600F3C0B3 /* Wedding01.json */,
+				9D8338F02EDECD0600F3C0B3 /* Wedding02.json */,
+				9D8338F12EDECD0600F3C0B3 /* Wedding03.json */,
+				9D8338F22EDECD0600F3C0B3 /* Wedding04.json */,
+				9D8338F32EDECD0600F3C0B3 /* Wedding05.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		9D8338F82EDECD0600F3C0B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338F42EDECD0600F3C0B3 /* json */,
+				9D8338F72EDECD0600F3C0B3 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9D8338F92EDECD0600F3C0B3 /* BSWHPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				9D8338852EDECD0600F3C0B3 /* Assets */,
+				9D8338CA2EDECD0600F3C0B3 /* Classes */,
+				9D8338F82EDECD0600F3C0B3 /* Resources */,
+			);
+			name = BSWHPhotoPicker;
+			path = ../BSWHPhotoPicker;
+			sourceTree = SOURCE_ROOT;
 		};
 		A942EAD126F119582A419FF0 /* Pods */ = {
 			isa = PBXGroup;
@@ -304,6 +578,7 @@
 				English,
 				en,
 				"zh-Hans",
+				zh,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
@@ -472,6 +747,15 @@
 				537463F32ECC630A00F8588D /* English */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		9D8338F72EDECD0600F3C0B3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D8338F52EDECD0600F3C0B3 /* en */,
+				9D8338F62EDECD0600F3C0B3 /* zh */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

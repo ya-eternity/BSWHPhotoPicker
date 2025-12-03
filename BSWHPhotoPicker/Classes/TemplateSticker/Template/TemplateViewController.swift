@@ -140,6 +140,12 @@ extension TemplateViewController: CustomScrViewListDelegate {
 
 extension TemplateViewController: ContentCellDelegate {
     func contentCell(_ cell: ContentCell, didSelectItem item: TemplateModel, at index: IndexPath) {
+        
+        /// debug
+//        StickerManager.shared.delegate?.didSelectedTemplate(tempalte: item) {
+//        }
+//        self.dismiss(animated: true)
+//        return
         guard let image = BSWHBundle.image(named: item.imageBg) else { return }
         let controller = EditImageViewController(image: image)
         controller.item = item

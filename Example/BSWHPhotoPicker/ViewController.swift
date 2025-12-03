@@ -43,14 +43,33 @@ class ViewController: UIViewController {
         return button
     }()
     
+    let renderBtn: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("渲染", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        button.backgroundColor = .blue
+        return button
+    }()
+    let imageView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(backButton)
         view.addSubview(lang00Button)
         view.addSubview(lang01Button)
+        view.addSubview(imageView)
+        view.addSubview(renderBtn)
+
         backButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-200)
             make.width.equalTo(120)
             make.height.equalTo(50)
         }
@@ -68,13 +87,27 @@ class ViewController: UIViewController {
             make.width.equalTo(120)
             make.height.equalTo(50)
         }
+        imageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(80)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(300)
+            make.height.equalTo(400)
+        }
+        renderBtn.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(lang01Button.snp.bottom).offset(40)
+            make.width.equalTo(120)
+            make.height.equalTo(50)
+        }
         
         backButton.addTarget(self, action: #selector(onClickBack(_:)), for: .touchUpInside)
         lang00Button.addTarget(self, action: #selector(onClickLang00(_:)), for: .touchUpInside)
         lang01Button.addTarget(self, action: #selector(onClickLang01(_:)), for: .touchUpInside)
+        renderBtn.addTarget(self, action: #selector(onClickRender(_:)), for: .touchUpInside)
+
     }
     @objc private func onClickBack(_ sender: UIButton) {
-        StickerManager.shared.selectedTemplateIndex = 5
+        StickerManager.shared.selectedTemplateIndex = 0
         presentVC()
     }
     @objc private func onClickLang00(_ sender: UIButton) {
@@ -87,7 +120,13 @@ class ViewController: UIViewController {
         StickerManager.shared.selectedTemplateIndex = 2
         presentVC()
     }
-    
+    @objc private func onClickRender(_ sender: UIButton) {
+//        imageView.image = StickerManager.shared.renderTemplateImageCoreGraphics(photos: [UIImage(named: "1")!, UIImage(named: "12")!, UIImage(named: "123")!])
+//        let temp = TemplateModel(imageName: "Wedding01",imageBg: "wedding01-bg",jsonName: "Wedding01",isNeedFit: true)
+        let temp = TemplateModel(imageName: "Christmas02",imageBg: "Christmas01-bg",jsonName: "Christmas01",isNeedFit: true)
+        imageView.image = StickerManager.shared.renderTemplateImageCoreGraphics(template: temp, photos: [UIImage(named: "1")!, UIImage(named: "12")!, UIImage(named: "123")!, UIImage(named: "12")!])
+//        UIImageWriteToSavedPhotosAlbum(imageView.image!, nil, nil, nil)
+    }
     func presentVC(){
         let vc = UINavigationController(rootViewController: TemplateViewController())
         StickerManager.shared.delegate = self
@@ -114,6 +153,10 @@ extension ViewController: StickerManagerDelegate {
         let img = UIImage(named: "imageSticker000")
         print("image")
         completion(img)
+    }
+    
+    func didSelectedTemplate(tempalte: TemplateModel, completion: @escaping () -> Void) {
+        imageView.image = StickerManager.shared.renderTemplateImageCoreGraphics(template: tempalte, photos: [UIImage(named: "1")!, UIImage(named: "12")!, UIImage(named: "123")!, UIImage(named: "12")!])
     }
 }
 

@@ -36,11 +36,25 @@ struct ToolsModel {
 }
 
 public struct TemplateModel {
-    var imageName:String = "1"
-    var imageBg:String = "Christmas00-bg"
-    var jsonName:String = "Christmas00"
-    var isNeedFit:Bool = false
-    var cornerRadius:Double = 0.0
+    public var imageName: String
+    public var imageBg: String
+    public var jsonName: String
+    public var isNeedFit: Bool
+    public var cornerRadius: Double
+
+    public init(
+        imageName: String = "1",
+        imageBg: String = "Christmas00-bg",
+        jsonName: String = "Christmas00",
+        isNeedFit: Bool = false,
+        cornerRadius: Double = 0.0
+    ) {
+        self.imageName = imageName
+        self.imageBg = imageBg
+        self.jsonName = jsonName
+        self.isNeedFit = isNeedFit
+        self.cornerRadius = cornerRadius
+    }
 }
 
 class ConfigDataItem {

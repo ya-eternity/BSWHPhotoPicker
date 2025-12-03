@@ -16,6 +16,7 @@ let kRatioToolsViewHeight = 193.h
 public class EditImageViewController: ZLEditImageViewController {
     var item:TemplateModel? = nil
     var currentSticker:EditableStickerView? = nil
+    var photos: [UIImage]? = nil
     private var stickerToolsViewBottomConstraint: Constraint?
     private var ratioToolViewBottomConstraint: Constraint?
     private lazy var stickerToolsView = StickerToolsView().cornerRadius(20.w, corners: [.topLeft,.topRight]).backgroundColor(.white)
@@ -73,7 +74,7 @@ public class EditImageViewController: ZLEditImageViewController {
         }
         toolCollectionView.delegate = self
 
-        StickerManager.shared.initCurrentTemplate(jsonName: item!.jsonName, currentVC: self)
+        StickerManager.shared.initCurrentTemplate(jsonName: item!.jsonName, currentVC: self, photos: photos)
         backAndreBackStatus()
         
         stickerToolsView.onClose = {

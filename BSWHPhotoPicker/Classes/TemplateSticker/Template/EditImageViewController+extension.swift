@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import BSWHPhotoPicker
 import Photos
 
 // MARK: - 顶部工具栏 TemplateTopView-TemplateTopViewDelegate

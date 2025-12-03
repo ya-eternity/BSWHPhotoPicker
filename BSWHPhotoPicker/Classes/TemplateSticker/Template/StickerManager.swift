@@ -28,6 +28,11 @@ public protocol StickerManagerDelegate: AnyObject {
             controller: EditImageViewController,
             completion: @escaping (UIImage?) -> Void
         )
+    
+    func didSelectedTemplate(
+            tempalte: TemplateModel,
+            completion: @escaping () -> Void
+        )
 }
 
 // MARK: - StickerManager
@@ -53,11 +58,12 @@ public final class StickerManager: NSObject {
     }
 
     /// 使用本地Json加载模版
-    func initCurrentTemplate(jsonName:String,currentVC:EditImageViewController){
+    func initCurrentTemplate(jsonName:String,currentVC:EditImageViewController, photos: [UIImage]? = nil){
         let items = StickerManager.shared.loadLocalJSON(fileName: jsonName, type: [ImageStickerModel].self)
         StickerManager.shared.modelMap.removeAll()
         StickerManager.shared.stickerArr.removeAll()
         controller = currentVC
+        var photoIdx = 0
         for (index,state) in items!.enumerated() {
             state.zIndex = index
             let sticker = currentVC.addImageSticker01(state: state)
@@ -68,6 +74,11 @@ public final class StickerManager: NSObject {
                 let tap = UITapGestureRecognizer(target: self, action: #selector(stickerTapped(_:)))
                 sticker.addGestureRecognizer(tap)
                 sticker.isUserInteractionEnabled = true
+                if let photos = photos, photoIdx < photos.count, state.bgAddImageType == "addGrayImage" || state.bgAddImageType == "addWhiteImage" {
+                    sticker.updateImage(photos[photoIdx], stickerModel: sticker.stickerModel!, withBaseImage: sticker.image,vc: controller!)
+                    photoIdx += 1
+                    continue
+                }
                 if let image = sticker.stickerModel?.stickerImage {
                     sticker.updateImage(image, stickerModel: sticker.stickerModel!, withBaseImage: sticker.image,vc: controller!)
                 }
