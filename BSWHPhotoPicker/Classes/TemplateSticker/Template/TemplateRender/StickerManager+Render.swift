@@ -108,7 +108,7 @@ extension StickerManager {
     // MARK: - 绘制辅助
     private func composeStickerImage(from model: ImageStickerModel, slotImage: UIImage?) -> UIImage? {
         let baseImage = model.image ?? (model.imageName.isEmpty ? nil : BSWHBundle.image(named: model.imageName))
-        let canvasSize = baseImage?.size ?? CGSize(
+        let _ = baseImage?.size ?? CGSize(
             width: CGFloat(model.originFrameWidth),
             height: CGFloat(model.originFrameHeight)
         )

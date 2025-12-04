@@ -10,6 +10,9 @@ import UIKit
 
 public class TemplateViewController: UIViewController, UIScrollViewDelegate {
     
+    public var isSelected: Bool = false
+    public var forVideo: Bool = false
+
     let topView = UIView()
     private lazy var backBtn = UIImageView().image(BSWHBundle.image(named: "templateNavBack")).enable(true).onTap {
         self.dismiss(animated: true)
@@ -19,6 +22,17 @@ public class TemplateViewController: UIViewController, UIScrollViewDelegate {
     var collectionView: UICollectionView!
     private var titles:[String] = []
     var items:[[TemplateModel]] = []
+    
+    public init(isSelected: Bool = false, forVideo: Bool = false) {
+        self.isSelected = isSelected
+        self.forVideo = forVideo
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.hidden(true)
@@ -28,7 +42,7 @@ public class TemplateViewController: UIViewController, UIScrollViewDelegate {
         view.backgroundColor = .white
         StickerManager.shared.templateOrBackground = 1
         titles = ConfigDataItem.getTemplateTabData()
-        items = ConfigDataItem.getTemplateListData()
+        items = ConfigDataItem.getTemplateListData(forVideo: forVideo)
         
         setupTabView()
         setupCollectionView()
@@ -142,11 +156,12 @@ extension TemplateViewController: CustomScrViewListDelegate {
 extension TemplateViewController: ContentCellDelegate {
     func contentCell(_ cell: ContentCell, didSelectItem item: TemplateModel, at index: IndexPath) {
         
-        /// debug
-//        StickerManager.shared.delegate?.didSelectedTemplate(tempalte: item) {
-//        }
-//        self.dismiss(animated: true)
-//        return
+        if isSelected {
+            StickerManager.shared.delegate?.didSelectedTemplate(tempalte: item) {
+            }
+            self.dismiss(animated: true)
+            return
+        }
         guard let image = BSWHBundle.image(named: item.imageBg) else { return }
         let controller = EditImageViewController(image: image)
         controller.item = item
