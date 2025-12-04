@@ -8,6 +8,16 @@
 
 import UIKit
 
+
+// MARK: - 预构建模板图层（单槽位）
+public struct TemplatePrebuiltLayers {
+    public let background: UIImage      // 背景 + 槽位下方元素
+    public let overlay: UIImage?        // 槽位上方元素
+    public let slotMask: UIImage        // 槽位遮罩（已包含旋转/缩放）
+    public let slotRect: CGRect         // 槽位在画布的原始矩形（未旋转，基于 canvas）
+    public let canvasSize: CGSize
+}
+
 extension StickerManager {
         
     /// 传入背景 + 多张照片，按模板渲染输出成品图
@@ -104,6 +114,156 @@ extension StickerManager {
             }
         }
     }
+    
+      /// 仅支持 photoCount == 1：预生成背景/上层遮罩/槽位遮罩，便于 CI/Metal 合成。
+    public func prebuildTemplateLayers(template: TemplateModel) -> TemplatePrebuiltLayers? {
+        guard template.photoCount == 1,
+              let models = loadLocalJSON(fileName: template.jsonName ?? "", type: [ImageStickerModel].self),
+              let bgImage = BSWHBundle.image(named: template.imageBg) else { return nil }
+
+        let canvasSize = bgImage.size
+        let scaleW = canvasSize.width / 375.0
+
+        let ordered = models.enumerated().map { idx, m -> ImageStickerModel in
+            m.zIndex = m.zIndex ?? idx
+            return m
+        }.sorted { ($0.zIndex ?? 0) < ($1.zIndex ?? 0) }
+
+        guard let slotModel = ordered.first(where: { $0.isBgImage && ($0.bgAddImageType == "addGrayImage" || $0.bgAddImageType == "addWhiteImage") }) else {
+            return nil
+        }
+
+        // 背景 + 槽位下方
+        let bgUnder = UIGraphicsImageRenderer(size: canvasSize).image { ctx in
+            bgImage.draw(in: CGRect(origin: .zero, size: canvasSize))
+            for model in ordered where (model.zIndex ?? 0) < (slotModel.zIndex ?? 0) && model !== slotModel {
+                guard let stickerImage = composeStickerImage(from: model, slotImage: nil) else { continue }
+                drawSticker(stickerImage, model: model, canvasSize: canvasSize, scaleW: scaleW, in: ctx.cgContext)
+            }
+        }
+
+        // 槽位上方
+        let overlay = UIGraphicsImageRenderer(size: canvasSize).image { ctx in
+            for model in ordered where (model.zIndex ?? 0) > (slotModel.zIndex ?? 0) && model !== slotModel {
+                guard let stickerImage = composeStickerImage(from: model, slotImage: nil) else { continue }
+                drawSticker(stickerImage, model: model, canvasSize: canvasSize, scaleW: scaleW, in: ctx.cgContext)
+            }
+        }
+
+        // 槽位遮罩（含旋转/缩放）
+        guard let maskImage = buildSlotMask(slotModel: slotModel, canvasSize: canvasSize, scaleW: scaleW) else { return nil }
+
+        let slotRect = CGRect(x: CGFloat(slotModel.originFrameX) * scaleW,
+                              y: CGFloat(slotModel.originFrameY) * scaleW,
+                              width: CGFloat(slotModel.originFrameWidth) * scaleW,
+                              height: CGFloat(slotModel.originFrameHeight) * scaleW)
+
+        let overlayClean = overlay.pngData().flatMap { UIImage(data: $0) }
+
+        return TemplatePrebuiltLayers(background: bgUnder,
+                                      overlay: overlayClean,
+                                      slotMask: maskImage,
+                                      slotRect: slotRect,
+                                      canvasSize: canvasSize)
+    }
+    
+    private func drawSticker(_ image: UIImage,
+                             model: ImageStickerModel,
+                             canvasSize: CGSize,
+                             scaleW: CGFloat,
+                             in ctx: CGContext) {
+        let frame = CGRect(
+            x: CGFloat(model.originFrameX) * scaleW,
+            y: CGFloat(model.originFrameY) * scaleW,
+            width: CGFloat(model.originFrameWidth) * scaleW,
+            height: CGFloat(model.originFrameHeight) * scaleW
+        )
+        let scale = CGFloat(model.originScale * model.gesScale)
+        let angle = CGFloat(model.originAngle) * .pi / 180 + CGFloat(model.gesRotation)
+        let finalSize = CGSize(width: frame.width * scale, height: frame.height * scale)
+        
+        ctx.saveGState()
+        ctx.translateBy(x: frame.midX, y: frame.midY)
+        ctx.rotate(by: angle)
+        let drawRect = CGRect(
+            x: -finalSize.width / 2,
+            y: -finalSize.height / 2,
+            width: finalSize.width,
+            height: finalSize.height
+        )
+        image.draw(in: drawRect)
+        ctx.restoreGState()
+    }
+
+    // 与现有绘制辅助放在一起
+    private func buildSlotMask(slotModel: ImageStickerModel,
+                               canvasSize: CGSize,
+                               scaleW: CGFloat) -> UIImage? {
+        let frame = CGRect(
+            x: CGFloat(slotModel.originFrameX) * scaleW,
+            y: CGFloat(slotModel.originFrameY) * scaleW,
+            width: CGFloat(slotModel.originFrameWidth) * scaleW,
+            height: CGFloat(slotModel.originFrameHeight) * scaleW
+        )
+        let baseSize = slotModel.image?.size ?? frame.size
+        let overlayRect = CGRect(
+            x: baseSize.width * CGFloat(slotModel.overlayRectX ?? 0),
+            y: baseSize.height * CGFloat(slotModel.overlayRectY ?? 0),
+            width: baseSize.width * CGFloat(slotModel.overlayRectWidth ?? 0.8),
+            height: baseSize.height * CGFloat(slotModel.overlayRectHeight ?? 0.8)
+        )
+        let scaleX = frame.width / baseSize.width
+        let scaleY = frame.height / baseSize.height
+        let overlayScaled = CGRect(
+            x: overlayRect.origin.x * scaleX,
+            y: overlayRect.origin.y * scaleY,
+            width: overlayRect.width * scaleX,
+            height: overlayRect.height * scaleY
+        )
+        let finalSize = CGSize(width: frame.width * CGFloat(slotModel.originScale * slotModel.gesScale),
+                               height: frame.height * CGFloat(slotModel.originScale * slotModel.gesScale))
+
+        return UIGraphicsImageRenderer(size: canvasSize).image { ctx in
+            let cg = ctx.cgContext
+            cg.saveGState()
+            cg.translateBy(x: frame.midX, y: frame.midY)
+            let angle = CGFloat(slotModel.originAngle + slotModel.gesRotation) * .pi / 180
+            cg.rotate(by: angle)
+            let drawRect = CGRect(
+                x: -finalSize.width / 2 + overlayScaled.origin.x,
+                y: -finalSize.height / 2 + overlayScaled.origin.y,
+                width: overlayScaled.width,
+                height: overlayScaled.height
+            )
+
+            let imageTypeRaw = slotModel.imageType?.rawValue ?? "square"
+            if imageTypeRaw == "IrregularShape" || imageTypeRaw == "IrregularMask",
+               let maskName = slotModel.imageMask,
+               let frameImg = BSWHBundle.image(named: maskName) {
+                frameImg.draw(in: CGRect(
+                    x: -finalSize.width / 2,
+                    y: -finalSize.height / 2,
+                    width: finalSize.width,
+                    height: finalSize.height
+                ), blendMode: .normal, alpha: 1.0)
+            } else {
+                let path: UIBezierPath = {
+                    switch imageTypeRaw {
+                    case "circle", "ellipse":
+                        return UIBezierPath(ovalIn: drawRect)
+                    case "rectangle":
+                        return UIBezierPath(roundedRect: drawRect, cornerRadius: CGFloat(slotModel.cornerRadiusScale ?? 0) * drawRect.width)
+                    default:
+                        return UIBezierPath(rect: drawRect)
+                    }
+                }()
+                UIColor.white.setFill()
+                path.fill()
+            }
+            cg.restoreGState()
+        }
+    }
+
     
     // MARK: - 绘制辅助
     public func composeStickerImage(from model: ImageStickerModel, slotImage: UIImage?) -> UIImage? {
