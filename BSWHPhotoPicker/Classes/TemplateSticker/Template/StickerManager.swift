@@ -166,7 +166,10 @@ public final class StickerManager: NSObject {
         if sticker.state.imageData == BSWHBundle.image(named: "addEmptyImage")?.pngData() {
             selectedImage = BSWHBundle.image(named: "Travel07-bg")!
         }
-        sticker.updateImage(selectedImage, stickerModel: sticker.stickerModel!, withBaseImage: sticker.image,vc: controller!)
+        if let model = sticker.stickerModel {
+            sticker.updateImage(selectedImage, stickerModel: model, withBaseImage: sticker.image,vc: controller!)
+        }
+        
     }
     
     @objc func stickerTapped(_ sender: UITapGestureRecognizer) {

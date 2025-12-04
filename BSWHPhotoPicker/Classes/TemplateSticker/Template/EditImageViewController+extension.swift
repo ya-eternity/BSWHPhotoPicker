@@ -143,6 +143,18 @@ extension EditImageViewController:ToolsCollectionViewDelegate {
             }
         }
         backAndreBackStatus()
+        if item?.isNeedFit == true {
+            for sticker in StickerManager.shared.stickerArr {
+                sticker.removeFromSuperview()
+            }
+            if let name = item?.jsonName, name.count > 0 {
+                StickerManager.shared.initCurrentTemplate(jsonName:item!.jsonName!, currentVC: self)
+            }else{
+                StickerManager.shared.getCurrentVC(currentVC: self)
+            }
+            convertStickerFrames(stickers: StickerManager.shared.stickerArr, oldSize: BSWHBundle.image(named: item!.imageBg)!.size, newSize: containerView.frame.size, mode: .fit)
+            resetContainerViewFrame()
+        }
     }
     
     func addPhoto(){
@@ -323,17 +335,13 @@ func convertStickerFrames(
 
     for sticker in stickers {
         let oldCenter = sticker.center
-        let newCenter = CGPoint(x: oldCenter.x * scale + offsetX * scale,
+        let newCenter = CGPoint(x: oldCenter.x * scale + offsetX,
                                 y: oldCenter.y * scale + offsetY)
-
         sticker.totalTranslationPoint.x *= scale
         sticker.totalTranslationPoint.y *= scale
 
         sticker.originScale *= scale
-
         sticker.gesScale = 1
-        // sticker.gesRotation = 0
-
         sticker.updateTransform()
 
         sticker.center = newCenter
