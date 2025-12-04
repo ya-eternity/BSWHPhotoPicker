@@ -106,7 +106,7 @@ extension StickerManager {
     }
     
     // MARK: - 绘制辅助
-    private func composeStickerImage(from model: ImageStickerModel, slotImage: UIImage?) -> UIImage? {
+    public func composeStickerImage(from model: ImageStickerModel, slotImage: UIImage?) -> UIImage? {
         let baseImage = model.image ?? (model.imageName.isEmpty ? nil : BSWHBundle.image(named: model.imageName))
         let _ = baseImage?.size ?? CGSize(
             width: CGFloat(model.originFrameWidth),
@@ -200,7 +200,7 @@ extension StickerManager {
         }
     }
     
-    private func overlayImageWithFrame(_ newImage: UIImage, baseImage: UIImage, frameImage: UIImage) -> UIImage {
+    public func overlayImageWithFrame(_ newImage: UIImage, baseImage: UIImage, frameImage: UIImage) -> UIImage {
         let size = baseImage.size
         
         guard let baseCG = baseImage.cgImage else { return baseImage }
@@ -264,7 +264,7 @@ extension StickerManager {
         }
     }
     
-    private func IrregularMaskOverlayImageWithFrame(_ newImage: UIImage,
+    public func IrregularMaskOverlayImageWithFrame(_ newImage: UIImage,
                                                     baseImage: UIImage,
                                                     frameImage: UIImage,
                                                     inset: CGFloat = 20,
