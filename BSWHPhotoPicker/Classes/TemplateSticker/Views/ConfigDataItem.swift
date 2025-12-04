@@ -41,15 +41,15 @@ public struct TemplateModel {
     public var jsonName:String?
     public var isNeedFit:Bool = false
     public var cornerRadius:Double = 0.0
-    public var videoEnable:Bool = false
+    public var photoCount: Int = 1
 
-    public init(imageName: String? = nil, imageBg: String, jsonName: String? = nil, isNeedFit: Bool = false, cornerRadius: Double = 0.0, videoEnable:Bool = false) {
+    public init(imageName: String? = nil, imageBg: String, jsonName: String? = nil, isNeedFit: Bool = false, cornerRadius: Double = 0.0, photoCount:Int = 1) {
         self.imageName = imageName
         self.imageBg = imageBg
         self.jsonName = jsonName
         self.isNeedFit = isNeedFit
         self.cornerRadius = cornerRadius
-        self.videoEnable = videoEnable
+        self.photoCount = photoCount
     }
 }
 
@@ -235,54 +235,54 @@ class ConfigDataItem {
     }
     
     static func getTemplateListData(forVideo: Bool = false) -> [[TemplateModel]] {
-        let item00 = TemplateModel(imageName: "Christmas01",imageBg: "Christmas00-bg",jsonName: "Christmas00")
-        let item01 = TemplateModel(imageName: "Christmas02",imageBg: "Christmas01-bg",jsonName: "Christmas01",isNeedFit: true)
-        let item02 = TemplateModel(imageName: "Christmas03",imageBg: "Christmas02-bg",jsonName: "Christmas02")
-        let item03 = TemplateModel(imageName: "Christmas04",imageBg: "Christmas03-bg",jsonName: "Christmas03")
-        let item04 = TemplateModel(imageName: "Christmas05",imageBg: "Christmas04-bg",jsonName: "Christmas04")
-        let item05 = TemplateModel(imageName: "Christmas06",imageBg: "Christmas05-bg",jsonName: "Christmas05")
-        let item06 = TemplateModel(imageName: "Christmas07",imageBg: "Christmas06-bg",jsonName: "Christmas06")
+        let item00 = TemplateModel(imageName: "Christmas01",imageBg: "Christmas00-bg",jsonName: "Christmas00", photoCount: 3)
+        let item01 = TemplateModel(imageName: "Christmas02",imageBg: "Christmas01-bg",jsonName: "Christmas01",isNeedFit: true, photoCount: 4)
+        let item02 = TemplateModel(imageName: "Christmas03",imageBg: "Christmas02-bg",jsonName: "Christmas02", photoCount: 2)
+        let item03 = TemplateModel(imageName: "Christmas04",imageBg: "Christmas03-bg",jsonName: "Christmas03", photoCount: 3)
+        let item04 = TemplateModel(imageName: "Christmas05",imageBg: "Christmas04-bg",jsonName: "Christmas04", photoCount: 3)
+        let item05 = TemplateModel(imageName: "Christmas06",imageBg: "Christmas05-bg",jsonName: "Christmas05", photoCount: 2)
+        let item06 = TemplateModel(imageName: "Christmas07",imageBg: "Christmas06-bg",jsonName: "Christmas06", photoCount: 2)
         
-        let item10 = TemplateModel(imageName: "baby01",imageBg: "baby01-bg",jsonName: "baby01")
-        let item11 = TemplateModel(imageName: "baby02",imageBg: "baby02-bg",jsonName: "baby02")
-        let item12 = TemplateModel(imageName: "baby03",imageBg: "baby03-bg",jsonName: "baby03", videoEnable: true)
-        let item13 = TemplateModel(imageName: "baby04",imageBg: "baby04-bg",jsonName: "baby04", videoEnable: true)
-        let item14 = TemplateModel(imageName: "baby05",imageBg: "baby05-bg",jsonName: "baby05", videoEnable: true)
-        let item15 = TemplateModel(imageName: "baby06",imageBg: "baby06-bg",jsonName: "baby06", videoEnable: true)
+        let item10 = TemplateModel(imageName: "baby01",imageBg: "baby01-bg",jsonName: "baby01", photoCount: 2)
+        let item11 = TemplateModel(imageName: "baby02",imageBg: "baby02-bg",jsonName: "baby02", photoCount: 3)
+        let item12 = TemplateModel(imageName: "baby03",imageBg: "baby03-bg",jsonName: "baby03", photoCount: 1)
+        let item13 = TemplateModel(imageName: "baby04",imageBg: "baby04-bg",jsonName: "baby04", photoCount: 1)
+        let item14 = TemplateModel(imageName: "baby05",imageBg: "baby05-bg",jsonName: "baby05", photoCount: 1)
+        let item15 = TemplateModel(imageName: "baby06",imageBg: "baby06-bg",jsonName: "baby06", photoCount: 1)
         
-        let item21 = TemplateModel(imageName: "Birthday01",imageBg: "Birthday01-bg",jsonName: "Birthday01")
-        let item22 = TemplateModel(imageName: "Birthday02",imageBg: "Travel07-bg",jsonName: "Birthday02", videoEnable: true)
-        let item23 = TemplateModel(imageName: "Birthday03",imageBg: "Birthday03-bg",jsonName: "Birthday03", videoEnable: true)
-        let item24 = TemplateModel(imageName: "Birthday04",imageBg: "Birthday04-bg",jsonName: "Birthday04")
-        let item25 = TemplateModel(imageName: "Birthday05",imageBg: "Birthday05-bg",jsonName: "Birthday05")
+        let item21 = TemplateModel(imageName: "Birthday01",imageBg: "Birthday01-bg",jsonName: "Birthday01", photoCount: 2)
+        let item22 = TemplateModel(imageName: "Birthday02",imageBg: "Travel07-bg",jsonName: "Birthday02", photoCount: 1)
+        let item23 = TemplateModel(imageName: "Birthday03",imageBg: "Birthday03-bg",jsonName: "Birthday03", photoCount: 1)
+        let item24 = TemplateModel(imageName: "Birthday04",imageBg: "Birthday04-bg",jsonName: "Birthday04", photoCount: 3)
+        let item25 = TemplateModel(imageName: "Birthday05",imageBg: "Birthday05-bg",jsonName: "Birthday05", photoCount: 2)
 
-        let item31 = TemplateModel(imageName: "Wedding01",imageBg: "wedding01-bg",jsonName: "Wedding01",isNeedFit: true, videoEnable: true)
-        let item32 = TemplateModel(imageName: "Wedding02",imageBg: "wedding02-bg",jsonName: "Wedding02")
-        let item33 = TemplateModel(imageName: "Wedding03",imageBg: "wedding03-bg",jsonName: "Wedding03", videoEnable: true)
-        let item34 = TemplateModel(imageName: "Wedding04",imageBg: "wedding04-bg",jsonName: "Wedding04")
-        let item35 = TemplateModel(imageName: "Wedding05",imageBg: "wedding05-bg",jsonName: "Wedding05")
+        let item31 = TemplateModel(imageName: "Wedding01",imageBg: "wedding01-bg",jsonName: "Wedding01",isNeedFit: true, photoCount: 1)
+        let item32 = TemplateModel(imageName: "Wedding02",imageBg: "wedding02-bg",jsonName: "Wedding02", photoCount: 3)
+        let item33 = TemplateModel(imageName: "Wedding03",imageBg: "wedding03-bg",jsonName: "Wedding03", photoCount: 1)
+        let item34 = TemplateModel(imageName: "Wedding04",imageBg: "wedding04-bg",jsonName: "Wedding04", photoCount: 3)
+        let item35 = TemplateModel(imageName: "Wedding05",imageBg: "wedding05-bg",jsonName: "Wedding05", photoCount: 3)
 
-        let item41 = TemplateModel(imageName: "Travel01",imageBg: "Travel01-bg",jsonName: "Travel01",isNeedFit: true)
-        let item42 = TemplateModel(imageName: "Travel02",imageBg: "Travel02-bg",jsonName: "Travel02")
-        let item43 = TemplateModel(imageName: "Travel03",imageBg: "Travel03-bg",jsonName: "Travel03", videoEnable: true)
-        let item44 = TemplateModel(imageName: "Travel04",imageBg: "Travel04-bg",jsonName: "Travel04", videoEnable: true)
-        let item45 = TemplateModel(imageName: "Travel05",imageBg: "Travel05-bg",jsonName: "Travel05", videoEnable: true)
-        let item46 = TemplateModel(imageName: "Travel06",imageBg: "Travel06-bg",jsonName: "Travel06")
-        let item47 = TemplateModel(imageName: "Travel07",imageBg: "Travel07-bg",jsonName: "Travel07", videoEnable: true)
+        let item41 = TemplateModel(imageName: "Travel01",imageBg: "Travel01-bg",jsonName: "Travel01",isNeedFit: true, photoCount: 3)
+        let item42 = TemplateModel(imageName: "Travel02",imageBg: "Travel02-bg",jsonName: "Travel02", photoCount: 7)
+        let item43 = TemplateModel(imageName: "Travel03",imageBg: "Travel03-bg",jsonName: "Travel03", photoCount: 1)
+        let item44 = TemplateModel(imageName: "Travel04",imageBg: "Travel04-bg",jsonName: "Travel04", photoCount: 1)
+        let item45 = TemplateModel(imageName: "Travel05",imageBg: "Travel05-bg",jsonName: "Travel05", photoCount: 1)
+        let item46 = TemplateModel(imageName: "Travel06",imageBg: "Travel06-bg",jsonName: "Travel06", photoCount: 2)
+        let item47 = TemplateModel(imageName: "Travel07",imageBg: "Travel07-bg",jsonName: "Travel07", photoCount: 1)
 
-        let item51 = TemplateModel(imageName: "Scrapbook01",imageBg: "Scrapbook01-bg",jsonName: "Scrapbook01")
-        let item52 = TemplateModel(imageName: "Scrapbook02",imageBg: "Scrapbook02-bg",jsonName: "Scrapbook02",isNeedFit: true)
-        let item53 = TemplateModel(imageName: "Scrapbook03",imageBg: "Scrapbook03-bg",jsonName: "Scrapbook03")
-        let item54 = TemplateModel(imageName: "Scrapbook04",imageBg: "Scrapbook04-bg",jsonName: "Scrapbook04")
-        let item55 = TemplateModel(imageName: "Scrapbook05",imageBg: "Scrapbook05-bg",jsonName: "Scrapbook05")
+        let item51 = TemplateModel(imageName: "Scrapbook01",imageBg: "Scrapbook01-bg",jsonName: "Scrapbook01", photoCount: 3)
+        let item52 = TemplateModel(imageName: "Scrapbook02",imageBg: "Scrapbook02-bg",jsonName: "Scrapbook02",isNeedFit: true, photoCount: 2)
+        let item53 = TemplateModel(imageName: "Scrapbook03",imageBg: "Scrapbook03-bg",jsonName: "Scrapbook03", photoCount: 2)
+        let item54 = TemplateModel(imageName: "Scrapbook04",imageBg: "Scrapbook04-bg",jsonName: "Scrapbook04", photoCount: 3)
+        let item55 = TemplateModel(imageName: "Scrapbook05",imageBg: "Scrapbook05-bg",jsonName: "Scrapbook05", photoCount: 3)
 
-        let item61 = TemplateModel(imageName: "PhotoFrame01",imageBg: "PhotoFrame01-bg",jsonName: "PhotoFrame01", videoEnable: true)
-        let item62 = TemplateModel(imageName: "PhotoFrame02",imageBg: "PhotoFrame02-bg",jsonName: "PhotoFrame02",cornerRadius: 48.h, videoEnable: true)
-        let item63 = TemplateModel(imageName: "PhotoFrame03",imageBg: "PhotoFrame03-bg",jsonName: "PhotoFrame03",cornerRadius: 48.h, videoEnable: true)
-        let item64 = TemplateModel(imageName: "PhotoFrame04",imageBg: "PhotoFrame04-bg",jsonName: "PhotoFrame04", videoEnable: true)
-        let item65 = TemplateModel(imageName: "PhotoFrame05",imageBg: "PhotoFrame05-bg",jsonName: "PhotoFrame05", videoEnable: true)
-        let item66 = TemplateModel(imageName: "PhotoFrame06",imageBg: "PhotoFrame06-bg",jsonName: "PhotoFrame06", videoEnable: true)
-        let item67 = TemplateModel(imageName: "PhotoFrame07",imageBg: "PhotoFrame07-bg",jsonName: "PhotoFrame07", videoEnable: true)
+        let item61 = TemplateModel(imageName: "PhotoFrame01",imageBg: "PhotoFrame01-bg",jsonName: "PhotoFrame01", photoCount: 1)
+        let item62 = TemplateModel(imageName: "PhotoFrame02",imageBg: "PhotoFrame02-bg",jsonName: "PhotoFrame02",cornerRadius: 48.h, photoCount: 1)
+        let item63 = TemplateModel(imageName: "PhotoFrame03",imageBg: "PhotoFrame03-bg",jsonName: "PhotoFrame03",cornerRadius: 48.h, photoCount: 1)
+        let item64 = TemplateModel(imageName: "PhotoFrame04",imageBg: "PhotoFrame04-bg",jsonName: "PhotoFrame04", photoCount: 1)
+        let item65 = TemplateModel(imageName: "PhotoFrame05",imageBg: "PhotoFrame05-bg",jsonName: "PhotoFrame05", photoCount: 1)
+        let item66 = TemplateModel(imageName: "PhotoFrame06",imageBg: "PhotoFrame06-bg",jsonName: "PhotoFrame06", photoCount: 1)
+        let item67 = TemplateModel(imageName: "PhotoFrame07",imageBg: "PhotoFrame07-bg",jsonName: "PhotoFrame07", photoCount: 1)
 
         
         let items = [[item00,item01,item02,item03,item04,item05,item06,item10,item11,item12,item13,item14,item15,item21,item23,item24,item25,item31,item32,item33,item34,item35,item41,item42,item43,item44,item45,item46,item47,item51,item52,item53,item54,item55,item61,item62,item63,item64,item65,item66,item67],
@@ -295,7 +295,7 @@ class ConfigDataItem {
             [item61,item62,item63,item64,item65,item66,item67]
         ]
         if forVideo {
-            return items.map { $0.filter { $0.videoEnable } }
+            return items.map { $0.filter { $0.photoCount == 1 } }
         }
         return items
     }
