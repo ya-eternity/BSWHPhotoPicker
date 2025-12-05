@@ -152,7 +152,10 @@ extension EditImageViewController:ToolsCollectionViewDelegate {
             }else{
                 StickerManager.shared.getCurrentVC(currentVC: self)
             }
-            convertStickerFrames(stickers: StickerManager.shared.stickerArr, oldSize: BSWHBundle.image(named: item!.imageBg)!.size, newSize: containerView.frame.size, mode: .fit)
+            convertStickerFrames(stickers: StickerManager.shared.stickerArr,
+                                 oldSize: item?.isNeedFit == true ? CGSize(width: kkScreenWidth, height: kkScreenHeight) : containerViewOriginFrame.size,
+                                 newSize: containerView.frame.size,
+                                 mode: .fit)
             resetContainerViewFrame()
         }
     }
@@ -164,7 +167,6 @@ extension EditImageViewController:ToolsCollectionViewDelegate {
                 print("🎉 收到代理返回的图片：\(img)")
                 replaceBgImage(image: img)
                 resetContainerViewFrame()
-//                    convertStickerFrames(stickers: StickerManager.shared.stickerArr, oldSize: BSWHBundle.image(named: item!.imageBg)!.size, newSize: containerView.frame.size, mode: .fit)
             } else {
                 print("⚠️ 没有返回图片")
             }
@@ -292,29 +294,28 @@ extension EditImageViewController:RatioToolViewDelegate {
                 StickerManager.shared.getCurrentVC(currentVC: self)
             }
             
-            convertStickerFrames(
-                stickers: StickerManager.shared.stickerArr,
-                oldSize: image!.size,
-                newSize: squareImage.size,mode: .fit
-            )
             replaceBgImage(image: squareImage)
             resetContainerViewFrame()
+            let newFrame = containerView.frame
+            convertStickerFrames(
+                stickers: StickerManager.shared.stickerArr,
+                oldSize: item?.isNeedFit == true ? CGSize(width: kkScreenWidth, height: kkScreenHeight) : containerViewOriginFrame.size,
+                newSize: newFrame.size,
+                mode: .fit
+            )
         }
     }
-    
-    
-
 }
 
 func convertStickerFrames(
     stickers: [EditableStickerView],
     oldSize: CGSize,
     newSize: CGSize,
-    mode: CanvasResizeMode
+    mode: CanvasResizeMode,
 ) {
     guard oldSize.width > 0, oldSize.height > 0 else { return }
-
-    // 计算 scale
+    //
+    // scale
     let scaleByWidth = newSize.width / oldSize.width
     let scaleByHeight = newSize.height / oldSize.height
 
@@ -325,25 +326,37 @@ func convertStickerFrames(
     case .byHeight:
         scale = scaleByHeight
     case .fit:
-        scale = min(scaleByWidth, scaleByHeight) * (newSize.width / kkScreenWidth)
+        scale = min(scaleByWidth, scaleByHeight)
     }
 
+    // 缩放后 canvas 尺寸
     let scaledCanvasW = oldSize.width * scale
     let scaledCanvasH = oldSize.height * scale
+
+    // 居中偏移
     let offsetX = (newSize.width - scaledCanvasW) / 2.0
     let offsetY = (newSize.height - scaledCanvasH) / 2.0
 
     for sticker in stickers {
-        let oldCenter = sticker.center
-        let newCenter = CGPoint(x: oldCenter.x * scale + offsetX,
-                                y: oldCenter.y * scale + offsetY)
-        sticker.totalTranslationPoint.x *= scale
-        sticker.totalTranslationPoint.y *= scale
 
+        let oldCenter = sticker.center
+
+        // 比例
+        let percentX = oldCenter.x / oldSize.width
+        let percentY = oldCenter.y / oldSize.height
+
+        // 正确的新中心点（关键代码）
+        let newCenter = CGPoint(
+            x: percentX * scaledCanvasW + offsetX,
+            y: percentY * scaledCanvasH + offsetY
+        )
+
+        // 缩放
         sticker.originScale *= scale
         sticker.gesScale = 1
         sticker.updateTransform()
 
+        // 设置位置
         sticker.center = newCenter
 
         sticker.setNeedsLayout()

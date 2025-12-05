@@ -38,12 +38,14 @@ public protocol StickerManagerDelegate: AnyObject {
 // MARK: - StickerManager
 public final class StickerManager: NSObject {
     weak var controller: EditImageViewController?
-    private weak var currentStickerView: ZLImageStickerView?
+    private weak var currentStickerView: EditableStickerView?
     var modelMap: [String: ImageStickerModel] = [:]
     var stickerArr: [EditableStickerView] = []
     public weak var delegate: StickerManagerDelegate?
     var persentType:Int = 0
     var templateOrBackground:Int = 0
+    public lazy var templateHomeData:[TemplateHomeModel] = ConfigDataItem.getTemplateHomeData()
+    public lazy var backgroundHomeData:[TemplateHomeModel] = ConfigDataItem.getBackgroundHomeData()
     public var selectedTemplateIndex = 0
     public static let shared = StickerManager()
     private override init() {
@@ -271,6 +273,7 @@ extension StickerManager: PHPickerViewControllerDelegate {
                                     let newState = stickerView.state
                                     stickerView.setOperation02(false,oldState:oldState,newState:newState)
                                 }
+                                self.controller?.currentSticker = self.currentStickerView
                                 self.controller?.backAndreBackStatus()
                             }
                         }

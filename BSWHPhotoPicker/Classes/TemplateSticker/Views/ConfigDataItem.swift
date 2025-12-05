@@ -42,6 +42,7 @@ public struct TemplateModel {
     public var isNeedFit:Bool = false
     public var cornerRadius:Double = 0.0
     public var photoCount: Int = 1
+    public var templateType:String = "Party"
 
     public init(imageName: String? = nil, imageBg: String, jsonName: String? = nil, isNeedFit: Bool = false, cornerRadius: Double = 0.0, photoCount:Int = 1) {
         self.imageName = imageName
@@ -53,6 +54,10 @@ public struct TemplateModel {
     }
 }
 
+public struct TemplateHomeModel {
+    public var image:UIImage?
+    public var templateType:String = "Party"
+}
 //public struct BackgroundModel {
 //    var imageBg:String = "Christmas00-bg"
 //}
@@ -232,6 +237,23 @@ class ConfigDataItem {
                      BSWHPhotoPickerLocalization.shared.localized("Scrapbook"),
                      BSWHPhotoPickerLocalization.shared.localized("photoframe")]
         return items
+    }
+    
+    static func getBackgroundHomeData() -> [TemplateHomeModel] {
+        let item00 = TemplateHomeModel(image: BSWHBundle.image(named: "backgroundHome03"),templateType: BSWHPhotoPickerLocalization.shared.localized("Texture"))
+        let item10 = TemplateHomeModel(image:BSWHBundle.image(named: "backgroundHome02"),templateType: BSWHPhotoPickerLocalization.shared.localized("Color"))
+        let item23 = TemplateHomeModel(image: BSWHBundle.image(named: "backgroundHome01") ,templateType: BSWHPhotoPickerLocalization.shared.localized("Pattern"))
+        let item32 = TemplateHomeModel(image: BSWHBundle.image(named: "backgroundHome02"),templateType: BSWHPhotoPickerLocalization.shared.localized("Geometric"))
+        return  [item00,item10,item23,item32]
+    }
+    
+    
+    static func getTemplateHomeData() -> [TemplateHomeModel] {
+        let item00 = TemplateHomeModel(image: BSWHBundle.image(named: "Christmas01"),templateType: BSWHPhotoPickerLocalization.shared.localized("Christmas"))
+        let item10 = TemplateHomeModel(image:BSWHBundle.image(named: "baby01"),templateType: BSWHPhotoPickerLocalization.shared.localized("Baby"))
+        let item23 = TemplateHomeModel(image: BSWHBundle.image(named: "Birthday03") ,templateType: BSWHPhotoPickerLocalization.shared.localized("Birthday"))
+        let item32 = TemplateHomeModel(image: BSWHBundle.image(named: "Wedding02"),templateType: BSWHPhotoPickerLocalization.shared.localized("WeddingParty"))
+        return  [item00,item10,item23,item32]
     }
     
     static func getTemplateListData(forVideo: Bool = false) -> [[TemplateModel]] {

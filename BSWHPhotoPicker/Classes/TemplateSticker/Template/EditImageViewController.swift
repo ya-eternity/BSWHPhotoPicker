@@ -15,6 +15,7 @@ let kRatioToolsViewHeight = 193.h
 
 public class EditImageViewController: ZLEditImageViewController {
     var item:TemplateModel? = nil
+    var containerViewOriginFrame = CGRectZero
     var pickerColor:UIColor? = nil
     var currentSticker:EditableStickerView? = nil
     var photos: [UIImage]? = nil
@@ -116,9 +117,14 @@ public class EditImageViewController: ZLEditImageViewController {
         mainScrollView.backgroundColor = kkColorFromHex("F5F5F5")
         mainScrollView.showsVerticalScrollIndicator = false
         mainScrollView.showsHorizontalScrollIndicator = false
+        
+        containerViewOriginFrame = containerView.frame
+
         //根据调整后的containerView布局里面的贴纸
         if item?.isNeedFit == true {
-            convertStickerFrames(stickers: StickerManager.shared.stickerArr, oldSize: BSWHBundle.image(named: item!.imageBg)!.size, newSize: containerView.frame.size, mode: .fit)
+            convertStickerFrames(stickers: StickerManager.shared.stickerArr, oldSize: CGSize(width: kkScreenWidth, height: kkScreenHeight), newSize: containerView.frame.size,
+                                 mode: .fit
+            )
         }
         
         if item?.cornerRadius != 0.0 {
@@ -258,6 +264,7 @@ public class EditImageViewController: ZLEditImageViewController {
         }
         contentView.layoutIfNeeded()
         resetContainerViewFrame()
+        
         
         self.ratioToolViewBottomConstraint?.update(offset: kRatioToolsViewHeight)
         UIView.animate(withDuration: 0.25) { [self] in

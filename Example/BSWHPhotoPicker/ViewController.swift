@@ -149,13 +149,19 @@ class ViewController: UIViewController {
     }
     @objc private func onClickLang00(_ sender: UIButton) {
         BSWHPhotoPickerLocalization.shared.currentLanguage = "en"
+        let model:TemplateHomeModel = StickerManager.shared.templateHomeData[1]
+        print(model.templateType)
+        print(model.image!)
         StickerManager.shared.selectedTemplateIndex = 1
         presentVC()
     }
     @objc private func onClickLang01(_ sender: UIButton) {
         BSWHPhotoPickerLocalization.shared.currentLanguage = "zh"
+        let model:TemplateHomeModel = StickerManager.shared.backgroundHomeData[1]
+        print(model.templateType)
+        print(model.image!)
         StickerManager.shared.selectedTemplateIndex = 2
-        presentVC()
+        presentBgVC()
     }
     @objc private func onClickRender(_ sender: UIButton) {
         
