@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import SnapKit
-
-
 
 protocol RatioCollectionViewDelegate: AnyObject {
     func ratioCellDidSelectItemAt(_ sender: RatioCollectionView,indexPath:IndexPath,item:RatioToolsModel)

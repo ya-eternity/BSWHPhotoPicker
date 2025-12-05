@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 protocol CustomScrViewListDelegate: AnyObject {
     func scrViewDidSelect(index: Int)

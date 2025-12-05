@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import SnapKit
 import PhotosUI
+import SnapKit
 
 let kstickerToolsViewHeight = 166.h
 let kRatioToolsViewHeight = 193.h
