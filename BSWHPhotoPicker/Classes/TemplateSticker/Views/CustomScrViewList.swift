@@ -18,13 +18,14 @@ class CustomScrViewList: UIView {
         didSet { reloadData() }
     }
     
-    var btnFont: UIFont = .systemFont(ofSize: 14.h, weight: .medium)
-    var btnSelectedFont: UIFont = .systemFont(ofSize: 14.h, weight: .regular)
+    var btnFont: UIFont = .systemFont(ofSize: 14.h, weight: .regular)
+    var btnSelectedFont: UIFont = .systemFont(ofSize: 14.h, weight: .medium)
     
     var btnColor: UIColor = .darkGray
     var btnSelectedTextColor: UIColor = .white
     
     var btnBackgroundColor: UIColor = .clear
+    var btnSelectBgColor: UIColor?
     var btnCornerRadius: CGFloat = 12
     
     // 未选中时边框
@@ -69,6 +70,7 @@ class CustomScrViewList: UIView {
             btn.setTitleColor(btnSelectedTextColor, for: .selected)
             btn.titleLabel?.font = btnFont
             btn.backgroundColor = btnBackgroundColor
+            btn.tintColor = .clear
             btn.layer.cornerRadius = btnCornerRadius
             btn.layer.borderWidth = btnBorderWidth
             btn.layer.borderColor = btnBorderColor.cgColor
@@ -125,20 +127,25 @@ class CustomScrViewList: UIView {
                 btn.isSelected = true
                 btn.titleLabel?.font = btnSelectedFont
                 btn.layer.borderWidth = 0
-                
-                let gradient = CAGradientLayer()
-                gradient.frame = btn.bounds
-                gradient.colors = [kkColorFromHex("D500FF").cgColor, kkColorFromHex("FD57AF").cgColor]
-                gradient.startPoint = CGPoint(x: 0, y: 0.5)
-                gradient.endPoint = CGPoint(x: 1, y: 0.5)
-                gradient.cornerRadius = btnCornerRadius
-                btn.layer.insertSublayer(gradient, at: 0)
+                if let color = btnSelectBgColor {
+                    btn.backgroundColor = color
+                } else {
+                    let gradient = CAGradientLayer()
+                    gradient.frame = btn.bounds
+                    gradient.colors = [kkColorFromHex("D500FF").cgColor, kkColorFromHex("FD57AF").cgColor]
+                    gradient.startPoint = CGPoint(x: 0, y: 0.5)
+                    gradient.endPoint = CGPoint(x: 1, y: 0.5)
+                    gradient.cornerRadius = btnCornerRadius
+                    btn.layer.insertSublayer(gradient, at: 0)
+                }
             } else {
                 btn.isSelected = false
                 btn.titleLabel?.font = btnFont
                 btn.backgroundColor = btnBackgroundColor
-                btn.layer.borderWidth = btnBorderWidth
-                btn.layer.borderColor = btnBorderColor.cgColor
+                if btnBorderWidth > 0 {
+                    btn.layer.borderWidth = btnBorderWidth
+                    btn.layer.borderColor = btnBorderColor.cgColor
+                }
             }
         }
         

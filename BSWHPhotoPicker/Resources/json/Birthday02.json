@@ -1,5 +1,5 @@
 [{
-    "imageName": "Birthday02-sticker-bg00",
+    "imageName": "empty",
     "originScale": 1,
     "originAngle": 0,
     "originFrameX": 47,
@@ -12,10 +12,9 @@
     "overlayRectY": 0,
     "overlayRectWidth": 1,
     "overlayRectHeight": 1,
-    "imageType": "IrregularShape",
-    "imageMask": "addEmptyImage",
+    "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addEmptyImage"
+    "bgAddImageType":"Birthday02-sticker-bg00"
 },{
     "imageName": "empty",
     "originScale": 1,

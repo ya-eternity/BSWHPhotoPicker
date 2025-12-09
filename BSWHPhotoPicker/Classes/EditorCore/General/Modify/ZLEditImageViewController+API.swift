@@ -299,6 +299,7 @@ public class ImageStickerModel: Codable {
     public var cornerRadiusScale:Double? = 0.1
     /// 异形显示的遮罩图片
     public var imageMask:String? = ""
+    public var maskTransparent:Bool = false
     /// 是否是可以添加照片的贴图
     public var isBgImage:Bool = false
     /// 贴图上添加照片的照片
@@ -306,7 +307,11 @@ public class ImageStickerModel: Codable {
     /// 可添加照片贴图中间加号图片类型
     public var bgAddImageType: String? = "addGrayImage"
     public var stickerImage: UIImage? {
-        UIImage(data: (imageData ?? BSWHBundle.image(named: bgAddImageType!)!.pngData())!)
+        if let imageData = imageData {
+           return UIImage(data: imageData)
+        } else {
+           return BSWHBundle.image(named: bgAddImageType!)
+        }
     }
     public var zIndex:Int? = 0
     
@@ -328,6 +333,7 @@ public class ImageStickerModel: Codable {
         case imageType
         case cornerRadiusScale
         case imageMask
+        case maskTransparent
         case isBgImage
         case bgAddImageType
         case zIndex
@@ -360,6 +366,7 @@ public class ImageStickerModel: Codable {
         imageType = try container.decodeIfPresent(ImageAddType.self, forKey: .imageType)
         cornerRadiusScale = try container.decodeIfPresent(Double.self, forKey: .cornerRadiusScale) ?? 0.1
         imageMask = try container.decodeIfPresent(String.self, forKey: .imageMask)
+        maskTransparent = try container.decodeIfPresent(Bool.self, forKey: .maskTransparent) ?? false
         isBgImage = try container.decodeIfPresent(Bool.self, forKey: .isBgImage) ?? false
         bgAddImageType = try container.decodeIfPresent(String.self, forKey: .bgAddImageType) ?? "addGrayImage"
         zIndex = try container.decodeIfPresent(Int.self, forKey: .zIndex) ?? 0
@@ -390,6 +397,7 @@ public class ImageStickerModel: Codable {
         try container.encodeIfPresent(imageType, forKey: .imageType)
         try container.encodeIfPresent(cornerRadiusScale, forKey: .cornerRadiusScale)
         try container.encodeIfPresent(imageMask, forKey: .imageMask)
+        try container.encodeIfPresent(maskTransparent, forKey: .maskTransparent)
         try container.encode(isBgImage, forKey: .isBgImage)
         try container.encode(bgAddImageType, forKey: .bgAddImageType)
         try container.encode(zIndex, forKey: .zIndex)

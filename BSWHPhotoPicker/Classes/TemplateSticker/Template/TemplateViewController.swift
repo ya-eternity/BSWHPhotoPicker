@@ -14,18 +14,25 @@ public class TemplateViewController: UIViewController, UIScrollViewDelegate {
     public var forVideo: Bool = false
 
     let topView = UIView()
-    private lazy var backBtn = UIImageView().image(BSWHBundle.image(named: "templateNavBack")).enable(true).onTap {
+    private lazy var backBtn = UIImageView().image(StickerManager.shared.backBtnImage).enable(true).onTap {
         self.dismiss(animated: true)
     }
-    private lazy var titleLab = UILabel().color(kkColorFromHex("333333")).hnFont(size: 18.h, weight: .boldBase).centerAligned()
+    private lazy var titleLab = UILabel().color(textColor).hnFont(size: 18.h, weight: .boldBase).centerAligned()
     let tabView = CustomScrViewList()
     var collectionView: UICollectionView!
     private var titles:[String] = []
     var items:[[TemplateModel]] = []
     
-    public init(isSelected: Bool = false, forVideo: Bool = false) {
+    private var bgColor: UIColor = .white
+    private var textColor: UIColor = kkColorFromHex("333333")
+    private var btnSelectColor: UIColor?
+
+    public init(isSelected: Bool = false, forVideo: Bool = false, bgColor: UIColor = .white, textColor: UIColor = kkColorFromHex("333333"), btnSelectColor: UIColor? = nil) {
         self.isSelected = isSelected
         self.forVideo = forVideo
+        self.bgColor = bgColor
+        self.textColor = textColor
+        self.btnSelectColor = btnSelectColor
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,7 +46,7 @@ public class TemplateViewController: UIViewController, UIScrollViewDelegate {
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = bgColor
         StickerManager.shared.templateOrBackground = 1
         titles = ConfigDataItem.getTemplateTabData()
         items = ConfigDataItem.getTemplateListData(forVideo: forVideo)
@@ -52,14 +59,21 @@ public class TemplateViewController: UIViewController, UIScrollViewDelegate {
     private func setupTabView() {
         
         view.addSubview(topView)
-        topView.backgroundColor(.white)
+        topView.backgroundColor(bgColor)
         topView.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
             make.height.equalTo(kkNAVIGATION_BAR_HEIGHT + 44.h)
         }
         
+        if let color = btnSelectColor {
+            tabView.btnColor = textColor
+            tabView.btnSelectedTextColor = textColor
+            tabView.btnSelectBgColor = color
+            tabView.btnBorderWidth = 0
+            tabView.btnCornerRadius = 8
+        }
         tabView.titles = titles
-        tabView.backgroundColor = .white
+        tabView.backgroundColor = bgColor
         tabView.delegate = self
         topView.addSubview(tabView)
         topView.addSubview(backBtn)
@@ -97,7 +111,7 @@ public class TemplateViewController: UIViewController, UIScrollViewDelegate {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = bgColor
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(ContentCell.self, forCellWithReuseIdentifier: "ContentCell")
@@ -215,7 +229,7 @@ class ContentCell: UICollectionViewCell {
         layout.sectionInset = UIEdgeInsets(top: 12, left: 8, bottom: 8, right: 8)
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsVerticalScrollIndicator = false

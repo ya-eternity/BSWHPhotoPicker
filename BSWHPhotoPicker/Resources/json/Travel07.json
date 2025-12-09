@@ -1,5 +1,5 @@
 [{
-    "imageName": "Travel-sticker-bg06",
+    "imageName": "empty",
     "originScale": 1,
     "originAngle": 0.1,
     "originFrameX": 50,
@@ -12,10 +12,9 @@
     "overlayRectY": 0,
     "overlayRectWidth": 1,
     "overlayRectHeight": 1,
-    "imageType": "IrregularShape",
-    "imageMask": "addEmptyImage",
+    "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addEmptyImage"
+    "bgAddImageType":"Travel-sticker-bg06"
 },{
       "imageName": "empty",
       "originScale": 1,

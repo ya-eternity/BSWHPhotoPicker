@@ -13,6 +13,7 @@
       "overlayRectWidth": 0.94,
       "overlayRectHeight": 0.7,
       "imageType": "square",
+      "imageMask": "PhotoFrame06-sticker-bg00",
       "isBgImage": true,
       "bgAddImageType":"addWhiteImage"
   },{

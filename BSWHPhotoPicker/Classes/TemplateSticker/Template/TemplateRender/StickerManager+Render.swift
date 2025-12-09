@@ -53,8 +53,12 @@ extension StickerManager {
         let scaleW = canvasSize.width / 375.0
         
         // 保持模板原始顺序作为 zIndex 默认值
+        var photoIsBg = true
         let orderedModels = models.enumerated().map { idx, model -> ImageStickerModel in
             model.zIndex = model.zIndex ?? idx
+            if (model.bgAddImageType == "addGrayImage" || model.bgAddImageType == "addWhiteImage") {
+                photoIsBg = false
+            }
             return model
         }.sorted { ($0.zIndex ?? 0) < ($1.zIndex ?? 0) }
         
@@ -71,7 +75,11 @@ extension StickerManager {
                 ).addClip()
             }
             
-            bgImage.draw(in: CGRect(origin: .zero, size: canvasSize))
+            if photoIsBg, let photo = photos.first {
+                photo.draw(in: rectForCenterCrop(image: photo, in: CGRect(origin: .zero, size: canvasSize)))
+            } else {
+                bgImage.draw(in: CGRect(origin: .zero, size: canvasSize))
+            }
             
             for model in orderedModels {
                 // 需要填充的照片
@@ -114,6 +122,23 @@ extension StickerManager {
         }
     }
     
+    private func rectForCenterCrop(image: UIImage, in target: CGRect) -> CGRect {
+        let imageSize = image.size
+        let targetSize = target.size
+        
+        let scale = max(targetSize.width / imageSize.width,
+                        targetSize.height / imageSize.height)
+        
+        let scaledWidth = imageSize.width * scale
+        let scaledHeight = imageSize.height * scale
+        
+        let x = target.midX - scaledWidth / 2
+        let y = target.midY - scaledHeight / 2
+        
+        return CGRect(x: x, y: y, width: scaledWidth, height: scaledHeight)
+    }
+
+    
       /// 仅支持 photoCount == 1：预生成背景/上层遮罩/槽位遮罩，便于 CI/Metal 合成。
     public func prebuildTemplateLayers(template: TemplateModel) -> TemplatePrebuiltLayers? {
         guard template.photoCount == 1,
@@ -128,8 +153,16 @@ extension StickerManager {
             return m
         }.sorted { ($0.zIndex ?? 0) < ($1.zIndex ?? 0) }
 
-        guard let slotModel = ordered.first(where: { $0.isBgImage && ($0.bgAddImageType == "addGrayImage" || $0.bgAddImageType == "addWhiteImage") }) else {
-            return nil
+        var slotModel: ImageStickerModel
+        if let model = ordered.first(where: { $0.isBgImage && ($0.bgAddImageType == "addGrayImage" || $0.bgAddImageType == "addWhiteImage") }) {
+            slotModel = model
+        } else {
+            slotModel = ImageStickerModel()
+            slotModel.zIndex = -1
+            slotModel.originFrameX = 0
+            slotModel.originFrameY = 0
+            slotModel.originFrameWidth = 375.0
+            slotModel.originFrameHeight = canvasSize.height/scaleW
         }
 
         // 背景 + 槽位下方
@@ -203,6 +236,9 @@ extension StickerManager {
     private func buildSlotMask(slotModel: ImageStickerModel,
                                canvasSize: CGSize,
                                scaleW: CGFloat) -> (contentMask: UIImage?, borderMask: UIImage?) {
+        if slotModel.zIndex == -1 {
+            return (nil, nil)
+        }
         let frame = CGRect(
             x: CGFloat(slotModel.originFrameX) * scaleW,
             y: CGFloat(slotModel.originFrameY) * scaleW,
@@ -241,14 +277,18 @@ extension StickerManager {
                 height: overlayScaled.height
             )
             
-            if imageTypeRaw == "IrregularShape" || imageTypeRaw == "IrregularMask",
-               let frameImg = BSWHBundle.image(named: slotModel.imageName) {
-                frameImg.draw(in: CGRect(
-                    x: -finalSize.width / 2,
-                    y: -finalSize.height / 2,
-                    width: finalSize.width,
-                    height: finalSize.height
-                ), blendMode: .normal, alpha: 1.0)
+//            if imageTypeRaw == "IrregularShape" || imageTypeRaw == "IrregularMask",
+            if let frameImg = BSWHBundle.image(named: slotModel.imageName) {
+                if slotModel.maskTransparent {
+                    frameImg.draw(in: drawRect, blendMode: .normal, alpha: 1.0)
+                } else {
+                    frameImg.draw(in: CGRect(
+                        x: -finalSize.width / 2,
+                        y: -finalSize.height / 2,
+                        width: finalSize.width,
+                        height: finalSize.height
+                    ), blendMode: .normal, alpha: 1.0)
+                }
             } else {
                 let path: UIBezierPath = {
                     switch imageTypeRaw {
@@ -266,8 +306,7 @@ extension StickerManager {
             cg.restoreGState()
         }
         var bordermask: UIImage? = nil
-        if imageTypeRaw == "IrregularShape" || imageTypeRaw == "IrregularMask",
-           let mask = slotModel.imageMask,
+        if let mask = slotModel.imageMask,
             let maskImage = BSWHBundle.image(named: mask) {
             bordermask = UIGraphicsImageRenderer(size: canvasSize).image { ctx in
                 let cg = ctx.cgContext
@@ -276,7 +315,6 @@ extension StickerManager {
                 cg.translateBy(x: frame.midX, y: frame.midY)
                 let angle = CGFloat(slotModel.originAngle + slotModel.gesRotation) * .pi / 180
                 cg.rotate(by: angle)
-                
                 maskImage.draw(in: CGRect(
                     x: -finalSize.width / 2,
                     y: -finalSize.height / 2,
@@ -315,7 +353,11 @@ extension StickerManager {
                 let base = baseImage,
                 let frame = BSWHBundle.image(named: maskName)
             else { return baseImage }
-            return overlayImageWithFrame(newImage, baseImage: base, frameImage: frame)
+            var inset = CGRect(x: 0, y: 0, width: 1, height: 1)
+            if model.maskTransparent {
+                inset = CGRect(x: model.overlayRectX ?? 0, y: model.overlayRectY ?? 0, width: model.overlayRectWidth ?? 0, height: model.overlayRectHeight ?? 0)
+            }
+            return overlayImageWithFrame(newImage, baseImage: base, frameImage: frame, inset: inset)
         } else if imageTypeRaw == "IrregularMask" {
             guard
                 !model.imageName.isEmpty,
@@ -354,9 +396,16 @@ extension StickerManager {
                 case "square":
                     return UIBezierPath(rect: overlayRect)
                 case "rectangle":
-                    var cornerRadius = 16.0.h
-                    if model.imageName == "Travel-sticker-bg03" {
-                        cornerRadius = 57.h
+                    var cornerRadius = 16.w
+//                    if model.imageName == "Travel-sticker-bg03" {
+//                        cornerRadius = 57.h
+//                    }
+                    if let cornerRadiusScale = model.cornerRadiusScale {
+                        if cornerRadiusScale < 1 {
+                            cornerRadius = min(overlayRect.width, overlayRect.height) * cornerRadiusScale
+                        } else {
+                            cornerRadius = cornerRadiusScale
+                        }
                     }
                     return UIBezierPath(roundedRect: overlayRect, cornerRadius: cornerRadius)
                 default:
@@ -386,66 +435,25 @@ extension StickerManager {
         }
     }
     
-    public func overlayImageWithFrame(_ newImage: UIImage, baseImage: UIImage, frameImage: UIImage) -> UIImage {
+    public func overlayImageWithFrame(_ newImage: UIImage, baseImage: UIImage, frameImage: UIImage, inset: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)) -> UIImage {
         let size = baseImage.size
-        
-        guard let baseCG = baseImage.cgImage else { return baseImage }
-        
-        let width = baseCG.width
-        let height = baseCG.height
-        let bitsPerComponent = 8
-        let bytesPerRow = width
-        var alphaData = [UInt8](repeating: 0, count: width * height)
-        
-        let colorSpace = CGColorSpaceCreateDeviceGray()
-        guard let context = CGContext(data: &alphaData,
-                                      width: width,
-                                      height: height,
-                                      bitsPerComponent: bitsPerComponent,
-                                      bytesPerRow: bytesPerRow,
-                                      space: colorSpace,
-                                      bitmapInfo: 0) else { return baseImage }
-        context.draw(baseCG, in: CGRect(x: 0, y: 0, width: width, height: height))
-        
-        var flippedAlpha = [UInt8](repeating: 0, count: width * height)
-        for y in 0..<height {
-            for x in 0..<width {
-                let index = y * width + x
-                let flippedIndex = (height - 1 - y) * width + x
-                flippedAlpha[flippedIndex] = alphaData[index] > 0 ? 0 : 255
-            }
-        }
-        
-        guard let maskProvider = CGDataProvider(data: NSData(bytes: &flippedAlpha, length: flippedAlpha.count)) else { return baseImage }
-        guard let mask = CGImage(maskWidth: width,
-                                 height: height,
-                                 bitsPerComponent: bitsPerComponent,
-                                 bitsPerPixel: bitsPerComponent,
-                                 bytesPerRow: bytesPerRow,
-                                 provider: maskProvider,
-                                 decode: nil,
-                                 shouldInterpolate: false) else { return baseImage }
-        
-        return UIGraphicsImageRenderer(size: size).image { ctx in
-            let cgContext = ctx.cgContext
-            
-            baseImage.draw(in: CGRect(origin: .zero, size: size))
-            
-            cgContext.saveGState()
-            cgContext.clip(to: CGRect(origin: .zero, size: size), mask: mask)
-            
-            let scaleW = size.width / newImage.size.width
-            let scaleH = size.height / newImage.size.height
+        let contentSize = CGSize(width: ceil(size.width * inset.width), height: ceil(size.height * inset.height))
+        let contentOrigin = CGPoint(x: size.width * inset.origin.x, y: size.height * inset.origin.y)
+
+        let content = UIGraphicsImageRenderer(size: contentSize).image { _ in
+            let scaleW = contentSize.width / newImage.size.width
+            let scaleH = contentSize.height / newImage.size.height
             let scale = max(scaleW, scaleH)
             let newWidth = newImage.size.width * scale
             let newHeight = newImage.size.height * scale
-            let originX = (size.width - newWidth) / 2
-            let originY = (size.height - newHeight) / 2
+            let originX = (contentSize.width - newWidth) / 2
+            let originY = (contentSize.height - newHeight) / 2
             let imageRect = CGRect(x: originX, y: originY, width: newWidth, height: newHeight)
-            
             newImage.draw(in: imageRect)
-            cgContext.restoreGState()
-            
+            baseImage.draw(in: CGRect(origin: .zero, size: contentSize), blendMode: .destinationIn, alpha: 1.0)
+        }
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            content.draw(in: CGRect(origin: contentOrigin, size: contentSize))
             frameImage.draw(in: CGRect(origin: .zero, size: size))
         }
     }

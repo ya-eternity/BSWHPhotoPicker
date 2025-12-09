@@ -25,12 +25,13 @@
     "originFrameHeight": 174,
     "gesScale": 1,
     "gesRotation": 0,
-    "overlayRectX": 0.1,
-    "overlayRectY": 0.1,
-    "overlayRectWidth": 0.8,
-    "overlayRectHeight": 0.8,
+    "overlayRectX": 0.07,
+    "overlayRectY": 0.07,
+    "overlayRectWidth": 0.86,
+    "overlayRectHeight": 0.86,
     "imageType": "IrregularShape",
     "imageMask": "Travel06-sticker-bg00",
+    "maskTransparent": true,
     "isBgImage": true,
     "bgAddImageType":"addGrayImage"
   },{

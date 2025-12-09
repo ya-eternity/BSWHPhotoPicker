@@ -28,11 +28,27 @@ public protocol StickerManagerDelegate: AnyObject {
             controller: EditImageViewController,
             completion: @escaping (UIImage?) -> Void
         )
-    
+    /// 选择模版
     func didSelectedTemplate(
             tempalte: TemplateModel,
             completion: @escaping () -> Void
         )
+}
+
+extension StickerManagerDelegate {
+    func replaceBackgroundWith(
+            controller: EditImageViewController,
+            imageRect:CGRect,
+            completion: @escaping (UIImage?) -> Void) { }
+    func addStickerImage(
+            controller: EditImageViewController,
+            completion: @escaping (UIImage?) -> Void) { }
+    func cropStickerImage(
+            controller: EditImageViewController,
+            completion: @escaping (UIImage?) -> Void) { }
+    func didSelectedTemplate(
+            tempalte: TemplateModel,
+            completion: @escaping () -> Void) { }
 }
 
 // MARK: - StickerManager
@@ -48,6 +64,7 @@ public final class StickerManager: NSObject {
     public lazy var backgroundHomeData:[TemplateHomeModel] = ConfigDataItem.getBackgroundHomeData()
     public var selectedTemplateIndex = 0
     public static let shared = StickerManager()
+    public var backBtnImage: UIImage? = BSWHBundle.image(named: "templateNavBack")
     private override init() {
         super.init()
         NotificationCenter.default.addObserver(

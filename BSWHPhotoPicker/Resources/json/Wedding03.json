@@ -13,6 +13,7 @@
     "overlayRectWidth": 0.94,
     "overlayRectHeight": 0.94,
     "imageType": "square",
+    "imageMask": "wedding03-mask00",
     "isBgImage": true,
     "bgAddImageType":"addWhiteImage"
 },

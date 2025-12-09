@@ -279,7 +279,7 @@ class ConfigDataItem {
         let item25 = TemplateModel(imageName: "Birthday05",imageBg: "Birthday05-bg",jsonName: "Birthday05", photoCount: 2)
 
         let item31 = TemplateModel(imageName: "Wedding01",imageBg: "wedding01-bg",jsonName: "Wedding01",isNeedFit: true, photoCount: 1)
-        let item32 = TemplateModel(imageName: "Wedding02",imageBg: "wedding02-bg",jsonName: "Wedding02", photoCount: 3)
+        let item32 = TemplateModel(imageName: "Wedding02",imageBg: "wedding02-bg",jsonName: "Wedding02", photoCount: 5)
         let item33 = TemplateModel(imageName: "Wedding03",imageBg: "wedding03-bg",jsonName: "Wedding03", photoCount: 1)
         let item34 = TemplateModel(imageName: "Wedding04",imageBg: "wedding04-bg",jsonName: "Wedding04", photoCount: 3)
         let item35 = TemplateModel(imageName: "Wedding05",imageBg: "wedding05-bg",jsonName: "Wedding05", photoCount: 3)
@@ -295,7 +295,7 @@ class ConfigDataItem {
         let item51 = TemplateModel(imageName: "Scrapbook01",imageBg: "Scrapbook01-bg",jsonName: "Scrapbook01", photoCount: 3)
         let item52 = TemplateModel(imageName: "Scrapbook02",imageBg: "Scrapbook02-bg",jsonName: "Scrapbook02",isNeedFit: true, photoCount: 2)
         let item53 = TemplateModel(imageName: "Scrapbook03",imageBg: "Scrapbook03-bg",jsonName: "Scrapbook03", photoCount: 2)
-        let item54 = TemplateModel(imageName: "Scrapbook04",imageBg: "Scrapbook04-bg",jsonName: "Scrapbook04", photoCount: 3)
+        let item54 = TemplateModel(imageName: "Scrapbook04",imageBg: "Scrapbook04-bg",jsonName: "Scrapbook04", photoCount: 2)
         let item55 = TemplateModel(imageName: "Scrapbook05",imageBg: "Scrapbook05-bg",jsonName: "Scrapbook05", photoCount: 3)
 
         let item61 = TemplateModel(imageName: "PhotoFrame01",imageBg: "PhotoFrame01-bg",jsonName: "PhotoFrame01", photoCount: 1)
@@ -307,7 +307,7 @@ class ConfigDataItem {
         let item67 = TemplateModel(imageName: "PhotoFrame07",imageBg: "PhotoFrame07-bg",jsonName: "PhotoFrame07", photoCount: 1)
 
         
-        let items = [[item00,item01,item02,item03,item04,item05,item06,item10,item11,item12,item13,item14,item15,item21,item23,item24,item25,item31,item32,item33,item34,item35,item41,item42,item43,item44,item45,item46,item47,item51,item52,item53,item54,item55,item61,item62,item63,item64,item65,item66,item67],
+        let items = [[item00,item01,item02,item03,item04,item05,item06,item10,item11,item12,item13,item14,item15,item21,item22,item23,item24,item25,item31,item32,item33,item34,item35,item41,item42,item43,item44,item45,item46,item47,item51,item52,item53,item54,item55,item61,item62,item63,item64,item65,item66,item67],
             [item00,item01,item02,item03,item04,item05,item06],
             [item10,item11,item12,item13,item14,item15],
             [item21,item22,item23,item24,item25],
