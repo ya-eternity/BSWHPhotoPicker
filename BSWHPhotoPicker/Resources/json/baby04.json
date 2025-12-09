@@ -16,7 +16,7 @@
     "imageMask": "baby04-sticker-bg00",
     "maskTransparent": true,
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"baby03-sticker-add00"
   },{
         "imageName": "empty",
         "originScale": 1,

@@ -481,7 +481,7 @@ open class ZLEditImageViewController: UIViewController {
     
     public func resetContainerViewFrame() {
         mainScrollView.setZoomScale(1, animated: true)
-        imageView.image = editImage.forceRGBA()
+        imageView.image = editImage
         let editRect = currentClipStatus.editRect
         
         let editSize = editRect.size
@@ -892,7 +892,7 @@ open class ZLEditImageViewController: UIViewController {
         guard let resultImage else { return }
         
         editImage = resultImage
-        imageView.image = editImage.forceRGBA()
+        imageView.image = editImage
     }
     
     private func generateNewMosaicLayerIfAdjust() {
@@ -1133,12 +1133,12 @@ open class ZLEditImageViewController: UIViewController {
             generateNewMosaicImageLayer()
             
             if mosaicPaths.isEmpty {
-                imageView.image = editImage.forceRGBA()
+                imageView.image = editImage
             } else {
                 generateNewMosaicImage()
             }
         } else {
-            imageView.image = editImage.forceRGBA()
+            imageView.image = editImage
         }
     }
     
@@ -1211,13 +1211,13 @@ open class ZLEditImageViewController: UIViewController {
         }
         
         guard let cgi = temp.cgImage else { return nil }
-        let image = UIImage(cgImage: cgi, scale: editImage.scale, orientation: .up).forceRGBA()
+        let image = UIImage(cgImage: cgi, scale: editImage.scale, orientation: .up)
         
         if inputImage != nil {
             return image
         }
         
-        editImage = image!
+        editImage = image
         imageView.image = image
         mosaicImageLayerMaskLayer?.path = nil
         

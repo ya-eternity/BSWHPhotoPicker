@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "儲存";
+"ALL" = "全部";
+"ChooseATemplate" = "選擇模板";
+
+"Text" = "文字";
+"Background" = "背景";
+"Photos" = "照片";
+"Stickers" = "貼紙";
+"Ratio" = "比例";
+
+"Replace" = "替換";
+"Duplicate" = "複製";
+"FlipH" = "水平翻轉";
+"Crop" = "裁剪";
+"FlipV" = "垂直翻轉";
+"Remove" = "移除";
+
+"Done" = "完成";
+"General" = "通用";
+"Social" = "社交";
+"Print" = "列印";
+
+"NoPermission" = "沒有權限";
+"photoLibrarySettings" = "請在設定中允許存取照片的權限";
+"Cancel" = "取消";
+"GotoSettings" = "前往設定";
+
+"Christmas" = "聖誕節";
+"WeddingParty" = "婚禮/派對";
+"Baby" = "寶寶";
+"Birthday" = "生日";
+"Travel" = "旅行";
+"Scrapbook" = "拼貼手帳";
+"photoframe" = "畫框";
+
+"Color" = "顏色";
+"Texture" = "紋理";
+"Geometric" = "幾何圖形";
+"Pattern" = "圖案";
+"Grid" = "網格";
+

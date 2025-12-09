@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "บันทึก";
+"ALL" = "ทั้งหมด";
+"ChooseATemplate" = "เลือกเทมเพลต";
+
+"Text" = "ข้อความ";
+"Background" = "พื้นหลัง";
+"Photos" = "รูปภาพ";
+"Stickers" = "สติกเกอร์";
+"Ratio" = "อัตราส่วน";
+
+"Replace" = "เปลี่ยน";
+"Duplicate" = "คัดลอก";
+"FlipH" = "พลิกแนวนอน";
+"Crop" = "ครอป";
+"FlipV" = "พลิกแนวตั้ง";
+"Remove" = "ลบ";
+
+"Done" = "เสร็จสิ้น";
+"General" = "ทั่วไป";
+"Social" = "โซเชียล";
+"Print" = "พิมพ์";
+
+"NoPermission" = "ไม่มีสิทธิ์";
+"photoLibrarySettings" = "กรุณาให้สิทธิ์การเข้าถึงรูปภาพในการตั้งค่า";
+"Cancel" = "ยกเลิก";
+"GotoSettings" = "ไปที่การตั้งค่า";
+
+"Christmas" = "คริสต์มาส";
+"WeddingParty" = "งานแต่งงาน/ปาร์ตี้";
+"Baby" = "เด็กทารก";
+"Birthday" = "วันเกิด";
+"Travel" = "ท่องเที่ยว";
+"Scrapbook" = "คอลลาจสแครปบุ๊ก";
+"photoframe" = "กรอบรูป";
+
+"Color" = "สี";
+"Texture" = "พื้นผิว";
+"Geometric" = "รูปทรงเรขาคณิต";
+"Pattern" = "ลวดลาย";
+"Grid" = "กริด";
+

@@ -48,7 +48,7 @@ public class ZLTextStickerView: ZLBaseStickerView {
     
     public var image: UIImage {
         didSet {
-            imageView.image = image.forceRGBA()
+            imageView.image = image
         }
     }
     

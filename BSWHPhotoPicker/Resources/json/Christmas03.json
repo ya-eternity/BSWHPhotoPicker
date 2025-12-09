@@ -14,6 +14,7 @@
   "overlayRectWidth": 0.9,
   "overlayRectHeight": 0.95,
   "imageType": "rectangle",
+  "cornerRadiusScale":10,
   "isBgImage": true,
   "bgAddImageType":"addWhiteImage"
 },
@@ -32,6 +33,7 @@
   "overlayRectWidth": 0.9,
   "overlayRectHeight": 0.95,
   "imageType": "rectangle",
+  "cornerRadiusScale":10,
   "isBgImage": true,
   "bgAddImageType":"addWhiteImage"
 },
@@ -50,6 +52,7 @@
   "overlayRectWidth": 0.9,
   "overlayRectHeight": 0.95,
   "imageType": "rectangle",
+  "cornerRadiusScale":10,
   "isBgImage": true,
   "bgAddImageType":"addWhiteImage"
 },

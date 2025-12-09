@@ -31,7 +31,7 @@
     "overlayRectHeight": 0.98,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add01"
 },{
     "imageName": "empty",
     "originScale": 1,
@@ -116,7 +116,7 @@
     "overlayRectHeight": 0.98,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add01"
 },{
     "imageName": "empty",
     "originScale": 1,

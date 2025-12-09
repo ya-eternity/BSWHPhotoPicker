@@ -20,6 +20,7 @@ class kkCommon {
             ctx.fill(CGRect(origin: .zero, size: size))
         }
     }
+
 }
 
 extension UIImage {
@@ -34,6 +35,25 @@ extension UIImage {
             context.fill(CGRect(origin: .zero, size: size))
         }
     }
+    
+    func decodedImage() -> UIImage {
+            guard let cgImage = self.cgImage else { return self }
+            let size = CGSize(width: cgImage.width, height: cgImage.height)
+            let colorSpace = CGColorSpaceCreateDeviceRGB()
+            let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue
+            guard let ctx = CGContext(data: nil,
+                                      width: Int(size.width),
+                                      height: Int(size.height),
+                                      bitsPerComponent: 8,
+                                      bytesPerRow: 0,
+                                      space: colorSpace,
+                                      bitmapInfo: bitmapInfo) else {
+                return self
+            }
+            ctx.draw(cgImage, in: CGRect(origin: .zero, size: size))
+            guard let newCg = ctx.makeImage() else { return self }
+            return UIImage(cgImage: newCg)
+        }
 }
 
 public func kkColorFromHexWithAlpha(_ hex: Int, _ alpha: CGFloat) -> UIColor {
@@ -148,3 +168,25 @@ extension UIColor {
         self.init(red: r, green: g, blue: b, alpha: 1.0)
     }
 }
+
+extension UIView {
+
+    func exportTransparentPNG() -> UIImage? {
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = UIScreen.main.scale
+        format.opaque = false   // 🔥 关键：必须 false
+
+        let renderer = UIGraphicsImageRenderer(size: bounds.size, format: format)
+
+        let img = renderer.image { ctx in
+            // 不要背景填充，也不要用 drawHierarchy
+            layer.render(in: ctx.cgContext)
+        }
+
+        // debug
+        print("Export alpha flag:", img.pngData()?[25] ?? 0)
+
+        return img
+    }
+}
+

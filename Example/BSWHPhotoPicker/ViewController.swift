@@ -75,6 +75,7 @@ class ViewController: UIViewController {
         return view
     }()
     
+    var count = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -141,14 +142,18 @@ class ViewController: UIViewController {
 
     }
     @objc private func onClickBack01(_ sender: UIButton) {
+        BSWHPhotoPickerLocalization.shared.currentLanguage = "es-MX"
+        StickerManager.shared.selectedTemplateIndex = 3
         presentBgVC()
     }
     @objc private func onClickBack(_ sender: UIButton) {
-        StickerManager.shared.selectedTemplateIndex = 0
+
+        BSWHPhotoPickerLocalization.shared.currentLanguage = "id"
+        StickerManager.shared.selectedTemplateIndex = 3
         presentVC()
     }
     @objc private func onClickLang00(_ sender: UIButton) {
-        BSWHPhotoPickerLocalization.shared.currentLanguage = "en"
+        BSWHPhotoPickerLocalization.shared.currentLanguage = "ar"
         let model:TemplateHomeModel = StickerManager.shared.templateHomeData[1]
         print(model.templateType)
         print(model.image!)
@@ -156,7 +161,7 @@ class ViewController: UIViewController {
         presentVC()
     }
     @objc private func onClickLang01(_ sender: UIButton) {
-        BSWHPhotoPickerLocalization.shared.currentLanguage = "zh"
+        BSWHPhotoPickerLocalization.shared.currentLanguage = "he"
         let model:TemplateHomeModel = StickerManager.shared.backgroundHomeData[1]
         print(model.templateType)
         print(model.image!)
@@ -194,9 +199,17 @@ class ViewController: UIViewController {
 extension ViewController: StickerManagerDelegate {
     
     func replaceBackgroundWith(controller: BSWHPhotoPicker.EditImageViewController, imageRect: CGRect, completion: @escaping (UIImage?) -> Void) {
-        let img = UIImage(named: "Christmas02-bg")
+        var img:UIImage? = nil
+        if count == 0 {
+            img = UIImage(named: "Pattern55")
+        }else if count == 1{
+            img = UIImage(named: "Texture00")
+        }else{
+            img = UIImage(named: "Christmas02-bg")
+        }
+        count += 1
         print("image")
-        completion(img)
+        completion(img!)
     }
     
     func addStickerImage(controller: BSWHPhotoPicker.EditImageViewController, completion: @escaping (UIImage?) -> Void) {

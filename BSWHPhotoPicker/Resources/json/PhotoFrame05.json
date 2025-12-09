@@ -15,7 +15,7 @@
     "imageType": "IrregularShape",
     "imageMask": "PhotoFrame05-sticker-bg00",
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add00"
   },{
       "imageName": "empty",
       "originScale": 1,

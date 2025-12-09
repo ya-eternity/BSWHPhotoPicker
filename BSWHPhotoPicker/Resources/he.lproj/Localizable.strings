@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "שמור";
+"ALL" = "הכל";
+"ChooseATemplate" = "בחר תבנית";
+
+"Text" = "טקסט";
+"Background" = "רקע";
+"Photos" = "תמונות";
+"Stickers" = "סטיקרים";
+"Ratio" = "פרופורציות";
+
+"Replace" = "החלף";
+"Duplicate" = "העתק";
+"FlipH" = "היפוך אופקי";
+"Crop" = "חיתוך";
+"FlipV" = "היפוך אנכי";
+"Remove" = "הסר";
+
+"Done" = "סיום";
+"General" = "כללי";
+"Social" = "רשתות חברתיות";
+"Print" = "הדפס";
+
+"NoPermission" = "אין הרשאה";
+"photoLibrarySettings" = "אנא אפשר גישה לתמונות בהגדרות";
+"Cancel" = "ביטול";
+"GotoSettings" = "להגדרות";
+
+"Christmas" = "חג המולד";
+"WeddingParty" = "חתונה/מסיבה";
+"Baby" = "תינוק";
+"Birthday" = "יום הולדת";
+"Travel" = "טיול";
+"Scrapbook" = "יומן קולאז'";
+"photoframe" = "מסגור תמונה";
+
+"Color" = "צבע";
+"Texture" = "מרקם";
+"Geometric" = "צורות גיאומטריות";
+"Pattern" = "דוגמאות";
+"Grid" = "תבנית רשת";
+

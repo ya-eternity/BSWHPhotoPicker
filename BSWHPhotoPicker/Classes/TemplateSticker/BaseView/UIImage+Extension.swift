@@ -96,18 +96,5 @@ extension UIImage {
         return newImg
     }
     
-    func forceRGBA() -> UIImage? {
-        let format = UIGraphicsImageRendererFormat()
-                format.scale = 1
-                format.opaque = false
-                let renderer = UIGraphicsImageRenderer(size: self.size, format: format)
-                let img = renderer.image { ctx in
-                    ctx.cgContext.interpolationQuality = .high
-                    self.draw(in: CGRect(origin: .zero, size: self.size))
-                }
-                guard let cg = img.cgImage else { return self }
-                return UIImage(cgImage: cg, scale: self.scale, orientation: self.imageOrientation)
-    }
-    
 }
 

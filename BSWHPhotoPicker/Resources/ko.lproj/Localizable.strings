@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "저장";
+"ALL" = "모두";
+"ChooseATemplate" = "템플릿 선택";
+
+"Text" = "텍스트";
+"Background" = "배경";
+"Photos" = "사진";
+"Stickers" = "스티커";
+"Ratio" = "비율";
+
+"Replace" = "교체";
+"Duplicate" = "복사";
+"FlipH" = "좌우 반전";
+"Crop" = "자르기";
+"FlipV" = "상하 반전";
+"Remove" = "삭제";
+
+"Done" = "완료";
+"General" = "일반";
+"Social" = "소셜";
+"Print" = "프린트";
+
+"NoPermission" = "권한 없음";
+"photoLibrarySettings" = "사진 접근 권한을 설정에서 허용해 주세요";
+"Cancel" = "취소";
+"GotoSettings" = "설정으로 이동";
+
+"Christmas" = "크리스마스";
+"WeddingParty" = "결혼식/파티";
+"Baby" = "아기";
+"Birthday" = "생일";
+"Travel" = "여행";
+"Scrapbook" = "콜라주 다이어리";
+"photoframe" = "액자";
+
+"Color" = "색상";
+"Texture" = "텍스처";
+"Geometric" = "기하학적 도형";
+"Pattern" = "패턴";
+"Grid" = "그리드";
+

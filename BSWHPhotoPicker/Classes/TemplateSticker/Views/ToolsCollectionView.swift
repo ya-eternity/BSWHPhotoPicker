@@ -53,11 +53,11 @@ class ToolsCollectionView: UIView {
             make.top.equalToSuperview()
             make.height.equalTo(120.h)
         }
-        if StickerManager.shared.templateOrBackground == 1 {
+//        if StickerManager.shared.templateOrBackground == 1 {
             items = ConfigDataItem.getTemplateToolsData()
-        }else{
-            items = ConfigDataItem.getBackgroundToolsData()
-        }
+//        }else{
+//            items = ConfigDataItem.getBackgroundToolsData()
+//        }
         reload()
     }
 
@@ -102,7 +102,7 @@ class ToolCollectionViewCell: UICollectionViewCell {
         
     private lazy var containerView = UIView().backgroundColor(kkColorFromHex("EBEBEB")).cornerRadius(10.w)
     lazy var imgView = UIImageView()
-    lazy var titleLab = UILabel().color(kkColorFromHex("65656D")).hnFont(size: 12.h, weight:.mediumBase).centerAligned()
+    lazy var titleLab = UILabel().color(kkColorFromHex("65656D")).hnFont(size: 12.h, weight:.mediumBase).centerAligned().adjustsFontSizeToFitWidth(true)
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

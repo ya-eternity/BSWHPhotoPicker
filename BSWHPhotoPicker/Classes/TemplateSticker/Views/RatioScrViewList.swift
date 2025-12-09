@@ -59,36 +59,41 @@ class RatioScrViewList: UIView {
 
         for (i, title) in titles.enumerated() {
 
-            // -----------------
-            // 按钮
-            // -----------------
             let btn = UIButton(type: .custom)
             btn.setTitle(title, for: .normal)
             btn.setTitleColor(btnColor, for: .normal)
             btn.setTitleColor(btnSelectedTextColor, for: .selected)
             btn.titleLabel?.font = btnFont
             btn.tag = i
-            btn.contentEdgeInsets = UIEdgeInsets(top: 6, left: 15, bottom: 6, right: 15)
+            btn.contentEdgeInsets = UIEdgeInsets(top: 6, left: 5, bottom: 6, right: 5)
             btn.addTarget(self, action: #selector(btnTapped(_:)), for: .touchUpInside)
+
             scrollView.addSubview(btn)
             buttonArray.append(btn)
 
+            // 🔥 按钮布局：只与 lastButton 建立链条
             btn.snp.makeConstraints { make in
-                make.top.equalToSuperview()
+                make.top.bottom.equalToSuperview()
                 if let last = lastView {
-                    make.left.equalTo(last.snp.right).offset(18)
+                    make.left.equalTo(last.snp.right).offset(8)
                 } else {
-                    make.left.equalToSuperview().offset(18)
+                    make.left.equalToSuperview().offset(8)
                 }
+
+                make.height.equalTo(32)
+                make.width.greaterThanOrEqualTo(50)
+                make.width.lessThanOrEqualTo(UIScreen.main.bounds.width * 0.45)
             }
-            
-            // -----------------
-            // 小圆点 indicator
-            // -----------------
+
+            btn.titleLabel?.adjustsFontSizeToFitWidth = true
+            btn.titleLabel?.minimumScaleFactor = 0.7
+
+            // -------- indicator --------
             let indicator = UIView()
             indicator.backgroundColor = btnSelectedTextColor
             indicator.layer.cornerRadius = 2
             indicator.isHidden = true
+
             scrollView.addSubview(indicator)
             indicatorArray.append(indicator)
 
@@ -96,11 +101,19 @@ class RatioScrViewList: UIView {
                 make.top.equalTo(btn.snp.bottom).offset(-2)
                 make.centerX.equalTo(btn)
                 make.width.height.equalTo(4)
-                make.bottom.equalToSuperview() // 让 scrollView contentSize 自动撑开
             }
 
-            lastView = indicator
+            // ❗❗关键：链条对象 = 按钮，而不是 indicator
+            lastView = btn
         }
+
+        // 🔥 最后确保 contentSize 宽度由最后一个按钮撑开
+        if let last = lastView {
+            last.snp.makeConstraints { make in
+                make.right.equalToSuperview().offset(-8)
+            }
+        }
+
 
         layoutIfNeeded()
         updateSelection(index: selectedIndex, animated: false)

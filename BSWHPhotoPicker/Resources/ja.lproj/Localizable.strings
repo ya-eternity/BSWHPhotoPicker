@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "保存";
+"ALL" = "すべて";
+"ChooseATemplate" = "テンプレートを選択";
+
+"Text" = "文字";
+"Background" = "背景";
+"Photos" = "写真";
+"Stickers" = "ステッカー";
+"Ratio" = "アスペクト比";
+
+"Replace" = "置き換える";
+"Duplicate" = "コピーする";
+"FlipH" = "左右反転";
+"Crop" = "切り抜き";
+"FlipV" = "上下反転";
+"Remove" = "削除";
+
+"Done" = "完了";
+"General" = "汎用";
+"Social" = "社交";
+"Print" = "印刷";
+
+"NoPermission" = "アクセス権限がありません";
+"photoLibrarySettings" = "写真へのアクセスを許可してください（設定から変更可能）";
+"Cancel" = "キャンセル";
+"GotoSettings" = "設定へ移動";
+
+"Christmas" = "クリスマス";
+"WeddingParty" = "結婚式・パーティー";
+"Baby" = "赤ちゃん";
+"Birthday" = "誕生日";
+"Travel" = "旅行";
+"Scrapbook" = "スクラップブッキング";
+"photoframe" = "フォトフレーム";
+
+"Color" = "カラー";
+"Texture" = "テクスチャ";
+"Geometric" = "幾何学模様";
+"Pattern" = "パターン";
+"Grid" = "グリッド";
+

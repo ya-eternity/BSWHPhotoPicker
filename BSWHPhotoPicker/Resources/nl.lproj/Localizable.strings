@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "Opslaan";
+"ALL" = "Alle";
+"ChooseATemplate" = "Sjabloon selecteren";
+
+"Text" = "Tekst";
+"Background" = "Achtergrond";
+"Photos" = "Foto's";
+"Stickers" = "Sticker";
+"Ratio" = "Verhouding";
+
+"Replace" = "Vervangen";
+"Duplicate" = "Kopiëren";
+"FlipH" = "Spiegelen(H)";
+"Crop" = "Bijsnijden";
+"FlipV" = "Spiegelen(V)";
+"Remove" = "Verwijderen";
+
+"Done" = "Gereed";
+"General" = "Algemeen";
+"Social" = "Sociaal";
+"Print" = "Afdrukken";
+
+"NoPermission" = "Geen toegang";
+"photoLibrarySettings" = "Sta fototoegang toe in instellingen";
+"Cancel" = "Annuleren";
+"GotoSettings" = "Naar instellingen";
+
+"Christmas" = "Kerstmis";
+"WeddingParty" = "Trouwfeest/Feesten";
+"Baby" = "Baby's";
+"Birthday" = "Verjaardag";
+"Travel" = "Reizen";
+"Scrapbook" = "Plakboek";
+"photoframe" = "Fotolijst";
+
+"Color" = "Kleuren";
+"Texture" = "Texturen";
+"Geometric" = "Geometrisch";
+"Pattern" = "Patroon";
+"Grid" = "Raster";
+

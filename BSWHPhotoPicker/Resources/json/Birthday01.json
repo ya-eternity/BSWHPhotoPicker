@@ -14,7 +14,7 @@
     "overlayRectHeight": 1,
     "imageType": "circle",
     "isBgImage": true,
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"baby03-sticker-add00"
 }, {
     "imageName": "Birthday-sticker-bg04",
     "originScale": 1,
@@ -31,7 +31,7 @@
     "overlayRectHeight": 1,
     "imageType": "circle",
     "isBgImage": true,
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"addWhiteImage"
 },{
     "imageName": "empty",
     "originScale": 1,

@@ -97,7 +97,7 @@ class StickerToolCollectionViewCell: UICollectionViewCell {
         
     private lazy var containerView = UIView().backgroundColor(.white).cornerRadius(10.w)
     lazy var imgView = UIImageView().enable(true)
-    lazy var titleLab = UILabel().color(kkColorFromHex("7F7F8C")).hnFont(size: 12.h, weight:.mediumBase).centerAligned()
+    lazy var titleLab = UILabel().color(kkColorFromHex("7F7F8C")).hnFont(size: 12.h, weight:.mediumBase).centerAligned().adjustsFontSizeToFitWidth(true)
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

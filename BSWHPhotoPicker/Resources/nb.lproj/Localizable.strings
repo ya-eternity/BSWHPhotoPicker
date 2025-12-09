@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "Lagre";
+"ALL" = "Alle";
+"ChooseATemplate" = "Velg mal";
+
+"Text" = "Tekst";
+"Background" = "Bakgrunn";
+"Photos" = "Bilder";
+"Stickers" = "Klistremerker";
+"Ratio" = "Sideforhold";
+
+"Replace" = "Erstatt";
+"Duplicate" = "Kopier";
+"FlipH" = "Speilvend(H)";
+"Crop" = "Beskjær";
+"FlipV" = "Speilvend(V)";
+"Remove" = "Fjern";
+
+"Done" = "Ferdig";
+"General" = "Generelt";
+"Social" = "Sosialt";
+"Print" = "Skriv ut";
+
+"NoPermission" = "Ingen tilgang";
+"photoLibrarySettings" = "Tillat bildetilgang i innstillinger";
+"Cancel" = "Avbryt";
+"GotoSettings" = "Til innstillinger";
+
+"Christmas" = "Jul";
+"WeddingParty" = "Bryllup/fester";
+"Baby" = "Babyer";
+"Birthday" = "Bursdag";
+"Travel" = "Reise";
+"Scrapbook" = "Samlealbum";
+"photoframe" = "Rammer";
+
+"Color" = "Farger";
+"Texture" = "Teksturer";
+"Geometric" = "Geometriske";
+"Pattern" = "Mønstre";
+"Grid" = "Rutenett";
+

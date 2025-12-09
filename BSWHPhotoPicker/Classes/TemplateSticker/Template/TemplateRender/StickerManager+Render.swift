@@ -56,7 +56,7 @@ extension StickerManager {
         var photoIsBg = true
         let orderedModels = models.enumerated().map { idx, model -> ImageStickerModel in
             model.zIndex = model.zIndex ?? idx
-            if (model.bgAddImageType == "addGrayImage" || model.bgAddImageType == "addWhiteImage") {
+            if (model.imageName != "empty") {
                 photoIsBg = false
             }
             return model
@@ -85,7 +85,7 @@ extension StickerManager {
                 // 需要填充的照片
                 var slotImage: UIImage? = nil
                 if model.isBgImage {
-                    if photoIdx < photos.count && (model.bgAddImageType == "addGrayImage" || model.bgAddImageType == "addWhiteImage") {
+                    if photoIdx < photos.count && (model.imageName != "empty") {
                         slotImage = photos[photoIdx]
                         photoIdx += 1
                     } else if let data = model.stickerImage {
@@ -154,7 +154,7 @@ extension StickerManager {
         }.sorted { ($0.zIndex ?? 0) < ($1.zIndex ?? 0) }
 
         var slotModel: ImageStickerModel
-        if let model = ordered.first(where: { $0.isBgImage && ($0.bgAddImageType == "addGrayImage" || $0.bgAddImageType == "addWhiteImage") }) {
+        if let model = ordered.first(where: { $0.isBgImage && ($0.imageName != "empty") }) {
             slotModel = model
         } else {
             slotModel = ImageStickerModel()

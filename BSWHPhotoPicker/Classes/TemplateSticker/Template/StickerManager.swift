@@ -94,7 +94,7 @@ public final class StickerManager: NSObject {
                 let tap = UITapGestureRecognizer(target: self, action: #selector(stickerTapped(_:)))
                 sticker.addGestureRecognizer(tap)
                 sticker.isUserInteractionEnabled = true
-                if let photos = photos, photoIdx < photos.count, state.bgAddImageType == "addGrayImage" || state.bgAddImageType == "addWhiteImage" {
+                if let photos = photos, photoIdx < photos.count, state.imageName != "empty" {
                     sticker.updateImage(photos[photoIdx], stickerModel: sticker.stickerModel!, withBaseImage: sticker.image,vc: controller!)
                     photoIdx += 1
                     continue
@@ -371,13 +371,13 @@ extension ZLImageStickerView {
                         if stickerModel.imageData == nil {
                             vc.imageView.image = BSWHBundle.image(named: "Travel07-bg")
                         }else{
-                            vc.imageView.image = newImage.forceRGBA()
+                            vc.imageView.image = newImage
                          }
                     }else if stickerModel.imageName == "Birthday02-sticker-bg00" {
                         if stickerModel.imageData == nil {
                             vc.imageView.image = BSWHBundle.image(named: "Travel07-bg")
                         }else{
-                            vc.imageView.image = newImage.forceRGBA()
+                            vc.imageView.image = newImage
                          }
                     }
                     finalImage = overlayImageWithFrame(BSWHBundle.image(named: "Birthday02-sticker-bg00")!, baseImage: base, frameImage: frame)
@@ -428,12 +428,7 @@ extension ZLImageStickerView {
                     case "square":
                         return UIBezierPath(rect: overlayRect)
                     case "rectangle":
-//                        let cornerRadius = min(overlayRect.width, overlayRect.height) * (stickerModel.cornerRadiusScale ?? 0.1)
-                        var cornerRadius = 16.0.h
-                        if stickerModel.imageName == "Travel-sticker-bg03" {
-                            cornerRadius = 50.h
-                        }
-                        return UIBezierPath(roundedRect: overlayRect, cornerRadius: cornerRadius)
+                        return UIBezierPath(roundedRect: overlayRect, cornerRadius: stickerModel.cornerRadiusScale ?? 0.0)
                     default:
                         return UIBezierPath(rect: overlayRect)
                     }
@@ -465,7 +460,7 @@ extension ZLImageStickerView {
         
         // MARK: - 更新 UIImageView 或 self.image
         if let imageView = self.subviews.compactMap({ $0 as? UIImageView }).first {
-            imageView.image = finalImage?.forceRGBA()
+            imageView.image = finalImage
             imageView.setNeedsDisplay()
         } else if let finalImage = finalImage {
             self.image = finalImage

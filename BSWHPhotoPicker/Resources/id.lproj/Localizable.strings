@@ -1,0 +1,50 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "Simpan";
+"ALL" = "Semua";
+"ChooseATemplate" = "Pilih template";
+
+"Text" = "Teks";
+"Background" = "Latar belakang";
+"Photos" = "Foto";
+"Stickers" = "Stiker";
+"Ratio" = "Rasio";
+
+"Replace" = "Ganti";
+"Duplicate" = "Salin";
+"FlipH" = "Balik(H)";
+"Crop" = "Potong";
+"FlipV" = "Balik(V)";
+"Remove" = "Hapus";
+
+"Done" = "Selesai";
+"General" = "Umum";
+"Social" = "Sosial";
+"Print" = "Cetak";
+
+"NoPermission" = "Tidak ada akses";
+"photoLibrarySettings" = "Izinkan akses foto di pengaturan";
+"Cancel" = "Batal";
+"GotoSettings" = "Ke pengaturan";
+
+"Christmas" = "Natal";
+"WeddingParty" = "Pernikahan/Perayaan";
+"Baby" = "Bayi";
+"Birthday" = "Ulang tahun";
+"Travel" = "Perjalanan";
+"Scrapbook" = "Buku Skrap Kolase";
+"photoframe" = "Bingkai";
+
+"Color" = "Warna";
+"Texture" = "Tekstur";
+"Geometric" = "Geometris";
+"Pattern" = "Pola";
+"Grid" = "Grid";
+
+

@@ -13,8 +13,9 @@
     "overlayRectWidth": 1,
     "overlayRectHeight": 1,
     "imageType": "rectangle",
+    "cornerRadiusScale":10,
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add01"
 },{
     "imageName": "Birthday-sticker-bg03",
     "originScale": 1,
@@ -30,8 +31,9 @@
     "overlayRectWidth": 1,
     "overlayRectHeight": 1,
     "imageType": "rectangle",
+    "cornerRadiusScale":10,
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add02"
 },{
     "imageName": "Birthday-sticker-bg03",
     "originScale": 1,
@@ -47,8 +49,9 @@
     "overlayRectWidth": 1,
     "overlayRectHeight": 1,
     "imageType": "rectangle",
+    "cornerRadiusScale":10,
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add02"
 },{
     "imageName": "empty",
     "originScale": 1,

@@ -15,7 +15,7 @@
       "imageType": "square",
       "imageMask": "PhotoFrame06-sticker-bg00",
       "isBgImage": true,
-      "bgAddImageType":"addWhiteImage"
+      "bgAddImageType":"Birthday-sticker-add00"
   },{
       "imageName": "empty",
       "originScale": 1,

@@ -14,7 +14,7 @@
     "overlayRectHeight": 1,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"Travel-sticker-add00"
 },{
     "imageName": "Travel-sticker-bg01",
     "originScale": 1,
@@ -31,7 +31,7 @@
     "overlayRectHeight": 1,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"Travel-sticker-add01"
 },{
     "imageName": "Travel-sticker-bg02",
     "originScale": 1,
@@ -48,7 +48,7 @@
     "overlayRectHeight": 1,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"Travel-sticker-add01"
 },{
     "imageName": "Travel-sticker-bg02",
     "originScale": 1,
@@ -65,7 +65,7 @@
     "overlayRectWidth": 1,
     "overlayRectHeight": 1,
     "imageType": "square",
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"Travel-sticker-add01"
 },{
     "imageName": "Travel-sticker-bg02",
     "originScale": 1,
@@ -82,7 +82,7 @@
     "overlayRectWidth": 1,
     "overlayRectHeight": 1,
     "imageType": "square",
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"Travel-sticker-add01"
 },{
     "imageName": "Travel-sticker-bg01",
     "originScale": 1,
@@ -99,7 +99,7 @@
     "overlayRectWidth": 1,
     "overlayRectHeight": 1,
     "imageType": "square",
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"Travel-sticker-add01"
 },{
     "imageName": "Travel-sticker-bg00",
     "originScale": 1,
@@ -116,7 +116,7 @@
     "overlayRectWidth": 1,
     "overlayRectHeight": 1,
     "imageType": "square",
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"Travel-sticker-add00"
 },{
     "imageName": "empty",
     "originScale": 1,

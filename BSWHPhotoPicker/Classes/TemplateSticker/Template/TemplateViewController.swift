@@ -264,17 +264,17 @@ class ContentCell: UICollectionViewCell {
 
         itemHeights = items.map { item in
             let imageName = item.imageName
-            if let cached = ImageHeightCache.shared.get(imageName: imageName!, width: itemWidth) {
+            if let cached = ImageHeightCache.shared.get(imageName: imageName, width: itemWidth) {
                 return cached
             }
             let height: CGFloat
-            if let img = BSWHBundle.image(named: imageName!) {
+            if let img = BSWHBundle.image(named: imageName) {
                 let ratio = img.size.height / img.size.width
                 height = itemWidth * ratio
             } else {
                 height = itemWidth
             }
-            ImageHeightCache.shared.set(imageName: imageName!, width: itemWidth, height: height)
+            ImageHeightCache.shared.set(imageName: imageName, width: itemWidth, height: height)
             return height
         }
     }
@@ -327,7 +327,7 @@ class WaterfallImageCell: UICollectionViewCell {
 
     
     func setItem(item: TemplateModel) {
-        imgView.image = BSWHBundle.image(named: item.imageName!)
+        imgView.image = BSWHBundle.image(named: item.imageName)
     }
 }
 

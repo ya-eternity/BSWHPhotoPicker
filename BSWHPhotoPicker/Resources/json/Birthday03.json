@@ -14,8 +14,9 @@
     "overlayRectHeight": 0.98,
     "imageType": "rectangle",
     "imageMask": "Birthday03-sticker-mask01",
+    "cornerRadiusScale":20,
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add00"
 },{
     "imageName": "empty",
     "originScale": 1,

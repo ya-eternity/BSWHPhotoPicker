@@ -1,0 +1,50 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "Enregistrer";
+"ALL" = "TOUS";
+"ChooseATemplate" = "Choisir un modèle";
+
+"Text" = "Texte";
+"Background" = "Arrière-plan";
+"Photos" = "Photos";
+"Stickers" = "Autocollants";
+"Ratio" = "Proportions";
+
+"Replace" = "Remplacer";
+"Duplicate" = "Dupliquer";
+"FlipH" = "Retourner(H)";
+"Crop" = "Recadrer";
+"FlipV" = "Retourner(V)";
+"Remove" = "Supprimer";
+
+"Done" = "Terminé";
+"General" = "Général";
+"Social" = "Réseaux sociaux";
+"Print" = "Imprimer";
+
+
+"NoPermission" = "Autorisation refusée";
+"photoLibrarySettings" = "Veuillez autoriser l'accès aux photos dans Réglages.";
+"Cancel" = "Annuler";
+"GotoSettings" = "Aller aux Réglages";
+
+"Christmas" = "Noël";
+"WeddingParty" = "Mariage/Fête";
+"Baby" = "Bébé";
+"Birthday" = "Anniversaire";
+"Travel" = "Voyage";
+"Scrapbook" = "Scrapbook";
+"photoframe" = "Cadre Photo";
+
+"Color" = "Couleur";
+"Texture" = "Texture";
+"Geometric" = "Géométrique";
+"Pattern" = "Motif";
+"Grid" = "Grille";
+

@@ -25,7 +25,7 @@ public class EditImageViewController: ZLEditImageViewController {
     private lazy var ratioToolView = RatioToolView().cornerRadius(20.w, corners: [.topLeft,.topRight]).backgroundColor(.white)
     private lazy var statusView = UIView().backgroundColor(kkColorFromHex("F5F5F5"))
     private lazy var topView = TemplateTopView().backgroundColor(kkColorFromHex("F5F5F5"))
-    private lazy var contentView = UIView().backgroundColor(.white)
+    private lazy var contentView = UIView().backgroundColor(.clear)
     let toolCollectionView:ToolsCollectionView = {
        let view = ToolsCollectionView()
         view.backgroundColor = kkColorFromHex("F5F5F5")
@@ -42,6 +42,8 @@ public class EditImageViewController: ZLEditImageViewController {
         view.addSubview(toolCollectionView)
         view.addSubview(stickerToolsView)
         view.addSubview(ratioToolView)
+        
+        contentView.isOpaque = false
         
         stickerToolsView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -86,7 +88,7 @@ public class EditImageViewController: ZLEditImageViewController {
             self.hideBottomPanel()
             if let sticker = self.currentSticker {
                 if sticker.imageMask == "addEmptyImage" {
-                    self.imageView.image = UIImage(data: self.currentSticker!.imageData!)?.forceRGBA()
+                    self.imageView.image = UIImage(data: self.currentSticker!.imageData!)
                 }
             }
         }
@@ -94,7 +96,7 @@ public class EditImageViewController: ZLEditImageViewController {
             self.hideRatioBottomPanel()
             if let sticker = self.currentSticker {
                 if sticker.imageMask == "addEmptyImage" {
-                    self.imageView.image = UIImage(data: self.currentSticker!.imageData!)?.forceRGBA()
+                    self.imageView.image = UIImage(data: self.currentSticker!.imageData!)
                 }
             }
         }
@@ -196,19 +198,37 @@ public class EditImageViewController: ZLEditImageViewController {
             hideBottomPanel()
         }
 
-        if sticker.stickerModel?.imageName == "Travel-sticker-bg06" {
-            if sticker.imageData != BSWHBundle.image(named: "addEmptyImage")?.pngData() {
-                imageView.image = UIImage(data: (sticker.stickerModel?.imageData)!)?.forceRGBA()
-            }else{
-                imageView.image = BSWHBundle.image(named: "Travel07-bg")?.forceRGBA()
-            }
-        }else if sticker.stickerModel?.imageName == "Birthday02-sticker-bg00" {
-            if sticker.imageData != BSWHBundle.image(named: "addEmptyImage")?.pngData() {
-                imageView.image = UIImage(data: (sticker.stickerModel?.imageData)!)?.forceRGBA()
-            }else{
-                imageView.image = BSWHBundle.image(named: "Birthday02-bg")?.forceRGBA()
+        let stickers = StickerManager.shared.stickerArr
+        for stickerTemp in stickers {
+            let model = stickerTemp.stickerModel
+            if model?.imageName == "Travel-sticker-bg06" {
+                if stickerTemp.imageData != BSWHBundle.image(named: "addEmptyImage")?.pngData() {
+                    imageView.image = UIImage(data: (model?.imageData)!)
+                }else{
+                    imageView.image = BSWHBundle.image(named: "Travel07-bg")
+                }
+            }else if model?.imageName == "Birthday02-sticker-bg00" {
+                if stickerTemp.imageData != BSWHBundle.image(named: "addEmptyImage")?.pngData() {
+                    imageView.image = UIImage(data: (model?.imageData)!)
+                }else{
+                    imageView.image = BSWHBundle.image(named: "Birthday02-bg")
+                }
             }
         }
+        
+//        if sticker.stickerModel?.imageName == "Travel-sticker-bg06" {
+//            if sticker.imageData != BSWHBundle.image(named: "addEmptyImage")?.pngData() {
+//                imageView.image = UIImage(data: (sticker.stickerModel?.imageData)!)?.forceRGBA()
+//            }else{
+//                imageView.image = BSWHBundle.image(named: "Travel07-bg")?.forceRGBA()
+//            }
+//        }else if sticker.stickerModel?.imageName == "Birthday02-sticker-bg00" {
+//            if sticker.imageData != BSWHBundle.image(named: "addEmptyImage")?.pngData() {
+//                imageView.image = UIImage(data: (sticker.stickerModel?.imageData)!)?.forceRGBA()
+//            }else{
+//                imageView.image = BSWHBundle.image(named: "Birthday02-bg")?.forceRGBA()
+//            }
+//        }
     }
     
     // MARK: - ratioToolView 隐藏显示处理

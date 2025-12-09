@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "حفظ";
+"ALL" = "الكل";
+"ChooseATemplate" = "اختيار قالب";
+
+"Text" = "نص";
+"Background" = "خلفية";
+"Photos" = "صور";
+"Stickers" = "ملصقات";
+"Ratio" = "نسبة";
+
+"Replace" = "استبدال";
+"Duplicate" = "نسخ";
+"FlipH" = "قلب أفقي";
+"Crop" = "قص";
+"FlipV" = "قلب عمودي";
+"Remove" = "إزالة";
+
+"Done" = "تم";
+"General" = "عام";
+"Social" = "تواصل اجتماعي";
+"Print" = "طباعة";
+
+"NoPermission" = "لا يوجد إذن";
+"photoLibrarySettings" = "يرجى السماح بالوصول إلى الصور في الإعدادات";
+"Cancel" = "إلغاء";
+"GotoSettings" = "الذهاب إلى الإعدادات";
+
+"Christmas" = "عيد الميلاد";
+"WeddingParty" = "زفاف/حفلة";
+"Baby" = "طفل";
+"Birthday" = "عيد ميلاد";
+"Travel" = "سفر";
+"Scrapbook" = "دفتر قصاصات";
+"photoframe" = "إطار";
+
+"Color" = "لون";
+"Texture" = "مُلَمَّس";
+"Geometric" = "أشكال هندسية";
+"Pattern" = "نَمَط";
+"Grid" = "شَبَكَة";
+

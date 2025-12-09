@@ -14,7 +14,7 @@
     "overlayRectHeight": 0.75,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add00"
 },{
     "imageName": "wedding-sticker-bg02",
     "originScale": 1,
@@ -31,7 +31,7 @@
     "overlayRectHeight": 0.75,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add00"
 },{
     "imageName": "wedding-sticker-bg04",
     "originScale": 1,
@@ -48,7 +48,7 @@
     "overlayRectHeight": 0.65,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add00"
 },{
     "imageName": "wedding-sticker-bg03",
     "originScale": 1,
@@ -65,7 +65,7 @@
     "overlayRectHeight": 0.75,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add00"
 },{
     "imageName": "wedding-sticker-bg03",
     "originScale": 1,
@@ -82,7 +82,7 @@
     "overlayRectHeight": 0.75,
     "imageType": "square",
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"Birthday-sticker-add00"
 },
 {
     "imageName": "empty",

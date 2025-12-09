@@ -1,0 +1,50 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "Lưu";
+"ALL" = "Tất cả";
+"ChooseATemplate" = "Chọn mẫu";
+
+"Text" = "Văn bản";
+"Background" = "Nền";
+"Photos" = "Ảnh";
+"Stickers" = "Hình dán";
+"Ratio" = "Tỷ lệ";
+
+"Replace" = "Thay thế";
+"Duplicate" = "Sao chép";
+"FlipH" = "Lật ngang";
+"Crop" = "Cắt xén";
+"FlipV" = "Lật dọc";
+"Remove" = "Loại bỏ";
+
+"Done" = "Hoàn tất";
+"General" = "Chung";
+"Social" = "Mạng xã hội";
+"Print" = "In";
+
+
+"NoPermission" = "Không có quyền";
+"photoLibrarySettings" = "Vui lòng cho phép ứng dụng truy cập ảnh trong phần cài đặt";
+"Cancel" = "Hủy";
+"GotoSettings" = "Đến cài đặt";
+
+"Christmas" = "Giáng sinh";
+"WeddingParty" = "Đám cưới/Tiệc";
+"Baby" = "Em bé";
+"Birthday" = "Sinh nhật";
+"Travel" = "Du lịch";
+"Scrapbook" = "Sổ tay collage";
+"photoframe" = "Khung tranh";
+
+"Color" = "Màu sắc";
+"Texture" = "Họa tiết";
+"Geometric" = "Hình học";
+"Pattern" = "Hoa văn";
+"Grid" = "Lưới";
+

@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "Сохранение";
+"ALL" = "Все";
+"ChooseATemplate" = "Выбрать шаблон";
+
+"Text" = "Текст";
+"Background" = "Фон";
+"Photos" = "Фото";
+"Stickers" = "Стикеры";
+"Ratio" = "Соотношение сторон";
+
+"Replace" = "Заменить";
+"Duplicate" = "Копировать";
+"FlipH" = "Отразить по гориз";
+"Crop" = "Обрезать";
+"FlipV" = "Отразить по верт";
+"Remove" = "Удалить";
+
+"Done" = "Готово";
+"General" = "Универсальные";
+"Social" = "Соцсети";
+"Print" = "Печать";
+
+"NoPermission" = "Нет разрешения";
+"photoLibrarySettings" = "Разрешите доступ к фото в настройках";
+"Cancel" = "Отмена";
+"GotoSettings" = "Перейти в настройки";
+
+"Christmas" = "Рождество";
+"WeddingParty" = "Свадьба/Вечеринка";
+"Baby" = "Малыш";
+"Birthday" = "День рождения";
+"Travel" = "Путешествие";
+"Scrapbook" = "Коллаж-дневник";
+"photoframe" = "Рамка для картины";
+
+"Color" = "Цвет";
+"Texture" = "Текстура";
+"Geometric" = "Геометрические фигуры";
+"Pattern" = "Узоры";
+"Grid" = "Сетка";
+

@@ -32,7 +32,7 @@
     "imageType": "IrregularShape",
     "imageMask": "baby06-sticker-bg00",
     "isBgImage": true,
-    "bgAddImageType":"addGrayImage"
+    "bgAddImageType":"baby03-sticker-add00"
   },{
         "imageName": "empty",
         "originScale": 1,

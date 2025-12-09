@@ -1,0 +1,50 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by 笔尚文化 on 2025/11/25.
+  
+*/
+
+"save" = "Kaydet";
+"ALL" = "TÜMÜ";
+"ChooseATemplate" = "Şablon Seç";
+
+"Text" = "Metin";
+"Background" = "Arka Plan";
+"Photos" = "Fotoğraflar";
+"Stickers" = "Sticker'lar";
+"Ratio" = "En Boy Oranı";
+
+"Replace" = "Değiştir";
+"Duplicate" = "Kopyala";
+"FlipH" = "Yatay Çevir";
+"Crop" = "Kırp";
+"FlipV" = "Dikey Çevir";
+"Remove" = "Kaldır";
+
+"Done" = "Tamam";
+"General" = "Genel";
+"Social" = "Sosyal";
+"Print" = "Yazdır";
+
+
+"NoPermission" = "İzin Yok";
+"photoLibrarySettings" = "Lütfen Ayarlar'dan fotoğraf erişimine izin verin.";
+"Cancel" = "İptal";
+"GotoSettings" = "Ayarlar'a Git";
+
+"Christmas" = "Noel";
+"WeddingParty" = "Düğün/Parti";
+"Baby" = "Bebek";
+"Birthday" = "Doğum Günü";
+"Travel" = "Gezi";
+"Scrapbook" = "Kolaj Albümü";
+"photoframe" = "Fotoğraf Çerçevesi";
+
+"Color" = "Renk";
+"Texture" = "Dokular";
+"Geometric" = "Geometrik";
+"Pattern" = "Desen";
+"Grid" = "Izgara";
+

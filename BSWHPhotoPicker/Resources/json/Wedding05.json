@@ -15,7 +15,7 @@
     "imageType": "IrregularMask",
     "imageMask": "wedding05-sticker-bg00",
     "isBgImage": true,
-    "bgAddImageType":"addWhiteImage"
+    "bgAddImageType":"wedding-sticker-add02"
   },{
       "imageName": "wedding05-sticker-bg01",
       "originScale": 1,
@@ -33,7 +33,7 @@
       "imageType": "IrregularMask",
       "imageMask": "wedding05-sticker-bg00",
       "isBgImage": true,
-      "bgAddImageType":"addWhiteImage"
+      "bgAddImageType":"wedding-sticker-add02"
     },{
         "imageName": "wedding05-sticker-bg01",
         "originScale": 1,
@@ -51,7 +51,7 @@
         "imageType": "IrregularMask",
         "imageMask": "wedding05-sticker-bg00",
         "isBgImage": true,
-        "bgAddImageType":"addWhiteImage"
+        "bgAddImageType":"wedding-sticker-add02"
       },{
           "imageName": "empty",
           "originScale": 1,

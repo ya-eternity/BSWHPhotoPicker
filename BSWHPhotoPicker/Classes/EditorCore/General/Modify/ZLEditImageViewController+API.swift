@@ -296,7 +296,7 @@ public class ImageStickerModel: Codable {
     public var overlayRectHeight:Double? = nil
     /// 添加的照片显示类型
     public var imageType:ImageAddType? = .square
-    public var cornerRadiusScale:Double? = 0.1
+    public var cornerRadiusScale:Double? = 0.0
     /// 异形显示的遮罩图片
     public var imageMask:String? = ""
     public var maskTransparent:Bool = false
