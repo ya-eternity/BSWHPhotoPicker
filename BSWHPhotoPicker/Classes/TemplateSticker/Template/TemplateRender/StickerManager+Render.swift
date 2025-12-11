@@ -44,13 +44,15 @@ extension StickerManager {
     /// 按模板输出成品图，完全用 CoreGraphics 计算，不依赖 EditImageViewController/视图渲染
     public func renderTemplateImageCoreGraphics(
         template: TemplateModel,
-        photos: [UIImage]
+        photos: [UIImage],
+        fillColor: UIColor = kkColorFromHex("#F1F1F1")
     ) -> UIImage? {
         guard let models = loadLocalJSON(fileName: template.jsonName ?? "", type: [ImageStickerModel].self),
               let bgImage = BSWHBundle.image(named: template.imageBg) else { return nil }
         
         let canvasSize = bgImage.size
         let scaleW = canvasSize.width / 375.0
+        let fillColorImage = UIImage.from(color: fillColor)
         
         // 保持模板原始顺序作为 zIndex 默认值
         var photoIsBg = true
@@ -77,6 +79,8 @@ extension StickerManager {
             
             if photoIsBg, let photo = photos.first {
                 photo.draw(in: rectForCenterCrop(image: photo, in: CGRect(origin: .zero, size: canvasSize)))
+            } else if photoIsBg {
+                fillColorImage.draw(in: CGRect(origin: .zero, size: canvasSize))
             } else {
                 bgImage.draw(in: CGRect(origin: .zero, size: canvasSize))
             }
@@ -85,9 +89,13 @@ extension StickerManager {
                 // 需要填充的照片
                 var slotImage: UIImage? = nil
                 if model.isBgImage {
-                    if photoIdx < photos.count && (model.imageName != "empty") {
-                        slotImage = photos[photoIdx]
-                        photoIdx += 1
+                    if (model.imageName != "empty") {
+                        if photoIdx < photos.count {
+                            slotImage = photos[photoIdx]
+                            photoIdx += 1
+                        } else {
+                            slotImage = fillColorImage
+                        }
                     } else if let data = model.stickerImage {
                         slotImage = data
                     }
@@ -169,8 +177,14 @@ extension StickerManager {
         let bgUnder = UIGraphicsImageRenderer(size: canvasSize).image { ctx in
             bgImage.draw(in: CGRect(origin: .zero, size: canvasSize))
             for model in ordered {
-                guard (model.zIndex ?? 0) < (slotModel.zIndex ?? 0) else { continue }
-                if model === slotModel { continue }
+                guard (model.zIndex ?? 0) <= (slotModel.zIndex ?? 0) else { continue }
+                if model === slotModel {
+                    if model.imageType != .IrregularMask && model.imageType != .IrregularShape {
+                        guard let stickerImage = BSWHBundle.image(named: model.imageName) else { continue }
+                        drawSticker(stickerImage, model: model, canvasSize: canvasSize, scaleW: scaleW, in: ctx.cgContext)
+                    }
+                    continue
+                }
                 guard let stickerImage = model.stickerImage else { continue }
                 drawSticker(stickerImage, model: model, canvasSize: canvasSize, scaleW: scaleW, in: ctx.cgContext)
             }
@@ -277,8 +291,8 @@ extension StickerManager {
                 height: overlayScaled.height
             )
             
-//            if imageTypeRaw == "IrregularShape" || imageTypeRaw == "IrregularMask",
-            if let frameImg = BSWHBundle.image(named: slotModel.imageName) {
+            if imageTypeRaw == "IrregularShape" || imageTypeRaw == "IrregularMask",
+               let frameImg = BSWHBundle.image(named: slotModel.imageName) {
                 if slotModel.maskTransparent {
                     frameImg.draw(in: drawRect, blendMode: .normal, alpha: 1.0)
                 } else {
@@ -295,7 +309,15 @@ extension StickerManager {
                     case "circle", "ellipse":
                         return UIBezierPath(ovalIn: drawRect)
                     case "rectangle":
-                        return UIBezierPath(roundedRect: drawRect, cornerRadius: CGFloat(slotModel.cornerRadiusScale ?? 0) * drawRect.width)
+                        var cornerRadius = 16.w
+                        if let cornerRadiusScale = slotModel.cornerRadiusScale {
+                            if cornerRadiusScale < 1 {
+                                cornerRadius = min(drawRect.width, drawRect.height) * cornerRadiusScale
+                            } else {
+                                cornerRadius = cornerRadiusScale
+                            }
+                        }
+                        return UIBezierPath(roundedRect: drawRect, cornerRadius: cornerRadius)
                     default:
                         return UIBezierPath(rect: drawRect)
                     }
@@ -430,8 +452,7 @@ extension StickerManager {
                 let y = overlayRect.origin.y - (drawHeight - overlayRect.height) / 2
                 drawRect = CGRect(x: overlayRect.origin.x, y: y, width: overlayRect.width, height: drawHeight)
             }
-            
-            newImage.draw(in: drawRect, blendMode: .normal, alpha: 1.0)
+            newImage.draw(in: drawRect)
         }
     }
     

@@ -35,7 +35,7 @@ public protocol StickerManagerDelegate: AnyObject {
         )
 }
 
-extension StickerManagerDelegate {
+public extension StickerManagerDelegate {
     func replaceBackgroundWith(
             controller: EditImageViewController,
             imageRect:CGRect,

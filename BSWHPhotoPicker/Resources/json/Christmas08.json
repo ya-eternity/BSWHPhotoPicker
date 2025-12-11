@@ -1,0 +1,38 @@
+[
+{
+  "imageName": "Christmas02-sticker-bg01",
+  "originScale": 1,
+  "originAngle": 0,
+  "originFrameX": 4,
+  "originFrameY": 223,
+  "originFrameWidth": 342,
+  "originFrameHeight": 367,
+  "gesScale": 1,
+  "gesRotation": 0,
+  "overlayRectX": 0.15,
+  "overlayRectY": 0.05,
+  "overlayRectWidth": 0.77,
+  "overlayRectHeight": 0.8,
+  "imageType": "square",
+  "isBgImage": true,
+  "bgAddImageType":"Christmas02-sticker-add00"
+},
+{
+    "imageName": "empty",
+    "originScale": 1,
+    "originAngle": 0,
+    "originFrameX": 58,
+    "originFrameY": 190,
+    "originFrameWidth": 261,
+    "originFrameHeight": 22,
+    "gesScale": 1,
+    "gesRotation": 0,
+    "isBgImage": true,
+    "overlayRectX": 0,
+    "overlayRectY": 0,
+    "overlayRectWidth": 1,
+    "overlayRectHeight": 1,
+    "imageType": "square",
+    "bgAddImageType":"Christmas02-sticker00"
+  }]
+

@@ -1,0 +1,21 @@
+[
+    {
+        "imageName": "Christmas02-sticker-bg01",
+        "originScale": 1,
+        "originAngle": 0,
+        "originFrameX": -5,
+        "originFrameY": 44,
+        "originFrameWidth": 360,
+        "originFrameHeight": 400,
+        "gesScale": 1,
+        "gesRotation": 0,
+        "overlayRectX": 0.15,
+        "overlayRectY": 0.06,
+        "overlayRectWidth": 0.77,
+        "overlayRectHeight": 0.75,
+        "imageType": "square",
+        "isBgImage": true,
+        "bgAddImageType":"Christmas02-sticker-add00"
+    }
+]
+ 

@@ -1,0 +1,57 @@
+[
+    {
+        "imageName": "PhotoFrame05-sticker-bg01",
+        "originScale": 1,
+        "originAngle": 0,
+        "originFrameX": 20,
+        "originFrameY": 83,
+        "originFrameWidth": 335,
+        "originFrameHeight": 425,
+        "gesScale": 1,
+        "gesRotation": 0,
+        "overlayRectX": 0,
+        "overlayRectY": 0,
+        "overlayRectWidth": 1,
+        "overlayRectHeight": 1,
+        "imageType": "ellipse",
+        "isBgImage": true,
+        "bgAddImageType":"Birthday-sticker-add00"
+    },
+    {
+        "imageName": "empty",
+        "originScale": 1,
+        "originAngle": 0,
+        "originFrameX": 77,
+        "originFrameY": 20,
+        "originFrameWidth": 223,
+        "originFrameHeight": 46,
+        "gesScale": 1,
+        "gesRotation": 0,
+        "isBgImage": true,
+        "overlayRectX": 0,
+        "overlayRectY": 0,
+        "overlayRectWidth": 1,
+        "overlayRectHeight": 1,
+        "imageType": "square",
+        "bgAddImageType":"Christmas10-sticker-01"
+    },
+    {
+        "imageName": "empty",
+        "originScale": 1,
+        "originAngle": 0,
+        "originFrameX": 120,
+        "originFrameY": 480,
+        "originFrameWidth": 146,
+        "originFrameHeight": 85,
+        "gesScale": 1,
+        "gesRotation": 0,
+        "isBgImage": true,
+        "overlayRectX": 0,
+        "overlayRectY": 0,
+        "overlayRectWidth": 1,
+        "overlayRectHeight": 1,
+        "imageType": "square",
+        "bgAddImageType":"Christmas10-sticker-02"
+    }
+]
+ 
