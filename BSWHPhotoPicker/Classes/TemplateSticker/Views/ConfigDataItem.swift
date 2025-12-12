@@ -42,14 +42,16 @@ public struct TemplateModel:Equatable {
     public var cornerRadius:Double = 0.0
     public var photoCount: Int = 1
     public var templateType:String = "Party"
+    public var bgColor: String? = nil
 
-    public init(imageName: String = "Christmas00", imageBg: String, jsonName: String? = nil, isNeedFit: Bool = false, cornerRadius: Double = 0.0, photoCount:Int = 1) {
+    public init(imageName: String = "Christmas00", imageBg: String, jsonName: String? = nil, isNeedFit: Bool = false, cornerRadius: Double = 0.0, photoCount:Int = 1, bgColor: String? = nil) {
         self.imageName = imageName
         self.imageBg = imageBg
         self.jsonName = jsonName
         self.isNeedFit = isNeedFit
         self.cornerRadius = cornerRadius
         self.photoCount = photoCount
+        self.bgColor = bgColor
     }
 }
 
@@ -239,14 +241,17 @@ class ConfigDataItem {
     
     
     static func getTemplateTabData() -> [String] {
-        let items = [BSWHPhotoPickerLocalization.shared.localized("ALL"),
-                     BSWHPhotoPickerLocalization.shared.localized("Christmas"),
-                     BSWHPhotoPickerLocalization.shared.localized("Baby"),
-                     BSWHPhotoPickerLocalization.shared.localized("Birthday"),
-                     BSWHPhotoPickerLocalization.shared.localized("WeddingParty"),
-                     BSWHPhotoPickerLocalization.shared.localized("Travel"),
-                     BSWHPhotoPickerLocalization.shared.localized("Scrapbook"),
-                     BSWHPhotoPickerLocalization.shared.localized("photoframe")]
+        let items = [
+            BSWHPhotoPickerLocalization.shared.localized("ALL"),
+            BSWHPhotoPickerLocalization.shared.localized("Christmas"),
+            BSWHPhotoPickerLocalization.shared.localized("Photo Strip"),
+            BSWHPhotoPickerLocalization.shared.localized("Baby"),
+            BSWHPhotoPickerLocalization.shared.localized("Birthday"),
+            BSWHPhotoPickerLocalization.shared.localized("WeddingParty"),
+            BSWHPhotoPickerLocalization.shared.localized("Travel"),
+            BSWHPhotoPickerLocalization.shared.localized("Scrapbook"),
+            BSWHPhotoPickerLocalization.shared.localized("photoframe")
+        ]
         return items
     }
     
@@ -325,6 +330,7 @@ class ConfigDataItem {
         let items = [
             [item00,item01,item02,item03,item04,item05,item06,item07,item08,item09,item010,item011,item10,item11,item12,item13,item14,item15,item21,item22,item23,item24,item25,item31,item32,item33,item34,item35,item41,item42,item43,item44,item45,item46,item47,item51,item52,item53,item54,item55,item61,item62,item63,item64,item65,item66,item67],
             [item00,item01,item02,item03,item04,item05,item06,item07,item08,item09,item010,item011],
+            getGirdTemplateListData(),
             [item10,item11,item12,item13,item14,item15],
             [item21,item22,item23,item24,item25],
             [item31,item32,item33,item34,item35],
@@ -338,6 +344,32 @@ class ConfigDataItem {
         return items
     }
     
+    static func getGirdTemplateListData() -> [TemplateModel] {
+        let chrismasGird01 = TemplateModel(imageName: "ChrismasGird01",imageBg: "Christmas11-bg",jsonName: "ChristmasGird01", photoCount: 4)
+        let chrismasGird02 = TemplateModel(imageName: "ChrismasGird02",imageBg: "ChristmasGird02-bg",jsonName: "ChristmasGird02", photoCount: 4)
+        let chrismasGird03 = TemplateModel(imageName: "ChrismasGird03",imageBg: "Christmas09-bg",jsonName: "ChristmasGird03", photoCount: 4)
+        let chrismasGird04 = TemplateModel(imageName: "ChrismasGird04",imageBg: "ChristmasGird04-bg",jsonName: "ChristmasGird04", photoCount: 4)
+        let chrismasGird05 = TemplateModel(imageName: "ChrismasGird05",imageBg: "ChristmasGird05-bg",jsonName: "ChristmasGird05", photoCount: 4)
+
+        let fourSquareGird00 = TemplateModel(imageName: "FourSquareGird00",imageBg: "FourSquareGird00-bg",jsonName: "FourSquareGird00", photoCount: 4, bgColor: "#FFFFFF")
+        let fourSquareGird01 = TemplateModel(imageName: "FourSquareGird01",imageBg: "FourSquareGird00-bg",jsonName: "FourSquareGird00", photoCount: 4, bgColor: "#000000")
+        let fourSquareGird02 = TemplateModel(imageName: "FourSquareGird02",imageBg: "FourSquareGird00-bg",jsonName: "FourSquareGird00", photoCount: 4, bgColor: "#F4CDD3")
+        let fourSquareGird03 = TemplateModel(imageName: "FourSquareGird03",imageBg: "FourSquareGird00-bg",jsonName: "FourSquareGird00", photoCount: 4, bgColor: "#91A9C3")
+        let fourSquareGird04 = TemplateModel(imageName: "FourSquareGird04",imageBg: "FourSquareGird00-bg",jsonName: "FourSquareGird00", photoCount: 4, bgColor: "#BCD560")
+        
+        let photoStrip00 = TemplateModel(imageName: "PhotoStrip00",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#FFFFFF")
+        let photoStrip01 = TemplateModel(imageName: "PhotoStrip01",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#000000")
+        let photoStrip02 = TemplateModel(imageName: "PhotoStrip02",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#F4CDD3")
+        let photoStrip03 = TemplateModel(imageName: "PhotoStrip03",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#D56071")
+        let photoStrip04 = TemplateModel(imageName: "PhotoStrip04",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#BCD560")
+
+        let items = [
+            chrismasGird01, chrismasGird02, chrismasGird03, chrismasGird04, chrismasGird05,
+            fourSquareGird00, fourSquareGird01, fourSquareGird02, fourSquareGird03, fourSquareGird04,
+            photoStrip00, photoStrip01, photoStrip02, photoStrip03, photoStrip04,
+        ]
+        return items
+    }
     
     //    static func getBackgroundToolsData() -> [ToolsModel] {
     //        let item00 = ToolsModel(text: BSWHPhotoPickerLocalization.shared.localized("Text"),imageName: "template-text")

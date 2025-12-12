@@ -52,6 +52,13 @@
 		6423FB67CCDDE76BDB3E9436 /* Pods-BSWHPhotoPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSWHPhotoPicker_Tests.debug.xcconfig"; path = "Target Support Files/Pods-BSWHPhotoPicker_Tests/Pods-BSWHPhotoPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F7DB20C074BCA838881559B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		87CF0061522ED5864706D839 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9D115C372EEBEF26005D3A7E /* ChristmasGird01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChristmasGird01.json; sourceTree = "<group>"; };
+		9D115C382EEBEF26005D3A7E /* ChristmasGird02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChristmasGird02.json; sourceTree = "<group>"; };
+		9D115C392EEBEF26005D3A7E /* ChristmasGird03.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChristmasGird03.json; sourceTree = "<group>"; };
+		9D115C3A2EEBEF26005D3A7E /* ChristmasGird04.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChristmasGird04.json; sourceTree = "<group>"; };
+		9D115C3B2EEBEF26005D3A7E /* ChristmasGird05.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChristmasGird05.json; sourceTree = "<group>"; };
+		9D115C3D2EEBFC7E005D3A7E /* FourSquareGird00.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FourSquareGird00.json; sourceTree = "<group>"; };
+		9D115C3E2EEC0D93005D3A7E /* PhotoStrip00.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip00.json; sourceTree = "<group>"; };
 		9D3913ED2EEAA66100DFB533 /* Christmas07.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas07.json; sourceTree = "<group>"; };
 		9D3913EE2EEAA66100DFB533 /* Christmas08.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas08.json; sourceTree = "<group>"; };
 		9D3913EF2EEAA66100DFB533 /* Christmas09.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Christmas09.json; sourceTree = "<group>"; };
@@ -425,6 +432,13 @@
 		9D8338F42EDECD0600F3C0B3 /* json */ = {
 			isa = PBXGroup;
 			children = (
+				9D115C3E2EEC0D93005D3A7E /* PhotoStrip00.json */,
+				9D115C3D2EEBFC7E005D3A7E /* FourSquareGird00.json */,
+				9D115C372EEBEF26005D3A7E /* ChristmasGird01.json */,
+				9D115C382EEBEF26005D3A7E /* ChristmasGird02.json */,
+				9D115C392EEBEF26005D3A7E /* ChristmasGird03.json */,
+				9D115C3A2EEBEF26005D3A7E /* ChristmasGird04.json */,
+				9D115C3B2EEBEF26005D3A7E /* ChristmasGird05.json */,
 				9D8338CB2EDECD0600F3C0B3 /* baby01.json */,
 				9D8338CC2EDECD0600F3C0B3 /* baby02.json */,
 				9D8338CD2EDECD0600F3C0B3 /* baby03.json */,

@@ -300,6 +300,10 @@ public class ImageStickerModel: Codable {
     /// 异形显示的遮罩图片
     public var imageMask:String? = ""
     public var maskTransparent:Bool = false
+    
+    public var flipH: Bool = false
+    public var flipV: Bool = false
+
     /// 是否是可以添加照片的贴图
     public var isBgImage:Bool = false
     /// 贴图上添加照片的照片
@@ -334,6 +338,8 @@ public class ImageStickerModel: Codable {
         case cornerRadiusScale
         case imageMask
         case maskTransparent
+        case flipH
+        case flipV
         case isBgImage
         case bgAddImageType
         case zIndex
@@ -367,6 +373,8 @@ public class ImageStickerModel: Codable {
         cornerRadiusScale = try container.decodeIfPresent(Double.self, forKey: .cornerRadiusScale) ?? 0.1
         imageMask = try container.decodeIfPresent(String.self, forKey: .imageMask)
         maskTransparent = try container.decodeIfPresent(Bool.self, forKey: .maskTransparent) ?? false
+        flipH = try container.decodeIfPresent(Bool.self, forKey: .flipH) ?? false
+        flipV = try container.decodeIfPresent(Bool.self, forKey: .flipV) ?? false
         isBgImage = try container.decodeIfPresent(Bool.self, forKey: .isBgImage) ?? false
         bgAddImageType = try container.decodeIfPresent(String.self, forKey: .bgAddImageType) ?? "addGrayImage"
         zIndex = try container.decodeIfPresent(Int.self, forKey: .zIndex) ?? 0
@@ -398,6 +406,8 @@ public class ImageStickerModel: Codable {
         try container.encodeIfPresent(cornerRadiusScale, forKey: .cornerRadiusScale)
         try container.encodeIfPresent(imageMask, forKey: .imageMask)
         try container.encodeIfPresent(maskTransparent, forKey: .maskTransparent)
+        try container.encodeIfPresent(flipH, forKey: .flipH)
+        try container.encodeIfPresent(flipV, forKey: .flipV)
         try container.encode(isBgImage, forKey: .isBgImage)
         try container.encode(bgAddImageType, forKey: .bgAddImageType)
         try container.encode(zIndex, forKey: .zIndex)

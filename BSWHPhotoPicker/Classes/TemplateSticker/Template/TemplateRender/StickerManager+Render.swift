@@ -82,7 +82,13 @@ extension StickerManager {
             } else if photoIsBg {
                 fillColorImage.draw(in: CGRect(origin: .zero, size: canvasSize))
             } else {
-                bgImage.draw(in: CGRect(origin: .zero, size: canvasSize))
+                if let colorStr = template.bgColor {
+                    let color = kkColorFromHex(colorStr)
+                    color.setFill()
+                    ctx.fill(CGRect(origin: .zero, size: canvasSize))
+                } else {
+                    bgImage.draw(in: CGRect(origin: .zero, size: canvasSize))
+                }
             }
             
             for model in orderedModels {
@@ -100,7 +106,12 @@ extension StickerManager {
                         slotImage = data
                     }
                 }
-                
+                if model.flipH, let img = slotImage?.flippedHorizontally() {
+                    slotImage = img
+                }
+                if model.flipV, let img = slotImage?.flippedVertically() {
+                    slotImage = img
+                }
                 let stickerImage = composeStickerImage(from: model, slotImage: slotImage)
                 guard let finalSticker = stickerImage else { continue }
                 
@@ -239,9 +250,16 @@ extension StickerManager {
         let drawRect = CGRect(
             x: -finalSize.width / 2,
             y: -finalSize.height / 2,
-            width: finalSize.width,
-            height: finalSize.height
+            width: ceil(finalSize.width),
+            height: ceil(finalSize.height)
         )
+        var finalImage = image
+        if model.flipH, let img = finalImage.flippedHorizontally() {
+            finalImage = img
+        }
+        if model.flipV, let img = finalImage.flippedVertically() {
+            finalImage = img
+        }
         image.draw(in: drawRect)
         ctx.restoreGState()
     }
@@ -409,8 +427,9 @@ extension StickerManager {
         )
         
         return UIGraphicsImageRenderer(size: size).image { _ in
-            base.draw(in: CGRect(origin: .zero, size: size))
-            
+            if model.overlayRectX != 0 || model.overlayRectY != 0 || model.overlayRectWidth != 1 || model.overlayRectHeight != 1 {
+                base.draw(in: CGRect(origin: .zero, size: size))
+            }
             let path: UIBezierPath = {
                 switch imageTypeRaw {
                 case "circle", "ellipse":
@@ -419,9 +438,6 @@ extension StickerManager {
                     return UIBezierPath(rect: overlayRect)
                 case "rectangle":
                     var cornerRadius = 16.w
-//                    if model.imageName == "Travel-sticker-bg03" {
-//                        cornerRadius = 57.h
-//                    }
                     if let cornerRadiusScale = model.cornerRadiusScale {
                         if cornerRadiusScale < 1 {
                             cornerRadius = min(overlayRect.width, overlayRect.height) * cornerRadiusScale
@@ -509,7 +525,7 @@ extension StickerManager {
 
                 baseImage.draw(in: baseRect)
 
-                if let cgBase = baseImage.cgImage {
+                if let cgBase = (baseImage.flippedVertically() ?? baseImage).cgImage {
                     ctx.cgContext.saveGState()
 
                     ctx.cgContext.translateBy(x: baseRect.origin.x, y: baseRect.origin.y)
@@ -520,7 +536,6 @@ extension StickerManager {
                                                   width: cgBase.width,
                                                   height: cgBase.height),
                                        mask: cgBase)
-
                     let nw = newImage.size.width
                     let nh = newImage.size.height
                     let scaleFill = max(CGFloat(cgBase.width) / nw, CGFloat(cgBase.height) / nh)
