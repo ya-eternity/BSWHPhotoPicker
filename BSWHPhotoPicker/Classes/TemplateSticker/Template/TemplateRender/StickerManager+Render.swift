@@ -418,13 +418,20 @@ extension StickerManager {
         }
         
         guard let base = baseImage else { return newImage }
-        let size = base.size
-        let overlayRect = CGRect(
+        var size = base.size, scalew = size.width/model.originFrameWidth
+        if model.originFrameWidth/model.originFrameHeight != size.width/size.height {
+            size = CGSize(width: size.width, height: model.originFrameHeight*scalew)
+        }
+        var overlayRect = CGRect(
             x: size.width * CGFloat(model.overlayRectX ?? 0),
             y: size.height * CGFloat(model.overlayRectY ?? 0),
             width: size.width * CGFloat(model.overlayRectWidth ?? 0.8),
             height: size.height * CGFloat(model.overlayRectHeight ?? 0.8)
         )
+        if let x = model.overlayRectX, let y = model.overlayRectY, let w = model.overlayRectWidth, let h = model.overlayRectHeight,
+           (x >= 1 && model.overlayRectWidth ?? 1 > 1) && (model.overlayRectY ?? 0 >= 1 && model.overlayRectHeight ?? 1 > 1)  {
+            overlayRect = CGRect(x: x*scalew, y: y*scalew, width: w*scalew, height: h*scalew)
+        }
         
         return UIGraphicsImageRenderer(size: size).image { _ in
             if model.overlayRectX != 0 || model.overlayRectY != 0 || model.overlayRectWidth != 1 || model.overlayRectHeight != 1 {

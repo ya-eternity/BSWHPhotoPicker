@@ -226,6 +226,9 @@ extension ViewController: StickerManagerDelegate {
     
     func didSelectedTemplate(tempalte: TemplateModel, completion: @escaping () -> Void) {
         imageView.image = StickerManager.shared.renderTemplateImageCoreGraphics(template: tempalte, photos: [UIImage(named: "1")!, UIImage(named: "12")!, UIImage(named: "123")!, UIImage(named: "12")!])
+        if let img = imageView.image {
+            UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+        }
     }
 }
 

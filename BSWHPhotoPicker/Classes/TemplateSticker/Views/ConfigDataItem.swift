@@ -244,7 +244,8 @@ class ConfigDataItem {
         let items = [
             BSWHPhotoPickerLocalization.shared.localized("ALL"),
             BSWHPhotoPickerLocalization.shared.localized("Christmas"),
-            BSWHPhotoPickerLocalization.shared.localized("Photo Strip"),
+            BSWHPhotoPickerLocalization.shared.localized("4-Square"),
+            BSWHPhotoPickerLocalization.shared.localized("PhotoStrip"),
             BSWHPhotoPickerLocalization.shared.localized("Baby"),
             BSWHPhotoPickerLocalization.shared.localized("Birthday"),
             BSWHPhotoPickerLocalization.shared.localized("WeddingParty"),
@@ -327,10 +328,11 @@ class ConfigDataItem {
         let item66 = TemplateModel(imageName: "PhotoFrame06",imageBg: "PhotoFrame06-bg",jsonName: "PhotoFrame06", photoCount: 1)
         let item67 = TemplateModel(imageName: "PhotoFrame07",imageBg: "PhotoFrame07-bg",jsonName: "PhotoFrame07", photoCount: 1)
         
-        let items = [
-            [item00,item01,item02,item03,item04,item05,item06,item07,item08,item09,item010,item011,item10,item11,item12,item13,item14,item15,item21,item22,item23,item24,item25,item31,item32,item33,item34,item35,item41,item42,item43,item44,item45,item46,item47,item51,item52,item53,item54,item55,item61,item62,item63,item64,item65,item66,item67],
+        var items = [
+//            [item00,item01,item02,item03,item04,item05,item06,item07,item08,item09,item010,item011,item10,item11,item12,item13,item14,item15,item21,item22,item23,item24,item25,item31,item32,item33,item34,item35,item41,item42,item43,item44,item45,item46,item47,item51,item52,item53,item54,item55,item61,item62,item63,item64,item65,item66,item67],
             [item00,item01,item02,item03,item04,item05,item06,item07,item08,item09,item010,item011],
             getGirdTemplateListData(),
+            getPhotoStripData(),
             [item10,item11,item12,item13,item14,item15],
             [item21,item22,item23,item24,item25],
             [item31,item32,item33,item34,item35],
@@ -338,6 +340,7 @@ class ConfigDataItem {
             [item51,item52,item53,item54,item55],
             [item61,item62,item63,item64,item65,item66,item67]
         ]
+        items.insert(items.flatMap { $0 }, at: 0)
         if forVideo {
             return items.map { $0.filter { $0.photoCount == 1 } }
         }
@@ -356,17 +359,36 @@ class ConfigDataItem {
         let fourSquareGird02 = TemplateModel(imageName: "FourSquareGird02",imageBg: "FourSquareGird00-bg",jsonName: "FourSquareGird00", photoCount: 4, bgColor: "#F4CDD3")
         let fourSquareGird03 = TemplateModel(imageName: "FourSquareGird03",imageBg: "FourSquareGird00-bg",jsonName: "FourSquareGird00", photoCount: 4, bgColor: "#91A9C3")
         let fourSquareGird04 = TemplateModel(imageName: "FourSquareGird04",imageBg: "FourSquareGird00-bg",jsonName: "FourSquareGird00", photoCount: 4, bgColor: "#BCD560")
-        
+
+        let items = [
+            chrismasGird01, chrismasGird02, chrismasGird03, chrismasGird04, chrismasGird05,
+            fourSquareGird00, fourSquareGird01, fourSquareGird02, fourSquareGird03, fourSquareGird04
+        ]
+        return items
+    }
+    
+    static func getPhotoStripData() -> [TemplateModel] {
         let photoStrip00 = TemplateModel(imageName: "PhotoStrip00",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#FFFFFF")
         let photoStrip01 = TemplateModel(imageName: "PhotoStrip01",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#000000")
         let photoStrip02 = TemplateModel(imageName: "PhotoStrip02",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#F4CDD3")
         let photoStrip03 = TemplateModel(imageName: "PhotoStrip03",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#D56071")
         let photoStrip04 = TemplateModel(imageName: "PhotoStrip04",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip00", photoCount: 4, bgColor: "#BCD560")
-
+        
+        let photoStrip06 = TemplateModel(imageName: "PhotoStrip06",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip06", photoCount: 4, bgColor: "#F9DBEA")
+        let photoStrip07 = TemplateModel(imageName: "PhotoStrip07",imageBg: "PhotoStrip07-bg",jsonName: "PhotoStrip07", photoCount: 4)
+        let photoStrip08 = TemplateModel(imageName: "PhotoStrip08",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip08", photoCount: 4)
+        let photoStrip09 = TemplateModel(imageName: "PhotoStrip09",imageBg: "PhotoStrip00-bg",jsonName: "PhotoStrip09", photoCount: 4, bgColor: "#CCEDFF")
+        let photoStrip10 = TemplateModel(imageName: "PhotoStrip10",imageBg: "PhotoStrip10-bg",jsonName: "PhotoStrip10", photoCount: 4)
+        let photoStrip11 = TemplateModel(imageName: "PhotoStrip11",imageBg: "PhotoStrip11-bg",jsonName: "PhotoStrip11", photoCount: 4)
+        let photoStrip12 = TemplateModel(imageName: "PhotoStrip12",imageBg: "PhotoStrip12-bg",jsonName: "PhotoStrip12", photoCount: 4)
+        let photoStrip13 = TemplateModel(imageName: "PhotoStrip13",imageBg: "PhotoStrip13-bg",jsonName: "PhotoStrip13", photoCount: 4)
+        let photoStrip14 = TemplateModel(imageName: "PhotoStrip14",imageBg: "PhotoStrip14-bg",jsonName: "PhotoStrip14", photoCount: 4)
+        let photoStrip15 = TemplateModel(imageName: "PhotoStrip15",imageBg: "PhotoStrip15-bg",jsonName: "PhotoStrip15", photoCount: 4)
+        
         let items = [
-            chrismasGird01, chrismasGird02, chrismasGird03, chrismasGird04, chrismasGird05,
-            fourSquareGird00, fourSquareGird01, fourSquareGird02, fourSquareGird03, fourSquareGird04,
             photoStrip00, photoStrip01, photoStrip02, photoStrip03, photoStrip04,
+            photoStrip06, photoStrip07, photoStrip08, photoStrip09, photoStrip10,
+            photoStrip11, photoStrip12, photoStrip13, photoStrip14, photoStrip15
         ]
         return items
     }

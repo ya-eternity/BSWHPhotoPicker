@@ -169,6 +169,16 @@
 		9D8338F32EDECD0600F3C0B3 /* Wedding05.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Wedding05.json; sourceTree = "<group>"; };
 		9D8338F52EDECD0600F3C0B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D8338F62EDECD0600F3C0B3 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9DB459042EECF829009CF8CA /* PhotoStrip06.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip06.json; sourceTree = "<group>"; };
+		9DB459052EECF96B009CF8CA /* PhotoStrip07.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip07.json; sourceTree = "<group>"; };
+		9DB459062EECFB5E009CF8CA /* PhotoStrip08.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip08.json; sourceTree = "<group>"; };
+		9DB459072EECFC7D009CF8CA /* PhotoStrip09.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip09.json; sourceTree = "<group>"; };
+		9DB459082EECFE7E009CF8CA /* PhotoStrip10.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip10.json; sourceTree = "<group>"; };
+		9DB459092EED0F96009CF8CA /* PhotoStrip11.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip11.json; sourceTree = "<group>"; };
+		9DB4590A2EED1902009CF8CA /* PhotoStrip12.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip12.json; sourceTree = "<group>"; };
+		9DB4590B2EED31D6009CF8CA /* PhotoStrip13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip13.json; sourceTree = "<group>"; };
+		9DB4590C2EED3473009CF8CA /* PhotoStrip14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip14.json; sourceTree = "<group>"; };
+		9DB4590D2EED3480009CF8CA /* PhotoStrip15.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotoStrip15.json; sourceTree = "<group>"; };
 		A3B2DFEDCD26FC5697D2F798 /* Pods-BSWHPhotoPicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSWHPhotoPicker_Tests.release.xcconfig"; path = "Target Support Files/Pods-BSWHPhotoPicker_Tests/Pods-BSWHPhotoPicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BDB6FDD318F07EF2DFCB0594 /* BSWHPhotoPicker.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BSWHPhotoPicker.podspec; path = ../BSWHPhotoPicker.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D57F64FB0C3ACB692F89B37A /* Pods-BSWHPhotoPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSWHPhotoPicker_Example.debug.xcconfig"; path = "Target Support Files/Pods-BSWHPhotoPicker_Example/Pods-BSWHPhotoPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -433,6 +443,16 @@
 			isa = PBXGroup;
 			children = (
 				9D115C3E2EEC0D93005D3A7E /* PhotoStrip00.json */,
+				9DB459042EECF829009CF8CA /* PhotoStrip06.json */,
+				9DB459052EECF96B009CF8CA /* PhotoStrip07.json */,
+				9DB459062EECFB5E009CF8CA /* PhotoStrip08.json */,
+				9DB459072EECFC7D009CF8CA /* PhotoStrip09.json */,
+				9DB459082EECFE7E009CF8CA /* PhotoStrip10.json */,
+				9DB459092EED0F96009CF8CA /* PhotoStrip11.json */,
+				9DB4590A2EED1902009CF8CA /* PhotoStrip12.json */,
+				9DB4590B2EED31D6009CF8CA /* PhotoStrip13.json */,
+				9DB4590C2EED3473009CF8CA /* PhotoStrip14.json */,
+				9DB4590D2EED3480009CF8CA /* PhotoStrip15.json */,
 				9D115C3D2EEBFC7E005D3A7E /* FourSquareGird00.json */,
 				9D115C372EEBEF26005D3A7E /* ChristmasGird01.json */,
 				9D115C382EEBEF26005D3A7E /* ChristmasGird02.json */,
